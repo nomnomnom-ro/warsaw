@@ -4,5 +4,13 @@
   "description": "Simple Node App That Sends a TX at a specified period of time",
   "main": "index.js",
   "author": "Kaywinnet Lee Frye",
-  "license": "WTFPL"
+  "license": "WTFPL",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ethereumjs-tx": "^2.1.0",
+    "express": "^4.17.1",
+    "web3": "^1.2.1"
+  }
 }
