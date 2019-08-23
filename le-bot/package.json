@@ -1,11 +1,8 @@
 {
   "name": "warsaw-le-bot",
   "version": "0.1.0",
-  "description": "Yeah boi",
+  "description": "Simple Node App That Sends a TX at a specified period of time",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+  "author": "Kaywinnet Lee Frye",
+  "license": "WTFPL"
 }
