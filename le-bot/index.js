@@ -2,11 +2,14 @@ const web3 = require('web3');
 const express = require('express');
 const tx = require('ethereumjs-tx');
 const package = require('./package.json');
+const cron = require('node-cron');
 
 const app = express();
 
 const NETWORK = process.env.NETWORK || 'goerli';
 const INFURA_KEY = process.env.INFURA_KEY;
+const CRON_SCHEDULE = process.env.CRONTAB || '0 * * * *';
+const MANUAL_TRIGGER_URL = '/manualnoms';
 
 if (!INFURA_KEY) {
   console.error('Please specify the env INFURA_KEY');
@@ -15,7 +18,7 @@ if (!INFURA_KEY) {
 
 const web3Provider = new web3(new web3.providers.HttpProvider(`https://${NETWORK}.infura.io/${INFURA_KEY}`));
 
-const sendTransaction = () => {
+const sendNoms = () => {
   // var myAddress = 'ADDRESS_THAT_SENDS_TRANSACTION';
   // var privateKey = Buffer.from('YOUR_PRIVATE_KEY', 'hex')
   // var toAddress = 'ADRESS_TO_SEND_TRANSACTION';
@@ -48,11 +51,19 @@ const sendTransaction = () => {
   // })
 };
 
-app.get('/manualnom', function (req, res) {
+cron.schedule(CRON_SCHEDULE, () => {
+
+  console.log('Sending nom nom noms now ...');
+
+  sendNoms();
+
+});
+
+app.get(MANUAL_TRIGGER_URL, function (req, res) {
 
   res.send('Sending nom nom noms manually...');
 
-  sendTransaction();
+  sendNoms();
 
 });
 
