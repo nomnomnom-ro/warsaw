@@ -240,32 +240,32 @@
       "type": "event"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"resolver\",\"type\":\"address\"}],\"name\":\"ColonyNetworkInitialised\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"tokenLocking\",\"type\":\"address\"}],\"name\":\"TokenLockingAddressSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"miningCycleResolver\",\"type\":\"address\"}],\"name\":\"MiningCycleResolverSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"feeInverse\",\"type\":\"uint256\"}],\"name\":\"NetworkFeeInverseSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"version\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"resolver\",\"type\":\"address\"}],\"name\":\"ColonyVersionAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"metaColony\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"rootSkillId\",\"type\":\"uint256\"}],\"name\":\"MetaColonyCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"colonyId\",\"type\":\"uint256\"},{\"indexed\":true,\"name\":\"colonyAddress\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"token\",\"type\":\"address\"}],\"name\":\"ColonyAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"skillId\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"parentSkillId\",\"type\":\"uint256\"}],\"name\":\"SkillAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"auction\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"quantity\",\"type\":\"uint256\"}],\"name\":\"AuctionCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"inactiveReputationMiningCycle\",\"type\":\"address\"}],\"name\":\"ReputationMiningInitialised\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"hash\",\"type\":\"bytes32\"},{\"indexed\":false,\"name\":\"nNodes\",\"type\":\"uint256\"}],\"name\":\"ReputationMiningCycleComplete\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"newHash\",\"type\":\"bytes32\"},{\"indexed\":false,\"name\":\"newNNodes\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"stakers\",\"type\":\"address[]\"},{\"indexed\":false,\"name\":\"reward\",\"type\":\"uint256\"}],\"name\":\"ReputationRootHashSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"label\",\"type\":\"bytes32\"}],\"name\":\"UserLabelRegistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"colony\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"label\",\"type\":\"bytes32\"}],\"name\":\"ColonyLabelRegistered\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/colony/ColonyNetworkDataTypes.sol\":\"ColonyNetworkDataTypes\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/colony/ColonyNetworkDataTypes.sol\":{\"keccak256\":\"0x9982ed70f7a707bd9494fa7ae47152cff3a0eb1e1c1fa88c5e8e888629bc6d28\",\"urls\":[\"bzzr://ddb2564f242926c3d8b51560173916426bf8df31afbbf402a1b939a1f691b4d0\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3fe6080604052600080fdfea165627a7a723058207cff8cc617bd1354623c8b02b92e5675fe177b46d13c42f1e6ffbdd54a272d370029",
-  "deployedBytecode": "0x6080604052600080fdfea165627a7a723058207cff8cc617bd1354623c8b02b92e5675fe177b46d13c42f1e6ffbdd54a272d370029",
-  "sourceMap": "725:5071:3:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;725:5071:3;;;;;;;",
-  "deployedSourceMap": "725:5071:3:-;;;;;",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"resolver\",\"type\":\"address\"}],\"name\":\"ColonyNetworkInitialised\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"tokenLocking\",\"type\":\"address\"}],\"name\":\"TokenLockingAddressSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"miningCycleResolver\",\"type\":\"address\"}],\"name\":\"MiningCycleResolverSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"feeInverse\",\"type\":\"uint256\"}],\"name\":\"NetworkFeeInverseSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"version\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"resolver\",\"type\":\"address\"}],\"name\":\"ColonyVersionAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"metaColony\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"rootSkillId\",\"type\":\"uint256\"}],\"name\":\"MetaColonyCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"colonyId\",\"type\":\"uint256\"},{\"indexed\":true,\"name\":\"colonyAddress\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"token\",\"type\":\"address\"}],\"name\":\"ColonyAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"skillId\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"parentSkillId\",\"type\":\"uint256\"}],\"name\":\"SkillAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"auction\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"quantity\",\"type\":\"uint256\"}],\"name\":\"AuctionCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"inactiveReputationMiningCycle\",\"type\":\"address\"}],\"name\":\"ReputationMiningInitialised\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"hash\",\"type\":\"bytes32\"},{\"indexed\":false,\"name\":\"nNodes\",\"type\":\"uint256\"}],\"name\":\"ReputationMiningCycleComplete\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"newHash\",\"type\":\"bytes32\"},{\"indexed\":false,\"name\":\"newNNodes\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"stakers\",\"type\":\"address[]\"},{\"indexed\":false,\"name\":\"reward\",\"type\":\"uint256\"}],\"name\":\"ReputationRootHashSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"label\",\"type\":\"bytes32\"}],\"name\":\"UserLabelRegistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"colony\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"label\",\"type\":\"bytes32\"}],\"name\":\"ColonyLabelRegistered\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/colony/ColonyNetworkDataTypes.sol\":\"ColonyNetworkDataTypes\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/colony/ColonyNetworkDataTypes.sol\":{\"keccak256\":\"0x9982ed70f7a707bd9494fa7ae47152cff3a0eb1e1c1fa88c5e8e888629bc6d28\",\"urls\":[\"bzzr://ddb2564f242926c3d8b51560173916426bf8df31afbbf402a1b939a1f691b4d0\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3fe6080604052600080fdfea165627a7a723058208fb6a83210409e7fc9169a1a744e38674eaa8309bdbd1c08134ec29be8f8387d0029",
+  "deployedBytecode": "0x6080604052600080fdfea165627a7a723058208fb6a83210409e7fc9169a1a744e38674eaa8309bdbd1c08134ec29be8f8387d0029",
+  "sourceMap": "725:5071:4:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;725:5071:4;;;;;;;",
+  "deployedSourceMap": "725:5071:4:-;;;;;",
   "source": "/*\n  This file is part of The Colony Network.\n\n  The Colony Network is free software: you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation, either version 3 of the License, or\n  (at your option) any later version.\n\n  The Colony Network is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License\n  along with The Colony Network. If not, see <http://www.gnu.org/licenses/>.\n*/\n\npragma solidity 0.5.8;\n\n\ncontract ColonyNetworkDataTypes {\n  /// @notice Event logged when the colony network is intialised. This is only ever emitted once in a network's lifetime\n  /// @param resolver The Resolver contract address used by the Colony version 1\n  event ColonyNetworkInitialised(address resolver);\n\n  /// @notice Event logged when the Colony Network TokenLocking contract address is set\n  /// @param tokenLocking Address of the TokenLocking contract\n  event TokenLockingAddressSet(address tokenLocking);\n\n  /// @notice Event logged when the Colony Network ReputationMiningCycleResolver contract address is set\n  /// @param miningCycleResolver Resolver address for the ReputationMiningCycle contract\n  event MiningCycleResolverSet(address miningCycleResolver);\n\n  /// @notice Event logged when the network fee inverse is set\n  /// @param feeInverse The network fee inverse value\n  event NetworkFeeInverseSet(uint256 feeInverse);\n\n  /// @notice Event logged when a new colony contract version is set\n  /// @param version The new int colony version, e.g. 2, 3, 4, etc\n  /// @param resolver The new colony contract resolver contract instance\n  event ColonyVersionAdded(uint256 version, address resolver);\n\n  /// @notice Event logged when the MetaColony is created\n  /// @param metaColony Address of the MetaColony instance (i.e. EtherRouter)\n  /// @param token Address of the associated CLNY token\n  /// @param rootSkillId Id of the root skill of the global skills tree, normally this is 2\n  /// Note that the speciat mining skill is created at rootSkillId + 1, so normally this is 3\n  /// Skill id 1 is normally the local skill associate with meta colony domain 1\n  event MetaColonyCreated(address metaColony, address token, uint256 rootSkillId);\n\n  /// @notice Event logged when a new colony is added\n  /// @dev Emitted from `IColonyNetwork.createColony` function\n  /// @param colonyId The colony id in the network\n  /// @param colonyAddress The colony address in the network\n  /// @param token Address of the associated colony token\n  event ColonyAdded(uint256 indexed colonyId, address indexed colonyAddress, address token);\n\n  /// @notice Event logged when a new skill is added\n  /// @dev Emitted from `IColonyNetwork.addSkill` function\n  /// @param skillId The skill id\n  /// @param parentSkillId The id of the parent skill under which this new skill is added\n  event SkillAdded(uint256 skillId, uint256 parentSkillId);\n\n  /// @notice Event logged when a new auction is created and started\n  /// @dev Emitted from `IColonyNetwork.startTokenAuction` function\n  /// @param auction Address of the created auction contract\n  /// @param token Address of the token for auction\n  /// @param quantity Quantity of `token` to auction\n  event AuctionCreated(address auction, address token, uint256 quantity);\n\n  /// @notice Event logged when the Reputation mining process is initialised\n  /// @param inactiveReputationMiningCycle Address of the newly created ReputationMiningCycle used in logging reputation changes\n  event ReputationMiningInitialised(address inactiveReputationMiningCycle);\n\n  /// @notice Event logged when a reputation mining cycle completes\n  /// @param hash The root hash of the newly accepted reputation state\n  /// @param nNodes The number of nodes in the reputation state\n  event ReputationMiningCycleComplete(bytes32 hash, uint256 nNodes);\n\n  /// @notice Event logged when a new reputation root hash is set by the reputation mining process\n  /// @param newHash The reputation root hash\n  /// @param newNNodes The updated nodes count value\n  /// @param stakers Array of users who submitted or backed the hash accepted\n  /// @param reward Amount of CLNY distributed as reward to miners\n  event ReputationRootHashSet(bytes32 newHash, uint256 newNNodes, address[] stakers, uint256 reward);\n\n  /// @notice Event logged when a \"user.joincolony.eth\" label is registered\n  /// @param user The user address registered\n  /// @param label The label registered\n  event UserLabelRegistered(address indexed user, bytes32 label);\n\n  /// @notice Event logged when a \"colony.joincolony.eth\" label is registered\n  /// @param colony The colony address registered\n  /// @param label The label registered\n  event ColonyLabelRegistered(address indexed colony, bytes32 label);\n\n  struct Skill {\n    // total number of parent skills\n    uint128 nParents;\n    // total number of child skills\n    uint128 nChildren;\n    // array of `skill_id`s of parent skills starting from the 1st to `n`th, where `n` is an integer power of two larger than or equal to 1\n    uint256[] parents;\n    // array of `skill_id`s of all child skills\n    uint256[] children;\n    // `true` for a global skill reused across colonies or `false` for a skill mapped to a single colony's domain\n    bool globalSkill;\n    // `true` for a global skill that is deprecated\n    bool deprecated;\n  }\n\n  struct ENSRecord {\n    address addr;\n    string orbitdb;\n  }\n\n  struct ReputationLogEntry {\n    address user;\n    int amount;\n    uint256 skillId;\n    address colony;\n    uint128 nUpdates;\n    uint128 nPreviousUpdates;\n  }\n}\n",
   "sourcePath": "/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/colony/ColonyNetworkDataTypes.sol",
   "ast": {
     "absolutePath": "/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/colony/ColonyNetworkDataTypes.sol",
     "exportedSymbols": {
       "ColonyNetworkDataTypes": [
-        1219
+        1477
       ]
     },
-    "id": 1220,
+    "id": 1478,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1100,
+        "id": 1358,
         "literals": [
           "solidity",
           "0.5",
           ".8"
         ],
         "nodeType": "PragmaDirective",
-        "src": "700:22:3"
+        "src": "700:22:4"
       },
       {
         "baseContracts": [],
@@ -273,9 +273,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1219,
+        "id": 1477,
         "linearizedBaseContracts": [
-          1219
+          1477
         ],
         "name": "ColonyNetworkDataTypes",
         "nodeType": "ContractDefinition",
@@ -283,21 +283,21 @@
           {
             "anonymous": false,
             "documentation": "@notice Event logged when the colony network is intialised. This is only ever emitted once in a network's lifetime\n @param resolver The Resolver contract address used by the Colony version 1",
-            "id": 1104,
+            "id": 1362,
             "name": "ColonyNetworkInitialised",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1103,
+              "id": 1361,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1102,
+                  "id": 1360,
                   "indexed": false,
                   "name": "resolver",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1104,
-                  "src": "994:16:3",
+                  "scope": 1362,
+                  "src": "994:16:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -305,10 +305,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1101,
+                    "id": 1359,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "994:7:3",
+                    "src": "994:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -319,28 +319,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "993:18:3"
+              "src": "993:18:4"
             },
-            "src": "963:49:3"
+            "src": "963:49:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when the Colony Network TokenLocking contract address is set\n @param tokenLocking Address of the TokenLocking contract",
-            "id": 1108,
+            "id": 1366,
             "name": "TokenLockingAddressSet",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1107,
+              "id": 1365,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1106,
+                  "id": 1364,
                   "indexed": false,
                   "name": "tokenLocking",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1108,
-                  "src": "1196:20:3",
+                  "scope": 1366,
+                  "src": "1196:20:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -348,10 +348,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1105,
+                    "id": 1363,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1196:7:3",
+                    "src": "1196:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -362,28 +362,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1195:22:3"
+              "src": "1195:22:4"
             },
-            "src": "1167:51:3"
+            "src": "1167:51:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when the Colony Network ReputationMiningCycleResolver contract address is set\n @param miningCycleResolver Resolver address for the ReputationMiningCycle contract",
-            "id": 1112,
+            "id": 1370,
             "name": "MiningCycleResolverSet",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1111,
+              "id": 1369,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1110,
+                  "id": 1368,
                   "indexed": false,
                   "name": "miningCycleResolver",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1112,
-                  "src": "1445:27:3",
+                  "scope": 1370,
+                  "src": "1445:27:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -391,10 +391,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1109,
+                    "id": 1367,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1445:7:3",
+                    "src": "1445:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -405,28 +405,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1444:29:3"
+              "src": "1444:29:4"
             },
-            "src": "1416:58:3"
+            "src": "1416:58:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when the network fee inverse is set\n @param feeInverse The network fee inverse value",
-            "id": 1116,
+            "id": 1374,
             "name": "NetworkFeeInverseSet",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1115,
+              "id": 1373,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1114,
+                  "id": 1372,
                   "indexed": false,
                   "name": "feeInverse",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1116,
-                  "src": "1622:18:3",
+                  "scope": 1374,
+                  "src": "1622:18:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -434,10 +434,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1113,
+                    "id": 1371,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1622:7:3",
+                    "src": "1622:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -447,28 +447,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1621:20:3"
+              "src": "1621:20:4"
             },
-            "src": "1595:47:3"
+            "src": "1595:47:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when a new colony contract version is set\n @param version The new int colony version, e.g. 2, 3, 4, etc\n @param resolver The new colony contract resolver contract instance",
-            "id": 1122,
+            "id": 1380,
             "name": "ColonyVersionAdded",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1121,
+              "id": 1379,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1118,
+                  "id": 1376,
                   "indexed": false,
                   "name": "version",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1122,
-                  "src": "1880:15:3",
+                  "scope": 1380,
+                  "src": "1880:15:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -476,10 +476,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1117,
+                    "id": 1375,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1880:7:3",
+                    "src": "1880:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -490,12 +490,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1120,
+                  "id": 1378,
                   "indexed": false,
                   "name": "resolver",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1122,
-                  "src": "1897:16:3",
+                  "scope": 1380,
+                  "src": "1897:16:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -503,10 +503,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1119,
+                    "id": 1377,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1897:7:3",
+                    "src": "1897:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -517,28 +517,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1879:35:3"
+              "src": "1879:35:4"
             },
-            "src": "1855:60:3"
+            "src": "1855:60:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when the MetaColony is created\n @param metaColony Address of the MetaColony instance (i.e. EtherRouter)\n @param token Address of the associated CLNY token\n @param rootSkillId Id of the root skill of the global skills tree, normally this is 2\n Note that the speciat mining skill is created at rootSkillId + 1, so normally this is 3\n Skill id 1 is normally the local skill associate with meta colony domain 1",
-            "id": 1130,
+            "id": 1388,
             "name": "MetaColonyCreated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1129,
+              "id": 1387,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1124,
+                  "id": 1382,
                   "indexed": false,
                   "name": "metaColony",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1130,
-                  "src": "2402:18:3",
+                  "scope": 1388,
+                  "src": "2402:18:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -546,10 +546,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1123,
+                    "id": 1381,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2402:7:3",
+                    "src": "2402:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -561,12 +561,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1126,
+                  "id": 1384,
                   "indexed": false,
                   "name": "token",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1130,
-                  "src": "2422:13:3",
+                  "scope": 1388,
+                  "src": "2422:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -574,10 +574,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1125,
+                    "id": 1383,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2422:7:3",
+                    "src": "2422:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -589,12 +589,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1128,
+                  "id": 1386,
                   "indexed": false,
                   "name": "rootSkillId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1130,
-                  "src": "2437:19:3",
+                  "scope": 1388,
+                  "src": "2437:19:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -602,10 +602,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1127,
+                    "id": 1385,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2437:7:3",
+                    "src": "2437:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -615,28 +615,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2401:56:3"
+              "src": "2401:56:4"
             },
-            "src": "2378:80:3"
+            "src": "2378:80:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when a new colony is added\n @dev Emitted from `IColonyNetwork.createColony` function\n @param colonyId The colony id in the network\n @param colonyAddress The colony address in the network\n @param token Address of the associated colony token",
-            "id": 1138,
+            "id": 1396,
             "name": "ColonyAdded",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1137,
+              "id": 1395,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1132,
+                  "id": 1390,
                   "indexed": true,
                   "name": "colonyId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1138,
-                  "src": "2767:24:3",
+                  "scope": 1396,
+                  "src": "2767:24:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -644,10 +644,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1131,
+                    "id": 1389,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2767:7:3",
+                    "src": "2767:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -658,12 +658,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1134,
+                  "id": 1392,
                   "indexed": true,
                   "name": "colonyAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1138,
-                  "src": "2793:29:3",
+                  "scope": 1396,
+                  "src": "2793:29:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -671,10 +671,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1133,
+                    "id": 1391,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2793:7:3",
+                    "src": "2793:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -686,12 +686,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1136,
+                  "id": 1394,
                   "indexed": false,
                   "name": "token",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1138,
-                  "src": "2824:13:3",
+                  "scope": 1396,
+                  "src": "2824:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -699,10 +699,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1135,
+                    "id": 1393,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2824:7:3",
+                    "src": "2824:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -713,28 +713,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2766:72:3"
+              "src": "2766:72:4"
             },
-            "src": "2749:90:3"
+            "src": "2749:90:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when a new skill is added\n @dev Emitted from `IColonyNetwork.addSkill` function\n @param skillId The skill id\n @param parentSkillId The id of the parent skill under which this new skill is added",
-            "id": 1144,
+            "id": 1402,
             "name": "SkillAdded",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1143,
+              "id": 1401,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1140,
+                  "id": 1398,
                   "indexed": false,
                   "name": "skillId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1144,
-                  "src": "3096:15:3",
+                  "scope": 1402,
+                  "src": "3096:15:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -742,10 +742,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1139,
+                    "id": 1397,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3096:7:3",
+                    "src": "3096:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -756,12 +756,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1142,
+                  "id": 1400,
                   "indexed": false,
                   "name": "parentSkillId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1144,
-                  "src": "3113:21:3",
+                  "scope": 1402,
+                  "src": "3113:21:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -769,10 +769,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1141,
+                    "id": 1399,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3113:7:3",
+                    "src": "3113:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -782,28 +782,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3095:40:3"
+              "src": "3095:40:4"
             },
-            "src": "3079:57:3"
+            "src": "3079:57:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when a new auction is created and started\n @dev Emitted from `IColonyNetwork.startTokenAuction` function\n @param auction Address of the created auction contract\n @param token Address of the token for auction\n @param quantity Quantity of `token` to auction",
-            "id": 1152,
+            "id": 1410,
             "name": "AuctionCreated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1151,
+              "id": 1409,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1146,
+                  "id": 1404,
                   "indexed": false,
                   "name": "auction",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1152,
-                  "src": "3464:15:3",
+                  "scope": 1410,
+                  "src": "3464:15:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -811,10 +811,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1145,
+                    "id": 1403,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3464:7:3",
+                    "src": "3464:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -826,12 +826,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1148,
+                  "id": 1406,
                   "indexed": false,
                   "name": "token",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1152,
-                  "src": "3481:13:3",
+                  "scope": 1410,
+                  "src": "3481:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -839,10 +839,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1147,
+                    "id": 1405,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3481:7:3",
+                    "src": "3481:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -854,12 +854,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1150,
+                  "id": 1408,
                   "indexed": false,
                   "name": "quantity",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1152,
-                  "src": "3496:16:3",
+                  "scope": 1410,
+                  "src": "3496:16:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -867,10 +867,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1149,
+                    "id": 1407,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3496:7:3",
+                    "src": "3496:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -880,28 +880,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3463:50:3"
+              "src": "3463:50:4"
             },
-            "src": "3443:71:3"
+            "src": "3443:71:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when the Reputation mining process is initialised\n @param inactiveReputationMiningCycle Address of the newly created ReputationMiningCycle used in logging reputation changes",
-            "id": 1156,
+            "id": 1414,
             "name": "ReputationMiningInitialised",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1155,
+              "id": 1413,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1154,
+                  "id": 1412,
                   "indexed": false,
                   "name": "inactiveReputationMiningCycle",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1156,
-                  "src": "3758:37:3",
+                  "scope": 1414,
+                  "src": "3758:37:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -909,10 +909,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1153,
+                    "id": 1411,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3758:7:3",
+                    "src": "3758:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -923,28 +923,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3757:39:3"
+              "src": "3757:39:4"
             },
-            "src": "3724:73:3"
+            "src": "3724:73:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when a reputation mining cycle completes\n @param hash The root hash of the newly accepted reputation state\n @param nNodes The number of nodes in the reputation state",
-            "id": 1162,
+            "id": 1420,
             "name": "ReputationMiningCycleComplete",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1161,
+              "id": 1419,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1158,
+                  "id": 1416,
                   "indexed": false,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1162,
-                  "src": "4040:12:3",
+                  "scope": 1420,
+                  "src": "4040:12:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -952,10 +952,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 1157,
+                    "id": 1415,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4040:7:3",
+                    "src": "4040:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -966,12 +966,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1160,
+                  "id": 1418,
                   "indexed": false,
                   "name": "nNodes",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1162,
-                  "src": "4054:14:3",
+                  "scope": 1420,
+                  "src": "4054:14:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -979,10 +979,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1159,
+                    "id": 1417,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4054:7:3",
+                    "src": "4054:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -992,28 +992,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4039:30:3"
+              "src": "4039:30:4"
             },
-            "src": "4004:66:3"
+            "src": "4004:66:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when a new reputation root hash is set by the reputation mining process\n @param newHash The reputation root hash\n @param newNNodes The updated nodes count value\n @param stakers Array of users who submitted or backed the hash accepted\n @param reward Amount of CLNY distributed as reward to miners",
-            "id": 1173,
+            "id": 1431,
             "name": "ReputationRootHashSet",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1172,
+              "id": 1430,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1164,
+                  "id": 1422,
                   "indexed": false,
                   "name": "newHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1173,
-                  "src": "4445:15:3",
+                  "scope": 1431,
+                  "src": "4445:15:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1021,10 +1021,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 1163,
+                    "id": 1421,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4445:7:3",
+                    "src": "4445:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1035,12 +1035,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1166,
+                  "id": 1424,
                   "indexed": false,
                   "name": "newNNodes",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1173,
-                  "src": "4462:17:3",
+                  "scope": 1431,
+                  "src": "4462:17:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1048,10 +1048,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1165,
+                    "id": 1423,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4462:7:3",
+                    "src": "4462:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1062,12 +1062,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1169,
+                  "id": 1427,
                   "indexed": false,
                   "name": "stakers",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1173,
-                  "src": "4481:17:3",
+                  "scope": 1431,
+                  "src": "4481:17:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1076,20 +1076,20 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1167,
+                      "id": 1425,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
-                      "src": "4481:7:3",
+                      "src": "4481:7:4",
                       "stateMutability": "nonpayable",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "id": 1168,
+                    "id": 1426,
                     "length": null,
                     "nodeType": "ArrayTypeName",
-                    "src": "4481:9:3",
+                    "src": "4481:9:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                       "typeString": "address[]"
@@ -1100,12 +1100,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1171,
+                  "id": 1429,
                   "indexed": false,
                   "name": "reward",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1173,
-                  "src": "4500:14:3",
+                  "scope": 1431,
+                  "src": "4500:14:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1113,10 +1113,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1170,
+                    "id": 1428,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4500:7:3",
+                    "src": "4500:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1126,28 +1126,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4444:71:3"
+              "src": "4444:71:4"
             },
-            "src": "4417:99:3"
+            "src": "4417:99:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when a \"user.joincolony.eth\" label is registered\n @param user The user address registered\n @param label The label registered",
-            "id": 1179,
+            "id": 1437,
             "name": "UserLabelRegistered",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1178,
+              "id": 1436,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1175,
+                  "id": 1433,
                   "indexed": true,
                   "name": "user",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1179,
-                  "src": "4708:20:3",
+                  "scope": 1437,
+                  "src": "4708:20:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1155,10 +1155,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1174,
+                    "id": 1432,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4708:7:3",
+                    "src": "4708:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1170,12 +1170,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1177,
+                  "id": 1435,
                   "indexed": false,
                   "name": "label",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1179,
-                  "src": "4730:13:3",
+                  "scope": 1437,
+                  "src": "4730:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1183,10 +1183,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 1176,
+                    "id": 1434,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4730:7:3",
+                    "src": "4730:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1196,28 +1196,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4707:37:3"
+              "src": "4707:37:4"
             },
-            "src": "4682:63:3"
+            "src": "4682:63:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when a \"colony.joincolony.eth\" label is registered\n @param colony The colony address registered\n @param label The label registered",
-            "id": 1185,
+            "id": 1443,
             "name": "ColonyLabelRegistered",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1184,
+              "id": 1442,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1181,
+                  "id": 1439,
                   "indexed": true,
                   "name": "colony",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1185,
-                  "src": "4945:22:3",
+                  "scope": 1443,
+                  "src": "4945:22:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1225,10 +1225,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1180,
+                    "id": 1438,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4945:7:3",
+                    "src": "4945:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1240,12 +1240,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1183,
+                  "id": 1441,
                   "indexed": false,
                   "name": "label",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1185,
-                  "src": "4969:13:3",
+                  "scope": 1443,
+                  "src": "4969:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1253,10 +1253,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 1182,
+                    "id": 1440,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4969:7:3",
+                    "src": "4969:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1266,21 +1266,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4944:39:3"
+              "src": "4944:39:4"
             },
-            "src": "4917:67:3"
+            "src": "4917:67:4"
           },
           {
             "canonicalName": "ColonyNetworkDataTypes.Skill",
-            "id": 1200,
+            "id": 1458,
             "members": [
               {
                 "constant": false,
-                "id": 1187,
+                "id": 1445,
                 "name": "nParents",
                 "nodeType": "VariableDeclaration",
-                "scope": 1200,
-                "src": "5044:16:3",
+                "scope": 1458,
+                "src": "5044:16:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1288,10 +1288,10 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 1186,
+                  "id": 1444,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5044:7:3",
+                  "src": "5044:7:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint128",
                     "typeString": "uint128"
@@ -1302,11 +1302,11 @@
               },
               {
                 "constant": false,
-                "id": 1189,
+                "id": 1447,
                 "name": "nChildren",
                 "nodeType": "VariableDeclaration",
-                "scope": 1200,
-                "src": "5102:17:3",
+                "scope": 1458,
+                "src": "5102:17:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1314,10 +1314,10 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 1188,
+                  "id": 1446,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5102:7:3",
+                  "src": "5102:7:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint128",
                     "typeString": "uint128"
@@ -1328,11 +1328,11 @@
               },
               {
                 "constant": false,
-                "id": 1192,
+                "id": 1450,
                 "name": "parents",
                 "nodeType": "VariableDeclaration",
-                "scope": 1200,
-                "src": "5265:17:3",
+                "scope": 1458,
+                "src": "5265:17:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1341,19 +1341,19 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 1190,
+                    "id": 1448,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5265:7:3",
+                    "src": "5265:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1191,
+                  "id": 1449,
                   "length": null,
                   "nodeType": "ArrayTypeName",
-                  "src": "5265:9:3",
+                  "src": "5265:9:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                     "typeString": "uint256[]"
@@ -1364,11 +1364,11 @@
               },
               {
                 "constant": false,
-                "id": 1195,
+                "id": 1453,
                 "name": "children",
                 "nodeType": "VariableDeclaration",
-                "scope": 1200,
-                "src": "5336:18:3",
+                "scope": 1458,
+                "src": "5336:18:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1377,19 +1377,19 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 1193,
+                    "id": 1451,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5336:7:3",
+                    "src": "5336:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1194,
+                  "id": 1452,
                   "length": null,
                   "nodeType": "ArrayTypeName",
-                  "src": "5336:9:3",
+                  "src": "5336:9:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                     "typeString": "uint256[]"
@@ -1400,11 +1400,11 @@
               },
               {
                 "constant": false,
-                "id": 1197,
+                "id": 1455,
                 "name": "globalSkill",
                 "nodeType": "VariableDeclaration",
-                "scope": 1200,
-                "src": "5474:16:3",
+                "scope": 1458,
+                "src": "5474:16:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1412,10 +1412,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 1196,
+                  "id": 1454,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5474:4:3",
+                  "src": "5474:4:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -1426,11 +1426,11 @@
               },
               {
                 "constant": false,
-                "id": 1199,
+                "id": 1457,
                 "name": "deprecated",
                 "nodeType": "VariableDeclaration",
-                "scope": 1200,
-                "src": "5548:15:3",
+                "scope": 1458,
+                "src": "5548:15:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1438,10 +1438,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 1198,
+                  "id": 1456,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5548:4:3",
+                  "src": "5548:4:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -1453,21 +1453,21 @@
             ],
             "name": "Skill",
             "nodeType": "StructDefinition",
-            "scope": 1219,
-            "src": "4988:580:3",
+            "scope": 1477,
+            "src": "4988:580:4",
             "visibility": "public"
           },
           {
             "canonicalName": "ColonyNetworkDataTypes.ENSRecord",
-            "id": 1205,
+            "id": 1463,
             "members": [
               {
                 "constant": false,
-                "id": 1202,
+                "id": 1460,
                 "name": "addr",
                 "nodeType": "VariableDeclaration",
-                "scope": 1205,
-                "src": "5595:12:3",
+                "scope": 1463,
+                "src": "5595:12:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1475,10 +1475,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1201,
+                  "id": 1459,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5595:7:3",
+                  "src": "5595:7:4",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -1490,11 +1490,11 @@
               },
               {
                 "constant": false,
-                "id": 1204,
+                "id": 1462,
                 "name": "orbitdb",
                 "nodeType": "VariableDeclaration",
-                "scope": 1205,
-                "src": "5613:14:3",
+                "scope": 1463,
+                "src": "5613:14:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1502,10 +1502,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1203,
+                  "id": 1461,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5613:6:3",
+                  "src": "5613:6:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1517,21 +1517,21 @@
             ],
             "name": "ENSRecord",
             "nodeType": "StructDefinition",
-            "scope": 1219,
-            "src": "5572:60:3",
+            "scope": 1477,
+            "src": "5572:60:4",
             "visibility": "public"
           },
           {
             "canonicalName": "ColonyNetworkDataTypes.ReputationLogEntry",
-            "id": 1218,
+            "id": 1476,
             "members": [
               {
                 "constant": false,
-                "id": 1207,
+                "id": 1465,
                 "name": "user",
                 "nodeType": "VariableDeclaration",
-                "scope": 1218,
-                "src": "5668:12:3",
+                "scope": 1476,
+                "src": "5668:12:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1539,10 +1539,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1206,
+                  "id": 1464,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5668:7:3",
+                  "src": "5668:7:4",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -1554,11 +1554,11 @@
               },
               {
                 "constant": false,
-                "id": 1209,
+                "id": 1467,
                 "name": "amount",
                 "nodeType": "VariableDeclaration",
-                "scope": 1218,
-                "src": "5686:10:3",
+                "scope": 1476,
+                "src": "5686:10:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1566,10 +1566,10 @@
                   "typeString": "int256"
                 },
                 "typeName": {
-                  "id": 1208,
+                  "id": 1466,
                   "name": "int",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5686:3:3",
+                  "src": "5686:3:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_int256",
                     "typeString": "int256"
@@ -1580,11 +1580,11 @@
               },
               {
                 "constant": false,
-                "id": 1211,
+                "id": 1469,
                 "name": "skillId",
                 "nodeType": "VariableDeclaration",
-                "scope": 1218,
-                "src": "5702:15:3",
+                "scope": 1476,
+                "src": "5702:15:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1592,10 +1592,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1210,
+                  "id": 1468,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5702:7:3",
+                  "src": "5702:7:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1606,11 +1606,11 @@
               },
               {
                 "constant": false,
-                "id": 1213,
+                "id": 1471,
                 "name": "colony",
                 "nodeType": "VariableDeclaration",
-                "scope": 1218,
-                "src": "5723:14:3",
+                "scope": 1476,
+                "src": "5723:14:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1618,10 +1618,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1212,
+                  "id": 1470,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5723:7:3",
+                  "src": "5723:7:4",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -1633,11 +1633,11 @@
               },
               {
                 "constant": false,
-                "id": 1215,
+                "id": 1473,
                 "name": "nUpdates",
                 "nodeType": "VariableDeclaration",
-                "scope": 1218,
-                "src": "5743:16:3",
+                "scope": 1476,
+                "src": "5743:16:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1645,10 +1645,10 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 1214,
+                  "id": 1472,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5743:7:3",
+                  "src": "5743:7:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint128",
                     "typeString": "uint128"
@@ -1659,11 +1659,11 @@
               },
               {
                 "constant": false,
-                "id": 1217,
+                "id": 1475,
                 "name": "nPreviousUpdates",
                 "nodeType": "VariableDeclaration",
-                "scope": 1218,
-                "src": "5765:24:3",
+                "scope": 1476,
+                "src": "5765:24:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1671,10 +1671,10 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 1216,
+                  "id": 1474,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5765:7:3",
+                  "src": "5765:7:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint128",
                     "typeString": "uint128"
@@ -1686,36 +1686,36 @@
             ],
             "name": "ReputationLogEntry",
             "nodeType": "StructDefinition",
-            "scope": 1219,
-            "src": "5636:158:3",
+            "scope": 1477,
+            "src": "5636:158:4",
             "visibility": "public"
           }
         ],
-        "scope": 1220,
-        "src": "725:5071:3"
+        "scope": 1478,
+        "src": "725:5071:4"
       }
     ],
-    "src": "700:5097:3"
+    "src": "700:5097:4"
   },
   "legacyAST": {
     "absolutePath": "/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/colony/ColonyNetworkDataTypes.sol",
     "exportedSymbols": {
       "ColonyNetworkDataTypes": [
-        1219
+        1477
       ]
     },
-    "id": 1220,
+    "id": 1478,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1100,
+        "id": 1358,
         "literals": [
           "solidity",
           "0.5",
           ".8"
         ],
         "nodeType": "PragmaDirective",
-        "src": "700:22:3"
+        "src": "700:22:4"
       },
       {
         "baseContracts": [],
@@ -1723,9 +1723,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1219,
+        "id": 1477,
         "linearizedBaseContracts": [
-          1219
+          1477
         ],
         "name": "ColonyNetworkDataTypes",
         "nodeType": "ContractDefinition",
@@ -1733,21 +1733,21 @@
           {
             "anonymous": false,
             "documentation": "@notice Event logged when the colony network is intialised. This is only ever emitted once in a network's lifetime\n @param resolver The Resolver contract address used by the Colony version 1",
-            "id": 1104,
+            "id": 1362,
             "name": "ColonyNetworkInitialised",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1103,
+              "id": 1361,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1102,
+                  "id": 1360,
                   "indexed": false,
                   "name": "resolver",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1104,
-                  "src": "994:16:3",
+                  "scope": 1362,
+                  "src": "994:16:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1755,10 +1755,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1101,
+                    "id": 1359,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "994:7:3",
+                    "src": "994:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1769,28 +1769,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "993:18:3"
+              "src": "993:18:4"
             },
-            "src": "963:49:3"
+            "src": "963:49:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when the Colony Network TokenLocking contract address is set\n @param tokenLocking Address of the TokenLocking contract",
-            "id": 1108,
+            "id": 1366,
             "name": "TokenLockingAddressSet",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1107,
+              "id": 1365,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1106,
+                  "id": 1364,
                   "indexed": false,
                   "name": "tokenLocking",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1108,
-                  "src": "1196:20:3",
+                  "scope": 1366,
+                  "src": "1196:20:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1798,10 +1798,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1105,
+                    "id": 1363,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1196:7:3",
+                    "src": "1196:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1812,28 +1812,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1195:22:3"
+              "src": "1195:22:4"
             },
-            "src": "1167:51:3"
+            "src": "1167:51:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when the Colony Network ReputationMiningCycleResolver contract address is set\n @param miningCycleResolver Resolver address for the ReputationMiningCycle contract",
-            "id": 1112,
+            "id": 1370,
             "name": "MiningCycleResolverSet",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1111,
+              "id": 1369,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1110,
+                  "id": 1368,
                   "indexed": false,
                   "name": "miningCycleResolver",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1112,
-                  "src": "1445:27:3",
+                  "scope": 1370,
+                  "src": "1445:27:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1841,10 +1841,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1109,
+                    "id": 1367,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1445:7:3",
+                    "src": "1445:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1855,28 +1855,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1444:29:3"
+              "src": "1444:29:4"
             },
-            "src": "1416:58:3"
+            "src": "1416:58:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when the network fee inverse is set\n @param feeInverse The network fee inverse value",
-            "id": 1116,
+            "id": 1374,
             "name": "NetworkFeeInverseSet",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1115,
+              "id": 1373,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1114,
+                  "id": 1372,
                   "indexed": false,
                   "name": "feeInverse",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1116,
-                  "src": "1622:18:3",
+                  "scope": 1374,
+                  "src": "1622:18:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1884,10 +1884,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1113,
+                    "id": 1371,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1622:7:3",
+                    "src": "1622:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1897,28 +1897,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1621:20:3"
+              "src": "1621:20:4"
             },
-            "src": "1595:47:3"
+            "src": "1595:47:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when a new colony contract version is set\n @param version The new int colony version, e.g. 2, 3, 4, etc\n @param resolver The new colony contract resolver contract instance",
-            "id": 1122,
+            "id": 1380,
             "name": "ColonyVersionAdded",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1121,
+              "id": 1379,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1118,
+                  "id": 1376,
                   "indexed": false,
                   "name": "version",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1122,
-                  "src": "1880:15:3",
+                  "scope": 1380,
+                  "src": "1880:15:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1926,10 +1926,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1117,
+                    "id": 1375,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1880:7:3",
+                    "src": "1880:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1940,12 +1940,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1120,
+                  "id": 1378,
                   "indexed": false,
                   "name": "resolver",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1122,
-                  "src": "1897:16:3",
+                  "scope": 1380,
+                  "src": "1897:16:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1953,10 +1953,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1119,
+                    "id": 1377,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1897:7:3",
+                    "src": "1897:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1967,28 +1967,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1879:35:3"
+              "src": "1879:35:4"
             },
-            "src": "1855:60:3"
+            "src": "1855:60:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when the MetaColony is created\n @param metaColony Address of the MetaColony instance (i.e. EtherRouter)\n @param token Address of the associated CLNY token\n @param rootSkillId Id of the root skill of the global skills tree, normally this is 2\n Note that the speciat mining skill is created at rootSkillId + 1, so normally this is 3\n Skill id 1 is normally the local skill associate with meta colony domain 1",
-            "id": 1130,
+            "id": 1388,
             "name": "MetaColonyCreated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1129,
+              "id": 1387,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1124,
+                  "id": 1382,
                   "indexed": false,
                   "name": "metaColony",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1130,
-                  "src": "2402:18:3",
+                  "scope": 1388,
+                  "src": "2402:18:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1996,10 +1996,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1123,
+                    "id": 1381,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2402:7:3",
+                    "src": "2402:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2011,12 +2011,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1126,
+                  "id": 1384,
                   "indexed": false,
                   "name": "token",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1130,
-                  "src": "2422:13:3",
+                  "scope": 1388,
+                  "src": "2422:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2024,10 +2024,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1125,
+                    "id": 1383,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2422:7:3",
+                    "src": "2422:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2039,12 +2039,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1128,
+                  "id": 1386,
                   "indexed": false,
                   "name": "rootSkillId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1130,
-                  "src": "2437:19:3",
+                  "scope": 1388,
+                  "src": "2437:19:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2052,10 +2052,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1127,
+                    "id": 1385,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2437:7:3",
+                    "src": "2437:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2065,28 +2065,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2401:56:3"
+              "src": "2401:56:4"
             },
-            "src": "2378:80:3"
+            "src": "2378:80:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when a new colony is added\n @dev Emitted from `IColonyNetwork.createColony` function\n @param colonyId The colony id in the network\n @param colonyAddress The colony address in the network\n @param token Address of the associated colony token",
-            "id": 1138,
+            "id": 1396,
             "name": "ColonyAdded",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1137,
+              "id": 1395,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1132,
+                  "id": 1390,
                   "indexed": true,
                   "name": "colonyId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1138,
-                  "src": "2767:24:3",
+                  "scope": 1396,
+                  "src": "2767:24:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2094,10 +2094,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1131,
+                    "id": 1389,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2767:7:3",
+                    "src": "2767:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2108,12 +2108,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1134,
+                  "id": 1392,
                   "indexed": true,
                   "name": "colonyAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1138,
-                  "src": "2793:29:3",
+                  "scope": 1396,
+                  "src": "2793:29:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2121,10 +2121,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1133,
+                    "id": 1391,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2793:7:3",
+                    "src": "2793:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2136,12 +2136,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1136,
+                  "id": 1394,
                   "indexed": false,
                   "name": "token",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1138,
-                  "src": "2824:13:3",
+                  "scope": 1396,
+                  "src": "2824:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2149,10 +2149,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1135,
+                    "id": 1393,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2824:7:3",
+                    "src": "2824:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2163,28 +2163,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2766:72:3"
+              "src": "2766:72:4"
             },
-            "src": "2749:90:3"
+            "src": "2749:90:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when a new skill is added\n @dev Emitted from `IColonyNetwork.addSkill` function\n @param skillId The skill id\n @param parentSkillId The id of the parent skill under which this new skill is added",
-            "id": 1144,
+            "id": 1402,
             "name": "SkillAdded",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1143,
+              "id": 1401,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1140,
+                  "id": 1398,
                   "indexed": false,
                   "name": "skillId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1144,
-                  "src": "3096:15:3",
+                  "scope": 1402,
+                  "src": "3096:15:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2192,10 +2192,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1139,
+                    "id": 1397,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3096:7:3",
+                    "src": "3096:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2206,12 +2206,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1142,
+                  "id": 1400,
                   "indexed": false,
                   "name": "parentSkillId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1144,
-                  "src": "3113:21:3",
+                  "scope": 1402,
+                  "src": "3113:21:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2219,10 +2219,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1141,
+                    "id": 1399,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3113:7:3",
+                    "src": "3113:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2232,28 +2232,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3095:40:3"
+              "src": "3095:40:4"
             },
-            "src": "3079:57:3"
+            "src": "3079:57:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when a new auction is created and started\n @dev Emitted from `IColonyNetwork.startTokenAuction` function\n @param auction Address of the created auction contract\n @param token Address of the token for auction\n @param quantity Quantity of `token` to auction",
-            "id": 1152,
+            "id": 1410,
             "name": "AuctionCreated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1151,
+              "id": 1409,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1146,
+                  "id": 1404,
                   "indexed": false,
                   "name": "auction",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1152,
-                  "src": "3464:15:3",
+                  "scope": 1410,
+                  "src": "3464:15:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2261,10 +2261,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1145,
+                    "id": 1403,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3464:7:3",
+                    "src": "3464:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2276,12 +2276,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1148,
+                  "id": 1406,
                   "indexed": false,
                   "name": "token",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1152,
-                  "src": "3481:13:3",
+                  "scope": 1410,
+                  "src": "3481:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2289,10 +2289,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1147,
+                    "id": 1405,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3481:7:3",
+                    "src": "3481:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2304,12 +2304,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1150,
+                  "id": 1408,
                   "indexed": false,
                   "name": "quantity",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1152,
-                  "src": "3496:16:3",
+                  "scope": 1410,
+                  "src": "3496:16:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2317,10 +2317,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1149,
+                    "id": 1407,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3496:7:3",
+                    "src": "3496:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2330,28 +2330,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3463:50:3"
+              "src": "3463:50:4"
             },
-            "src": "3443:71:3"
+            "src": "3443:71:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when the Reputation mining process is initialised\n @param inactiveReputationMiningCycle Address of the newly created ReputationMiningCycle used in logging reputation changes",
-            "id": 1156,
+            "id": 1414,
             "name": "ReputationMiningInitialised",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1155,
+              "id": 1413,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1154,
+                  "id": 1412,
                   "indexed": false,
                   "name": "inactiveReputationMiningCycle",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1156,
-                  "src": "3758:37:3",
+                  "scope": 1414,
+                  "src": "3758:37:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2359,10 +2359,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1153,
+                    "id": 1411,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3758:7:3",
+                    "src": "3758:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2373,28 +2373,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3757:39:3"
+              "src": "3757:39:4"
             },
-            "src": "3724:73:3"
+            "src": "3724:73:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when a reputation mining cycle completes\n @param hash The root hash of the newly accepted reputation state\n @param nNodes The number of nodes in the reputation state",
-            "id": 1162,
+            "id": 1420,
             "name": "ReputationMiningCycleComplete",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1161,
+              "id": 1419,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1158,
+                  "id": 1416,
                   "indexed": false,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1162,
-                  "src": "4040:12:3",
+                  "scope": 1420,
+                  "src": "4040:12:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2402,10 +2402,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 1157,
+                    "id": 1415,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4040:7:3",
+                    "src": "4040:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -2416,12 +2416,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1160,
+                  "id": 1418,
                   "indexed": false,
                   "name": "nNodes",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1162,
-                  "src": "4054:14:3",
+                  "scope": 1420,
+                  "src": "4054:14:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2429,10 +2429,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1159,
+                    "id": 1417,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4054:7:3",
+                    "src": "4054:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2442,28 +2442,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4039:30:3"
+              "src": "4039:30:4"
             },
-            "src": "4004:66:3"
+            "src": "4004:66:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when a new reputation root hash is set by the reputation mining process\n @param newHash The reputation root hash\n @param newNNodes The updated nodes count value\n @param stakers Array of users who submitted or backed the hash accepted\n @param reward Amount of CLNY distributed as reward to miners",
-            "id": 1173,
+            "id": 1431,
             "name": "ReputationRootHashSet",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1172,
+              "id": 1430,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1164,
+                  "id": 1422,
                   "indexed": false,
                   "name": "newHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1173,
-                  "src": "4445:15:3",
+                  "scope": 1431,
+                  "src": "4445:15:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2471,10 +2471,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 1163,
+                    "id": 1421,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4445:7:3",
+                    "src": "4445:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -2485,12 +2485,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1166,
+                  "id": 1424,
                   "indexed": false,
                   "name": "newNNodes",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1173,
-                  "src": "4462:17:3",
+                  "scope": 1431,
+                  "src": "4462:17:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2498,10 +2498,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1165,
+                    "id": 1423,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4462:7:3",
+                    "src": "4462:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2512,12 +2512,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1169,
+                  "id": 1427,
                   "indexed": false,
                   "name": "stakers",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1173,
-                  "src": "4481:17:3",
+                  "scope": 1431,
+                  "src": "4481:17:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2526,20 +2526,20 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1167,
+                      "id": 1425,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
-                      "src": "4481:7:3",
+                      "src": "4481:7:4",
                       "stateMutability": "nonpayable",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "id": 1168,
+                    "id": 1426,
                     "length": null,
                     "nodeType": "ArrayTypeName",
-                    "src": "4481:9:3",
+                    "src": "4481:9:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                       "typeString": "address[]"
@@ -2550,12 +2550,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1171,
+                  "id": 1429,
                   "indexed": false,
                   "name": "reward",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1173,
-                  "src": "4500:14:3",
+                  "scope": 1431,
+                  "src": "4500:14:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2563,10 +2563,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1170,
+                    "id": 1428,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4500:7:3",
+                    "src": "4500:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2576,28 +2576,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4444:71:3"
+              "src": "4444:71:4"
             },
-            "src": "4417:99:3"
+            "src": "4417:99:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when a \"user.joincolony.eth\" label is registered\n @param user The user address registered\n @param label The label registered",
-            "id": 1179,
+            "id": 1437,
             "name": "UserLabelRegistered",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1178,
+              "id": 1436,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1175,
+                  "id": 1433,
                   "indexed": true,
                   "name": "user",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1179,
-                  "src": "4708:20:3",
+                  "scope": 1437,
+                  "src": "4708:20:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2605,10 +2605,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1174,
+                    "id": 1432,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4708:7:3",
+                    "src": "4708:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2620,12 +2620,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1177,
+                  "id": 1435,
                   "indexed": false,
                   "name": "label",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1179,
-                  "src": "4730:13:3",
+                  "scope": 1437,
+                  "src": "4730:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2633,10 +2633,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 1176,
+                    "id": 1434,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4730:7:3",
+                    "src": "4730:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -2646,28 +2646,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4707:37:3"
+              "src": "4707:37:4"
             },
-            "src": "4682:63:3"
+            "src": "4682:63:4"
           },
           {
             "anonymous": false,
             "documentation": "@notice Event logged when a \"colony.joincolony.eth\" label is registered\n @param colony The colony address registered\n @param label The label registered",
-            "id": 1185,
+            "id": 1443,
             "name": "ColonyLabelRegistered",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1184,
+              "id": 1442,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1181,
+                  "id": 1439,
                   "indexed": true,
                   "name": "colony",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1185,
-                  "src": "4945:22:3",
+                  "scope": 1443,
+                  "src": "4945:22:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2675,10 +2675,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1180,
+                    "id": 1438,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4945:7:3",
+                    "src": "4945:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2690,12 +2690,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1183,
+                  "id": 1441,
                   "indexed": false,
                   "name": "label",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1185,
-                  "src": "4969:13:3",
+                  "scope": 1443,
+                  "src": "4969:13:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2703,10 +2703,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 1182,
+                    "id": 1440,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4969:7:3",
+                    "src": "4969:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -2716,21 +2716,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4944:39:3"
+              "src": "4944:39:4"
             },
-            "src": "4917:67:3"
+            "src": "4917:67:4"
           },
           {
             "canonicalName": "ColonyNetworkDataTypes.Skill",
-            "id": 1200,
+            "id": 1458,
             "members": [
               {
                 "constant": false,
-                "id": 1187,
+                "id": 1445,
                 "name": "nParents",
                 "nodeType": "VariableDeclaration",
-                "scope": 1200,
-                "src": "5044:16:3",
+                "scope": 1458,
+                "src": "5044:16:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2738,10 +2738,10 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 1186,
+                  "id": 1444,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5044:7:3",
+                  "src": "5044:7:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint128",
                     "typeString": "uint128"
@@ -2752,11 +2752,11 @@
               },
               {
                 "constant": false,
-                "id": 1189,
+                "id": 1447,
                 "name": "nChildren",
                 "nodeType": "VariableDeclaration",
-                "scope": 1200,
-                "src": "5102:17:3",
+                "scope": 1458,
+                "src": "5102:17:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2764,10 +2764,10 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 1188,
+                  "id": 1446,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5102:7:3",
+                  "src": "5102:7:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint128",
                     "typeString": "uint128"
@@ -2778,11 +2778,11 @@
               },
               {
                 "constant": false,
-                "id": 1192,
+                "id": 1450,
                 "name": "parents",
                 "nodeType": "VariableDeclaration",
-                "scope": 1200,
-                "src": "5265:17:3",
+                "scope": 1458,
+                "src": "5265:17:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2791,19 +2791,19 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 1190,
+                    "id": 1448,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5265:7:3",
+                    "src": "5265:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1191,
+                  "id": 1449,
                   "length": null,
                   "nodeType": "ArrayTypeName",
-                  "src": "5265:9:3",
+                  "src": "5265:9:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                     "typeString": "uint256[]"
@@ -2814,11 +2814,11 @@
               },
               {
                 "constant": false,
-                "id": 1195,
+                "id": 1453,
                 "name": "children",
                 "nodeType": "VariableDeclaration",
-                "scope": 1200,
-                "src": "5336:18:3",
+                "scope": 1458,
+                "src": "5336:18:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2827,19 +2827,19 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 1193,
+                    "id": 1451,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5336:7:3",
+                    "src": "5336:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1194,
+                  "id": 1452,
                   "length": null,
                   "nodeType": "ArrayTypeName",
-                  "src": "5336:9:3",
+                  "src": "5336:9:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                     "typeString": "uint256[]"
@@ -2850,11 +2850,11 @@
               },
               {
                 "constant": false,
-                "id": 1197,
+                "id": 1455,
                 "name": "globalSkill",
                 "nodeType": "VariableDeclaration",
-                "scope": 1200,
-                "src": "5474:16:3",
+                "scope": 1458,
+                "src": "5474:16:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2862,10 +2862,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 1196,
+                  "id": 1454,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5474:4:3",
+                  "src": "5474:4:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -2876,11 +2876,11 @@
               },
               {
                 "constant": false,
-                "id": 1199,
+                "id": 1457,
                 "name": "deprecated",
                 "nodeType": "VariableDeclaration",
-                "scope": 1200,
-                "src": "5548:15:3",
+                "scope": 1458,
+                "src": "5548:15:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2888,10 +2888,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 1198,
+                  "id": 1456,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5548:4:3",
+                  "src": "5548:4:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -2903,21 +2903,21 @@
             ],
             "name": "Skill",
             "nodeType": "StructDefinition",
-            "scope": 1219,
-            "src": "4988:580:3",
+            "scope": 1477,
+            "src": "4988:580:4",
             "visibility": "public"
           },
           {
             "canonicalName": "ColonyNetworkDataTypes.ENSRecord",
-            "id": 1205,
+            "id": 1463,
             "members": [
               {
                 "constant": false,
-                "id": 1202,
+                "id": 1460,
                 "name": "addr",
                 "nodeType": "VariableDeclaration",
-                "scope": 1205,
-                "src": "5595:12:3",
+                "scope": 1463,
+                "src": "5595:12:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2925,10 +2925,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1201,
+                  "id": 1459,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5595:7:3",
+                  "src": "5595:7:4",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -2940,11 +2940,11 @@
               },
               {
                 "constant": false,
-                "id": 1204,
+                "id": 1462,
                 "name": "orbitdb",
                 "nodeType": "VariableDeclaration",
-                "scope": 1205,
-                "src": "5613:14:3",
+                "scope": 1463,
+                "src": "5613:14:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2952,10 +2952,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1203,
+                  "id": 1461,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5613:6:3",
+                  "src": "5613:6:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -2967,21 +2967,21 @@
             ],
             "name": "ENSRecord",
             "nodeType": "StructDefinition",
-            "scope": 1219,
-            "src": "5572:60:3",
+            "scope": 1477,
+            "src": "5572:60:4",
             "visibility": "public"
           },
           {
             "canonicalName": "ColonyNetworkDataTypes.ReputationLogEntry",
-            "id": 1218,
+            "id": 1476,
             "members": [
               {
                 "constant": false,
-                "id": 1207,
+                "id": 1465,
                 "name": "user",
                 "nodeType": "VariableDeclaration",
-                "scope": 1218,
-                "src": "5668:12:3",
+                "scope": 1476,
+                "src": "5668:12:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2989,10 +2989,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1206,
+                  "id": 1464,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5668:7:3",
+                  "src": "5668:7:4",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -3004,11 +3004,11 @@
               },
               {
                 "constant": false,
-                "id": 1209,
+                "id": 1467,
                 "name": "amount",
                 "nodeType": "VariableDeclaration",
-                "scope": 1218,
-                "src": "5686:10:3",
+                "scope": 1476,
+                "src": "5686:10:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -3016,10 +3016,10 @@
                   "typeString": "int256"
                 },
                 "typeName": {
-                  "id": 1208,
+                  "id": 1466,
                   "name": "int",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5686:3:3",
+                  "src": "5686:3:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_int256",
                     "typeString": "int256"
@@ -3030,11 +3030,11 @@
               },
               {
                 "constant": false,
-                "id": 1211,
+                "id": 1469,
                 "name": "skillId",
                 "nodeType": "VariableDeclaration",
-                "scope": 1218,
-                "src": "5702:15:3",
+                "scope": 1476,
+                "src": "5702:15:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -3042,10 +3042,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1210,
+                  "id": 1468,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5702:7:3",
+                  "src": "5702:7:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -3056,11 +3056,11 @@
               },
               {
                 "constant": false,
-                "id": 1213,
+                "id": 1471,
                 "name": "colony",
                 "nodeType": "VariableDeclaration",
-                "scope": 1218,
-                "src": "5723:14:3",
+                "scope": 1476,
+                "src": "5723:14:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -3068,10 +3068,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1212,
+                  "id": 1470,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5723:7:3",
+                  "src": "5723:7:4",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -3083,11 +3083,11 @@
               },
               {
                 "constant": false,
-                "id": 1215,
+                "id": 1473,
                 "name": "nUpdates",
                 "nodeType": "VariableDeclaration",
-                "scope": 1218,
-                "src": "5743:16:3",
+                "scope": 1476,
+                "src": "5743:16:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -3095,10 +3095,10 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 1214,
+                  "id": 1472,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5743:7:3",
+                  "src": "5743:7:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint128",
                     "typeString": "uint128"
@@ -3109,11 +3109,11 @@
               },
               {
                 "constant": false,
-                "id": 1217,
+                "id": 1475,
                 "name": "nPreviousUpdates",
                 "nodeType": "VariableDeclaration",
-                "scope": 1218,
-                "src": "5765:24:3",
+                "scope": 1476,
+                "src": "5765:24:4",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -3121,10 +3121,10 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 1216,
+                  "id": 1474,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
-                  "src": "5765:7:3",
+                  "src": "5765:7:4",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint128",
                     "typeString": "uint128"
@@ -3136,16 +3136,16 @@
             ],
             "name": "ReputationLogEntry",
             "nodeType": "StructDefinition",
-            "scope": 1219,
-            "src": "5636:158:3",
+            "scope": 1477,
+            "src": "5636:158:4",
             "visibility": "public"
           }
         ],
-        "scope": 1220,
-        "src": "725:5071:3"
+        "scope": 1478,
+        "src": "725:5071:4"
       }
     ],
-    "src": "700:5097:3"
+    "src": "700:5097:4"
   },
   "compiler": {
     "name": "solc",
@@ -3153,7 +3153,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.13",
-  "updatedAt": "2019-08-24T12:51:17.604Z",
+  "updatedAt": "2019-08-24T19:11:56.995Z",
   "devdoc": {
     "methods": {}
   },

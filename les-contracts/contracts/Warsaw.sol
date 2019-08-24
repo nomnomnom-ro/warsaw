@@ -23,6 +23,20 @@ import "./WarsawBase.sol";
 
 contract Warsaw is WarsawBase {
 
+  function initiateRewardPayout(
+    bytes memory key,
+    bytes memory value,
+    uint256 branchMask,
+    bytes32[] memory siblings
+  )
+    public
+  {
+    require(getTimeToPayout() == 0, "payout-too-soon");
+
+    lastRewardPayout = now;
+    colony.startNextRewardPayout(address(0x0), key, value, branchMask, siblings);
+  }
+
   function executeSale(address token, uint256 wad) internal returns(uint256 etherValue) {
     address uniswapExchangeAddress = uniswapFactory.getExchange(token);
     UniswapExchangeInterface uniswapExchange = UniswapExchangeInterface(uniswapExchangeAddress);
