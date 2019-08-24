@@ -6,6 +6,8 @@ const cron = require('node-cron');
 
 const app = express();
 
+const MODE_DEV = 'development';
+const NODE_ENV = process.env.NODE_ENV || MODE_DEV;
 const NETWORK = process.env.NETWORK || 'goerli';
 const INFURA_KEY = process.env.INFURA_KEY;
 const CRON_SCHEDULE = process.env.CRONTAB || '0 * * * *';
@@ -59,13 +61,17 @@ cron.schedule(CRON_SCHEDULE, () => {
 
 });
 
-app.get(MANUAL_TRIGGER_URL, function (req, res) {
+if (NODE_ENV === MODE_DEV) {
 
-  res.send('Sending nom nom noms manually...');
+  app.get(MANUAL_TRIGGER_URL, function (req, res) {
 
-  sendNoms();
+    res.send('Sending nom nom noms manually...');
 
-});
+    sendNoms();
+
+  });
+
+}
 
 app.listen(3000, () => {
   console.log(`${package.name} started!`);
