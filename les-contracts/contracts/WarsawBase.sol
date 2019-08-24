@@ -37,10 +37,14 @@ contract WarsawBase is DSMath {
   UniswapFactoryInterface uniswapFactory;
 
   address owner;
+
   uint256 salePeriod;
   uint256 periodsPerDay;
   uint256 saleAmount;
+
   uint256 dailyMint;
+  uint256 payoutFrequency;
+  uint256 lastRewardPayout;
 
   mapping (address => mapping (uint256 => Deposit)) deposits;
   mapping (address => uint256) heads;
@@ -76,7 +80,12 @@ contract WarsawBase is DSMath {
     // Defaults!
     setSaleAmount(WAD);
     setSalePeriod(1 hours);
-    setDailyMint(WAD);
+    setDailyMint(100 * WAD);
+    setPayoutFrequency(7 days);
+
+    // Initialize!
+    lastRewardPayout = now;
+    activePeriod = getCurrentPeriod();
   }
 
   // Administrative functions
@@ -97,6 +106,11 @@ contract WarsawBase is DSMath {
 
   function setDailyMint(uint256 wad) public onlyOwner {
     dailyMint = wad;
+  }
+
+  function setPayoutFrequency(uint256 frequency) public onlyOwner {
+    require(frequency >= 1 days);
+    payoutFrequency = frequency;
   }
 
   // Public functions
@@ -146,6 +160,19 @@ contract WarsawBase is DSMath {
     emit TokensComposted(depositor, token, amount);
   }
 
+  function initiateRewardPayout(
+    bytes memory key,
+    bytes memory value,
+    uint256 branchMask,
+    bytes32[] memory siblings
+  )
+    public
+  {
+    // Calls to colony
+  }
+
+  // Public view functions
+
   function getCurrentPeriod() public view returns(uint256 period) {
     uint256 secondInDay = now % 24 hours;
     period = secondInDay / salePeriod;
@@ -175,6 +202,10 @@ contract WarsawBase is DSMath {
 
   function getNumPeriodsPerDay() public view returns(uint256 numPeriodsPerDay) {
     numPeriodsPerDay = periodsPerDay;
+  }
+
+  function getTimeToPayout() public view returns(uint256 timeToPayout) {
+    timeToPayout = min(0, add(lastRewardPayout, payoutFrequency) - now);
   }
 
   // Internal functions

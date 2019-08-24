@@ -7,7 +7,7 @@ const Token = artifacts.require("Token");
 contract("Warsaw", async accounts => {
   const ZERO = ethers.constants.AddressZero;
   const WAD = ethers.constants.WeiPerEther;
-  const MINUTE = 60; // 60 seconds
+  const HOUR = 60 * 60; // seconds
 
   const USER1 = accounts[0];
   const USER2 = accounts[1];
@@ -21,13 +21,22 @@ contract("Warsaw", async accounts => {
   });
 
   describe("expected behavior", () => {
+    it("should track time to reward payout", async () => {
+      let timeToPayout = await warsaw.getTimeToPayout();
+      assert.isAtMost(timeToPayout.toNumber(), 7 * 24 * HOUR);
+
+      await forwardTime(8 * 24 * HOUR);
+      timeToPayout = await warsaw.getTimeToPayout();
+      assert.equal(timeToPayout.toNumber(), 0);
+    });
+
     it("should calculate the number of periods per day", async () => {
-      await warsaw.setSalePeriod(30 * MINUTE);
+      await warsaw.setSalePeriod(HOUR / 2);
       const numPeriodsPerDay = await warsaw.getNumPeriodsPerDay();
       assert.equal(numPeriodsPerDay.toNumber(), 48);
 
       await truffleAssert.reverts(
-        warsaw.setSalePeriod(24 * 60 * MINUTE + 1), "interval-too-long");
+        warsaw.setSalePeriod(24 * HOUR + 1), "interval-too-long");
     });
 
     it("should let users deposit tokens", async () => {
@@ -63,7 +72,7 @@ contract("Warsaw", async accounts => {
       await truffleAssert.reverts(
         warsaw.sellTokens(token.address), "sale-too-soon");
 
-      await forwardTime(60 * MINUTE);
+      await forwardTime(HOUR);
       await warsaw.sellTokens(token.address);
 
       await truffleAssert.reverts(
@@ -91,7 +100,7 @@ contract("Warsaw", async accounts => {
 
       for (let i = 0; i < numPeriods / 2; i++) {
         await warsaw.sellTokens(token.address);
-        await forwardTime(60 * MINUTE);
+        await forwardTime(HOUR);
       }
 
       // Tally for first 15 periods minus one (current period is not included)
@@ -100,7 +109,7 @@ contract("Warsaw", async accounts => {
 
       for (let i = 0; i < numPeriods / 2; i++) {
         await warsaw.sellTokens(token.address);
-        await forwardTime(60 * MINUTE);
+        await forwardTime(HOUR);
       }
 
       // Income tracks only last 24 periods
