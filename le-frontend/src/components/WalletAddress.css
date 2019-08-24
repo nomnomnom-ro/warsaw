@@ -1,0 +1,20 @@
+.walletAddressContainer {
+  height: 34px;
+  line-height: 34px;
+  padding: 0 16px;
+  border-radius: 17px;
+  align-items: center;
+  background: black;
+}
+
+.walletAddressContainer .address, .walletAddressContainer .notConnected {
+  font-size: 14px;
+  color: #BCC1DD;
+}
+
+.walletAddressContainer .identicon {
+  border-radius: 100%;
+  margin-left: 10px;
+  position: relative;
+  top: 4px;
+}

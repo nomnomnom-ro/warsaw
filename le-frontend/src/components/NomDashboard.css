@@ -1,33 +1,43 @@
-.dashboard {
-  display: flex;
-  margin-bottom: 60px;
-  margin-left: 80px;
+.dashboard .header {
+  padding: 20px;
+  font-size: 24px;
+  width: 100%;
+  background: #24242a;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
-.item {
+.dashboard .content {
+  margin-bottom: 60px;
+  display: flex;
+  width: 100%;
+  padding: 20px;
+}
+
+.dashboard .item {
   flex-grow: 1;
 }
 
-.itemHeader {
+.dashboard .itemHeader {
   margin-bottom: 20px;
   font-size: 14px;
 }
 
-.itemContent .balance {
+.dashboard .itemContent .balance {
   font-size: 32px;
   margin-right: 5px;
 }
 
-.itemContent .symbol {
+.dashboard .itemContent .symbol {
   text-transform: uppercase;
   font-size: 14px;
 }
 
-.rewardsPot {
+.dashboard .rewardsPot, .dashboard .myRewards {
   margin-bottom: 20px;
 }
 
-.claimButton {
+.dashboard .item button {
   appearance: none;
   background-color: transparent;
   border-color: #50acc9;
@@ -40,12 +50,12 @@
   transition: 0.15s ease;
 }
 
-.claimButton:hover {
+.dashboard .item button:hover {
   color: #65daff;
   background: #315669;
 }
 
-.claimButton:disabled {
+.dashboard .item button:disabled {
   color: #ffffff;
   background: #696969;
   border-color: #c7c7c7;

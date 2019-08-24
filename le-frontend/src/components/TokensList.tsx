@@ -105,7 +105,7 @@ export const TokensList = ({ provider }: Props) => {
   );
 
   return (
-    <div>
+    <div className="tokensList">
       {balances ? (
         <table className="tokenBalances">
           <thead>
@@ -125,7 +125,7 @@ export const TokensList = ({ provider }: Props) => {
                 return (
                   <tr key={address}>
                     <td className="tokenIcon">💩</td>
-                    <td>
+                    <td className="tokenDetails">
                       <div className="tokenSymbol">{symbol}</div>
                       <div className="tokenName">{name}</div>
                     </td>

@@ -2,6 +2,7 @@ import Web3 from 'web3';
 import { formatUnits } from 'ethers/utils/units';
 
 // import { ERC20_ABI } from './erc20';
+import { WarsawABI } from './warsaw';
 
 export interface AmberToken {
   address: string;
@@ -32,15 +33,32 @@ export interface AmberResponse {
 
 export class TokenProvider {
   wallet: any;
+  warsaw: any;
   web3: Web3;
 
   constructor(wallet: any) {
     this.wallet = wallet;
     this.web3 = new Web3(Web3.givenProvider);
+    this.warsaw = new this.web3.eth.Contract(WarsawABI, '0x');
+  }
+
+  private async sendTx(tx: any) {
+    await this.wallet.signTransaction(tx);
   }
 
   async transfer(tokenAddress: string, value: string) {
+    // @todo ensure value has the correct decimals when this fn is called
     console.log(`Send ${value} of ${tokenAddress}`);
+    const tx = this.warsaw.methods.depositTokens(tokenAddress, value);
+    return this.sendTx(tx);
+  }
+
+  async trigger() {
+    console.log('Trigger');
+  }
+
+  async claim() {
+    console.log('Claim');
   }
 
   async getAllTokenBalances() {

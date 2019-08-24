@@ -14,11 +14,11 @@ export const MetaMask = ({ children }: Props) => {
   const [isValid, setIsValid] = useState(false);
   const [selectedAddress, setSelectedAddress] = useState();
   const [metamaskError, setMetamaskError] = useState();
-  const [timer, setTimer] = useState();
+  const [timer, setTimer] = useState<any>();
 
   useEffect(() => {
     accountChangeHook((args: { selectedAddress: string }) => {
-      setSelectedAddress(args.selectedAddress);
+      setSelectedAddress(args.selectedAddress as any);
     });
     return () => {
       if ((window as any).web3) {
@@ -27,7 +27,7 @@ export const MetaMask = ({ children }: Props) => {
     };
   }, []);
 
-  const walletAddress = wallet && wallet.address;
+  const walletAddress = wallet && (wallet as any).address;
   useEffect(() => {
     if (walletAddress && selectedAddress && selectedAddress !== walletAddress) {
       setWallet(null);
@@ -65,17 +65,14 @@ export const MetaMask = ({ children }: Props) => {
   return (
     <div>
       {wallet ? (
-        <>
-          <div className="walletDetails">Connected as {wallet.address}</div>
-          {children({ wallet })}
-        </>
+        <>{children({ wallet })}</>
       ) : isValid ? (
         <button onClick={connectMetaMask} disabled={isLoading}>
           Connect MetaMask
         </button>
       ) : (
         <div>
-          <p>{metamaskError}</p>
+          <p>Couldn't connect to MetaMask: {metamaskError}</p>
           <button onClick={reconnect} disabled={isLoading}>
             Retry
           </button>
