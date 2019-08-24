@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState, useMemo } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
 
 import { TokenProvider } from '../lib/TokenProvider';
 import './NomDashboard.css';
@@ -7,73 +7,94 @@ interface Props {
   provider?: TokenProvider;
 }
 
+const padTime = (t: number) => (t < 10 ? String(t).padStart(2, '0') : t);
+
+const formatTimeToPayout = (timeToPayout: number) => {
+  const hours = Math.floor(timeToPayout / 3600);
+  const minutes = Math.floor((timeToPayout - hours * 3600) / 60);
+  const seconds = Math.floor(timeToPayout - hours * 3600 - minutes * 60);
+
+  return `${padTime(hours)}:${padTime(minutes)}:${padTime(seconds)}`;
+};
+
 export const NomDashboard = ({ provider }: Props) => {
+  const timeToPayoutInterval = useRef<any>();
   const [nomBalance, setNomBalance] = useState('0');
   const [enzymes, setEnzymes] = useState('0');
   const [rewardsPot, setRewardsPot] = useState('0');
   const [myRewards, setMyRewards] = useState('0');
   const [isClaiming, setIsClaiming] = useState(false);
   const [isTriggering, setIsTriggering] = useState(false);
-  const [countdown, setCountdown] = useState('23:59:58'); // @todo
+  const [timeToPayout, setTimeToPayout] = useState();
 
   useEffect(() => {
-    provider &&
-      provider
-        .getEnzymes()
-        .catch((error: Error) => {
-          console.error(error);
-        })
-        .then(res => {
-          // @todo
-          console.log(res);
-        });
+    if (!provider) return;
+
+    provider
+      .getEnzymes()
+      .catch((error: Error) => {
+        console.error(error);
+      })
+      .then(reputationAmount => {
+        reputationAmount && setEnzymes(reputationAmount);
+      });
+
+    provider
+      .getTimeToPayout()
+      .catch((error: Error) => {
+        console.error(error);
+      })
+      .then((timeToPayout: number) => {
+        setTimeToPayout(timeToPayout);
+      });
+
+    provider
+      .getNoms()
+      .catch((error: Error) => {
+        console.error(error);
+      })
+      .then(noms => {
+        if (noms) setNomBalance(noms);
+      });
+
+    provider
+      .getMyRewards()
+      .catch((error: Error) => {
+        console.error(error);
+      })
+      .then(eth => {
+        if (eth) setMyRewards(eth);
+      });
+
+    provider
+      .getRewardsPot()
+      .catch((error: Error) => {
+        console.error(error);
+      })
+      .then(eth => {
+        if (eth) setRewardsPot(eth);
+      });
   }, [provider]);
 
   useEffect(() => {
-    provider &&
-      provider
-        .getTimeToPayout()
-        .catch((error: Error) => {
-          console.error(error);
-        })
-        .then(timeToPayout => {
-          setCountdown(timeToPayout as string);
-        });
-  }, [provider]);
-
-  useEffect(() => {
-    provider &&
-      provider
-        .getNoms()
-        .catch((error: Error) => {
-          console.error(error);
-        })
-        .then(noms => {
-          noms && setMyRewards(noms);
-        });
-  }, [provider]);
-
-  useEffect(() => {
-    provider &&
-      provider
-        .getNoms()
-        .catch((error: Error) => {
-          console.error(error);
-        })
-        .then(noms => {
-          noms && setMyRewards(noms);
-        });
-  }, [provider]);
+    if (typeof timeToPayout === 'number') {
+      timeToPayoutInterval.current = setInterval(() => {
+        if (timeToPayout > 0) setTimeToPayout(timeToPayout - 1);
+      }, 1000);
+    }
+    return () => {
+      if (timeToPayoutInterval.current)
+        clearInterval(timeToPayoutInterval.current);
+    };
+  }, [timeToPayout]);
 
   const claim = useCallback(() => {
     setIsClaiming(true);
-    console.log('claim');
     setTimeout(() => setIsClaiming(false), 1000);
   }, []);
 
   const trigger = useCallback(() => {
     setIsTriggering(true);
-    console.log('trigger');
     setTimeout(() => setIsTriggering(false), 1000);
   }, []);
 
@@ -97,7 +118,7 @@ export const NomDashboard = ({ provider }: Props) => {
         <div className="item">
           <div className="itemHeader">Countdown</div>
           <div className="itemContent">
-            <span className="balance">{countdown}</span>
+            <span className="balance">{formatTimeToPayout(timeToPayout)}</span>
           </div>
         </div>
         <div className="item">
@@ -115,7 +136,7 @@ export const NomDashboard = ({ provider }: Props) => {
           </div>
         </div>
         <div className="item">
-          <div className="itemHeader">Rewards Pot</div>
+          <div className="itemHeader">My Rewards</div>
           <div className="itemContent">
             <div className="myRewards">
               <span className="balance">{myRewards}</span>

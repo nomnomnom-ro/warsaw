@@ -82,6 +82,24 @@
   text-align: right;
 }
 
-.actions {
-  text-align: right;
+.tokenActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.tokenActions .sendButton {
+  cursor: pointer;
+  margin-top: 15px;
+  width: 32px;
+  height: 32px;
+  background: url('../icons/arrow.png');
+}
+
+.tokenActions .sendButton:hover {
+  background: url('../icons/arrowHover.png');
+}
+
+.tokenActions .sendButton.disabled {
+  cursor: progress;
 }

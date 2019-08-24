@@ -30,21 +30,20 @@ interface TokenTransfer {
 export const TokensList = ({ provider }: Props) => {
   const [balances, setBalances] = useState<TokenBalance[]>();
   const [transfers, setTransfers] = useState<TokenTransfer[]>([]);
-  // @todo on every event, get the new balances/values/etc
 
   useEffect(() => {
+    // On mount, get all the things and set up the listener
     if (provider) {
-      provider.warsaw.events.allEvents().on('data', event => {
-        // Whenever any new event comes in, update all the things
-        provider.getAllTokenBalances().then(balances => setBalances(balances));
+      // Whenever any new event comes in, update all the things
+      provider.warsaw.events.allEvents().on('data', () => {
+        provider.getAllTokens().then(balances => setBalances(balances));
       });
-    }
-  });
 
-  useEffect(() => {
-    if (provider) {
-      provider.getAllTokenBalances().then(balances => {
+      // Update all the things
+      provider.getAllTokens().then(balances => {
         setBalances(balances);
+
+        // Also set a value for transfers
         setTransfers(
           balances.map(({ address }) => ({
             address,
@@ -142,11 +141,11 @@ export const TokensList = ({ provider }: Props) => {
               (
                 {
                   address,
+                  balance,
+                  composted,
+                  deposited,
                   name,
                   symbol,
-                  balance,
-                  deposited,
-                  composted,
                 }: TokenBalance,
                 index,
               ) => {
@@ -178,13 +177,17 @@ export const TokensList = ({ provider }: Props) => {
                     </td>
                     <td className="compostingValue">{deposited}</td>
                     <td className="compostedValue">{composted}</td>
-                    <td className="actions">
-                      <button
-                        disabled={transfer.isSending}
-                        onClick={() => send(address)}
-                      >
-                        ↗️
-                      </button>
+                    <td className="tokenActions">
+                      {parseInt(balance, 10) > 0 ? (
+                        <div
+                          className={
+                            transfer.isSending
+                              ? 'sendButton disabled'
+                              : 'sendButton'
+                          }
+                          onClick={() => send(address)}
+                        />
+                      ) : null}
                     </td>
                   </tr>
                 );

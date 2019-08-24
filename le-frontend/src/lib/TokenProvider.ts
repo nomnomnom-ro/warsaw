@@ -152,19 +152,26 @@ export class TokenProvider {
   async getEnzymes() {
     if (!this.colony) return;
 
-    const response = await this.colony.getReputation({
+    const response: {
+      branchMask: string;
+      key: string;
+      reputation: string;
+      reputationAmount: string;
+      siblings: string[];
+      uid: string;
+      value: string;
+    } = await this.colony.getReputation({
       skillId: 1,
       address: this.wallet.address,
     });
-    console.log(response);
-    return response;
+
+    return response.reputationAmount;
   }
 
   async getTimeToPayout() {
     // const timeToPayout = await this.warsaw.methods.getTimeToPayout().call();
-    // console.log(timeToPayout);
-    // return timeToPayout;
-    return '23:45:45';
+    // return parseInt(timeToPayout, 10);
+    return 24 * 60 * 60;
   }
 
   async getNoms(): Promise<string> {
@@ -182,6 +189,16 @@ export class TokenProvider {
 
   async getDailyIncome(): Promise<string> {
     return this.warsaw.methods.getDailyIncome().call();
+  }
+
+  async getRewardsPot() {
+    // @todo
+    return '0';
+  }
+
+  async getMyRewards() {
+    // @todo
+    return '0';
   }
 
   async trigger() {
