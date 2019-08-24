@@ -17,17 +17,34 @@ RUN apt-get install -y \
   python \
   curl \
   file \
-  zip
+  zip \
+  nginx
+
+# Reconfigure locales
+# RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+# RUN locale-gen
 
 # Add the repo
-ADD . / composter-bot/
-WORKDIR /composter-bot
+ADD . / composter-frontend/
+WORKDIR /composter-frontend
 
 # Install node_modules
 RUN yarn
 
-# Expose the HTTP port
-EXPOSE 3000
+# Build productions
+RUN yarn build
 
-# What's that? A new colony was created...
-ENTRYPOINT yarn start
+# Setup a basic nginx config
+RUN echo "server {\n" \
+  "    listen       80;\n" \
+  "    server_name  default_server;\n\n" \
+  "    location / {\n" \
+  "        root   /composter-frontend/build;\n" \
+  "    }\n" \
+  "}" > /etc/nginx/sites-available/default
+
+# Expose the HTTP port
+EXPOSE 80
+
+# Go forth and compost
+CMD ["nginx", "-g", "daemon off;"]
