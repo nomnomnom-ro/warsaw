@@ -1,0 +1,53 @@
+.dashboard {
+  display: flex;
+  margin-bottom: 60px;
+  margin-left: 80px;
+}
+
+.item {
+  flex-grow: 1;
+}
+
+.itemHeader {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.itemContent .balance {
+  font-size: 32px;
+  margin-right: 5px;
+}
+
+.itemContent .symbol {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.rewardsPot {
+  margin-bottom: 20px;
+}
+
+.claimButton {
+  appearance: none;
+  background-color: transparent;
+  border-color: #50acc9;
+  border-radius: 4px;
+  color: #50acc9;
+  cursor: pointer;
+  font-size: 14px;
+  min-width: 80px;
+  padding: 8px;
+  transition: 0.15s ease;
+}
+
+.claimButton:hover {
+  color: #65daff;
+  background: #315669;
+}
+
+.claimButton:disabled {
+  color: #ffffff;
+  background: #696969;
+  border-color: #c7c7c7;
+  cursor: progress;
+}

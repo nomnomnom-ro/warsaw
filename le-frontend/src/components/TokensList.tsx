@@ -11,7 +11,7 @@ interface Props {
 }
 
 interface TokenBalance {
-  tokenAddress: string;
+  address: string;
   name: string;
   symbol: string;
   decimals: number;
@@ -19,7 +19,7 @@ interface TokenBalance {
 }
 
 interface TokenTransfer {
-  tokenAddress: string;
+  address: string;
   value: string;
   isSending: boolean;
   error: Error | void;
@@ -34,8 +34,8 @@ export const TokensList = ({ provider }: Props) => {
       provider.getAllTokenBalances().then(balances => {
         setBalances(balances);
         setTransfers(
-          balances.map(({ tokenAddress, balance }) => ({
-            tokenAddress,
+          balances.map(({ address }) => ({
+            address,
             value: '0',
             isSending: false,
             error: undefined,
@@ -49,7 +49,9 @@ export const TokensList = ({ provider }: Props) => {
     (tokenAddress: string, mod: Partial<TokenTransfer>) =>
       setTransfers(
         transfers.map(item =>
-          item.tokenAddress === tokenAddress ? { ...item, ...mod } : item,
+          item.address === tokenAddress
+            ? ({ ...item, ...mod } as TokenTransfer)
+            : item,
         ),
       ),
     [transfers],
@@ -59,7 +61,9 @@ export const TokensList = ({ provider }: Props) => {
     (tokenAddress: string, mod: Partial<TokenBalance>) =>
       setBalances(
         (balances || []).map(item =>
-          item.tokenAddress === tokenAddress ? { ...item, ...mod } : item,
+          item.address === tokenAddress
+            ? ({ ...item, ...mod } as TokenBalance)
+            : item,
         ),
       ),
     [balances],
@@ -74,9 +78,7 @@ export const TokensList = ({ provider }: Props) => {
 
   const send = useCallback(
     (tokenAddress: string) => {
-      const transfer = transfers.find(
-        item => item.tokenAddress === tokenAddress,
-      );
+      const transfer = transfers.find(item => item.address === tokenAddress);
 
       if (!(provider && transfer)) return;
       if (parseInt(transfer.value, 10) <= 0) return;
@@ -90,15 +92,16 @@ export const TokensList = ({ provider }: Props) => {
           setTransfer(tokenAddress, { error });
         })
         .then(() => {
-          provider.getTokenBalance(tokenAddress).then(balance => {
-            setBalance(tokenAddress, { balance });
-          });
+          // provider.getTokenBalance(tokenAddress).then(balance => {
+          //   setBalance(tokenAddress, { balance });
+          // });
+          console.log('ok');
         })
         .finally(() => {
           setTransfer(tokenAddress, { isSending: false, error: undefined });
         });
     },
-    [transfers, provider, setTransfer, setBalance],
+    [transfers, provider, setTransfer],
   );
 
   return (
@@ -116,14 +119,11 @@ export const TokensList = ({ provider }: Props) => {
             </tr>
           </thead>
           <tbody>
-            {balances.map(
-              (
-                { tokenAddress, name, symbol, balance }: TokenBalance,
-                index,
-              ) => {
-                const transfer = transfers[index] || { value: '0' };
+            {(balances || []).map(
+              ({ address, name, symbol, balance }: TokenBalance, index) => {
+                const transfer = transfers[index] || { value: '0' } as TokenTransfer;
                 return (
-                  <tr key={tokenAddress}>
+                  <tr key={address}>
                     <td className="tokenIcon">💩</td>
                     <td>
                       <div className="tokenSymbol">{symbol}</div>
@@ -135,13 +135,13 @@ export const TokensList = ({ provider }: Props) => {
                           Max: {balance} {symbol}
                         </div>
                         <input
-                          name={`compost-${tokenAddress}`}
+                          name={`compost-${address}`}
                           type="number"
                           min={0}
                           max={balance}
                           placeholder="Enter amount"
                           onChange={({ target: { value } }) =>
-                            setTransferValue(tokenAddress, value)
+                            setTransferValue(address, value)
                           }
                         />
                       </div>
@@ -151,14 +151,14 @@ export const TokensList = ({ provider }: Props) => {
                     <td className="actions">
                       <button
                         disabled={transfer.isSending}
-                        onClick={() => send(tokenAddress)}
+                        onClick={() => send(address)}
                       >
                         ↗️
                       </button>
                       <button
                         disabled={transfer.isSending}
                         onClick={() => {
-                          console.log(`Reclaim ${tokenAddress}`);
+                          console.log(`Reclaim ${address}`);
                         }}
                       >
                         ↙️

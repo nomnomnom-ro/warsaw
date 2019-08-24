@@ -6,6 +6,7 @@ import React from 'react';
 import { MetaMask } from './MetaMask';
 import { Provider } from './Provider';
 import { TokensList } from './TokensList';
+import { NomDashboard } from './NomDashboard';
 
 import './App.css';
 
@@ -20,6 +21,7 @@ export const App = () => (
           <Provider wallet={wallet}>
             {({ provider }) => (
               <>
+                <NomDashboard provider={provider} />
                 <TokensList provider={provider} />
               </>
             )}

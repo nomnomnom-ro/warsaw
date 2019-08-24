@@ -1,5 +1,6 @@
 .app {
   max-width: 900px;
+  min-height: 900px;
   margin: 20px auto;
   background-color: #3a3a42;
   border-radius: 10px;

@@ -5,6 +5,7 @@
   "dependencies": {
     "@colony/purser-core": "^2.2.1",
     "@colony/purser-metamask": "^2.4.1",
+    "ethers": "^4.0.36",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
@@ -36,6 +37,7 @@
     "@types/node": "^12.7.2",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
+    "@types/web3": "^1.0.19",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
     "eslint-config-prettier": "^6.1.0",
