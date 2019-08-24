@@ -30,7 +30,7 @@ contract Warsaw is WarsawBase {
   }
 
   function mintAndSendTokens(address payable recipient, uint256 amount) internal {
-    assert(colony.getRewardInverse() == UINT256_MAX);
+    require(colony.getRewardInverse() == UINT256_MAX, "colony-bad-reward-inverse");
 
     address token = colony.getToken();
     colony.mintTokens(amount);
@@ -39,7 +39,7 @@ contract Warsaw is WarsawBase {
   }
 
   function sendEtherToRewardsPot(uint256 amount) internal {
-    assert(colony.getRewardInverse() == UINT256_MAX);
+    require(colony.getRewardInverse() == UINT256_MAX, "colony-bad-reward-inverse");
 
     // Well this is ratchet
     address colonyAddress = address(colony);

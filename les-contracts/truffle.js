@@ -17,17 +17,17 @@ module.exports = {
       network_id: "1"
     }
   },
+  mocha: {
+    reporter: "eth-gas-reporter",
+    options: {
+      currency: "USD",
+      gasPrice: 5,
+    }
+  },
   compilers: {
     solc: {
       version: "0.5.8",
-      docker: true,
-      settings: {
-        optimizer: {
-          enabled: true,
-          runs: 200
-        },
-        evmVersion: "petersburg"
-      }
+      docker: true
     }
   },
 };
