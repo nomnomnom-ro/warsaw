@@ -6,7 +6,8 @@
   "author": "Kaywinnet Lee Frye",
   "license": "WTFPL",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "start:prod": "NODE_ENV=production node index.js"
   },
   "dependencies": {
     "@colony/purser-software": "^1.2.7",
