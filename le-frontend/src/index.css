@@ -13,6 +13,24 @@ html, body {
   height: 100%;
 }
 
+.wormsWriggling {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.wormsWriggling video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
 #root {
   display: block;
   height: 100%;
