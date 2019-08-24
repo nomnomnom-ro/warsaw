@@ -28,13 +28,15 @@ if (!INFURA_KEY) {
   process.exit(1);
 }
 
+const INFURA_ENDPOINT = `https://${NETWORK}.infura.io/${INFURA_KEY}`;
+
 if (!(MNEMONIC || PRIVATE_KEY)) {
   console.error('Please specify either a env MNEMONIC or an env PRIVATE_KEY');
   process.exit(1);
 }
 
 (async () => {
-  const web3Provider = new web3(new web3.providers.HttpProvider(`https://${NETWORK}.infura.io/${INFURA_KEY}`));
+  const web3Provider = new web3(new web3.providers.HttpProvider(INFURA_ENDPOINT));
 
   const wallet = await openWallet({
     privateKey: PRIVATE_KEY,
@@ -98,6 +100,7 @@ if (!(MNEMONIC || PRIVATE_KEY)) {
     console.log(`${package.name} started!`);
     console.log('Listening on http://127.0.0.1:3000');
     console.log(`Using wallet ${wallet.address}`);
+    console.log(`Using Infura Provider: ${INFURA_ENDPOINT}`);
   });
 
 })()
