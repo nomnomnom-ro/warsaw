@@ -1,20 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
 .app {
-  max-width: 900px;
+  max-width: 1400px;
   min-height: 900px;
   margin: 20px auto;
-  background-color: #3a3a42;
-  border-radius: 10px;
-  padding: 20px;
 }
 
 .appHeader {
-  text-align: center;
-  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
 }
 
 .appHeader h1 {
+  font-size: 24px;
   margin: 0;
 }
 
-.appMain {
+.appMain .tokensList, .appMain .dashboard {
+  border-radius: 10px;
+  background-color: #28282d;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.appMain .top, .appMain .bottom {
+  margin-bottom: 40px;
+  justify-content: space-between;
+  display: flex;
+}
+
+.appMain .explainer {
+  max-width: 600px;
+  color: #c9c9cb;
+  font-size: 26px;
+  margin-right: 40px;
 }

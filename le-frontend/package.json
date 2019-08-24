@@ -7,6 +7,7 @@
     "@colony/purser-metamask": "^2.4.1",
     "ethers": "^4.0.36",
     "react": "^16.9.0",
+    "react-blockies": "^1.4.1",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
     "web3": "^1.2.1"

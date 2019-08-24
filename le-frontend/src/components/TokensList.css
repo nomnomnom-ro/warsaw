@@ -5,10 +5,16 @@
 .tokenBalances th {
   font-weight: normal;
   font-size: 14px;
+  background: #24242a;
+  height: 48px;
 }
 
 .tokenBalances td {
   padding: 10px 0;
+}
+
+.tokenDetails {
+  text-align: left;
 }
 
 .tokenSymbol {
