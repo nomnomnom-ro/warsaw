@@ -1,0 +1,16 @@
+{
+  "name": "les-contracts",
+  "private": true,
+  "description": "Contracts for secret project Warsaw",
+  "author": "Leopold Dankstein",
+  "version": "0.1.0",
+  "homepage": "https://github.com/nomnomnom-ro/warsaw",
+  "keywords": [],
+  "scripts": {
+    "compile": "./node_modules/truffle/build/cli.bundled.js compile",
+    "test": "./node_modules/truffle/build/cli.bundled.js test"
+  },
+  "dependencies": {
+    "truffle": "^5.0.33"
+  }
+}
