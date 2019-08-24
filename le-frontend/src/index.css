@@ -5,6 +5,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #1b1b1f;
+  color: #bababa;
+}
+
+html, body {
+  height: 100%;
+}
+
+#root {
+  display: block;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 code {

@@ -1,0 +1,19 @@
+.app {
+  max-width: 900px;
+  margin: 20px auto;
+  background-color: #3a3a42;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.appHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.appHeader h1 {
+  margin: 0;
+}
+
+.appMain {
+}

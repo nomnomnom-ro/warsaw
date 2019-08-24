@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@colony/purser-core": "^2.2.1",
+    "@colony/purser-metamask": "^2.4.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1"
+    "react-scripts": "3.1.1",
+    "web3": "^1.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,6 +36,13 @@
     "@types/node": "^12.7.2",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-config-react-app": "^5.0.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-typescript": "^0.14.0",
+    "prettier": "^1.18.2",
     "typescript": "^3.5.3"
   }
 }
