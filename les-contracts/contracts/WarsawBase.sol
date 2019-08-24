@@ -56,6 +56,9 @@ contract WarsawBase is DSMath {
     uint256 balance;
   }
 
+  event TokensDeposited(address indexed depositor, address indexed token, uint256 amount);
+  event TokensComposted(address indexed depositor, address indexed token, uint256 amount);
+
   modifier onlyOwner() {
     require(owner == msg.sender, "only-owner");
     _;
@@ -63,13 +66,14 @@ contract WarsawBase is DSMath {
 
   // Note: contract assumes root, funding, and administration permissions in root domain
   // Note: oneTxPayment assumes funding and administration permissions in root domain
-  // Note: assumes reward inverse is set to UINT256_MAX (i.e. 0 automatic rewards claims)
+  // Note: needs reward inverse set to UINT256_MAX (i.e. 0 automatic rewards claims)
   constructor(address colonyAddress, address oneTxPaymentAddress, address uniswapFactoryAddress) public {
     owner = msg.sender;
     colony = IColony(colonyAddress);
     oneTxPayment = OneTxPayment(oneTxPaymentAddress);
     uniswapFactory = UniswapFactoryInterface(uniswapFactoryAddress);
 
+    // Defaults!
     setSaleAmount(WAD);
     setSalePeriod(1 hours);
     setDailyMint(WAD);
@@ -102,10 +106,14 @@ contract WarsawBase is DSMath {
 
     Token(token).transferFrom(msg.sender, address(this), wad);
     deposits[token][tails[token]++] = Deposit({ depositor: msg.sender, balance: wad});
+
+    emit TokensDeposited(msg.sender, token, wad);
   }
 
   function sellTokens(address token) public {
-    require(add(lastSale[token], salePeriod) >= now, "sale-too-soon");
+    require(getNumDeposits(token) > 0, "no-token-deposits");
+    require(now >= add(lastSale[token], salePeriod), "sale-too-soon");
+    lastSale[token] = now;
 
     Deposit storage deposit = deposits[token][heads[token]];
     address payable depositor = deposit.depositor;
@@ -127,24 +135,33 @@ contract WarsawBase is DSMath {
     // Update active period income
     updateActivePeriodIncome(etherValue);
 
-    // Get daily income (not including current period)
-    uint256 dailyIncome = getDailyIncome();
+    // Get daily income (excluding current period, including current tx)
+    uint256 dailyIncome = add(getDailyIncome(), etherValue);
 
-    // Figure out percent of daily income depositor gets
+    // // Figure out percent of daily income depositor gets
     uint256 percentContribution = wdiv(etherValue, dailyIncome);
     uint256 tokensToMint = wmul(percentContribution, dailyMint);
     mintAndSendTokens(depositor, tokensToMint);
+
+    emit TokensComposted(depositor, token, amount);
   }
 
   function getCurrentPeriod() public view returns(uint256 period) {
     uint256 secondInDay = now % 24 hours;
     period = secondInDay / salePeriod;
-    assert(period <= periodsPerDay);
+    require(period <= periodsPerDay, "invalid-period");
   }
 
   function getDailyIncome() public view returns(uint256 total) {
     for (uint256 i; i < periodsPerDay; i++) {
       total += periodIncome[i];
+    }
+  }
+
+  function getPeriodIncomes() public view returns(uint256[] memory periodIncomes) {
+    periodIncomes = new uint256[](periodsPerDay);
+    for (uint256 i; i < periodsPerDay; i++) {
+      periodIncomes[i] = periodIncome[i];
     }
   }
 
@@ -156,6 +173,10 @@ contract WarsawBase is DSMath {
     deposit = deposits[token][id];
   }
 
+  function getNumPeriodsPerDay() public view returns(uint256 numPeriodsPerDay) {
+    numPeriodsPerDay = periodsPerDay;
+  }
+
   // Internal functions
 
   function updateActivePeriodIncome(uint256 income) internal {
@@ -165,7 +186,6 @@ contract WarsawBase is DSMath {
       activePeriodIncome += income;
     } else {
       // In a new period, so save and restart
-      assert((currentPeriod - activePeriod) % periodsPerDay == 1);
       periodIncome[currentPeriod] = activePeriodIncome;
       activePeriodIncome = income;
       activePeriod = currentPeriod;
