@@ -9,6 +9,7 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "@colony/purser-software": "^1.2.7",
     "ethereumjs-tx": "^2.1.0",
     "express": "^4.17.1",
     "node-cron": "^2.0.3",
