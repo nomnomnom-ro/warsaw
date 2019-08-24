@@ -1,9 +1,12 @@
-const web3 = require('web3');
+/* eslint-disable */
+
+const Web3 = require('web3');
 const express = require('express');
-const tx = require('ethereumjs-tx');
-const package = require('./package.json');
-const cron = require('node-cron');
+const Tx = require('ethereumjs-tx');
 const { open: openWallet } = require('@colony/purser-software');
+const packageJson = require('./package.json');
+const cron = require('node-cron');
+const WarsawBaseArtifact = require('../les-contracts/build/WarsawBase.json');
 
 const app = express();
 
@@ -12,7 +15,7 @@ const app = express();
  */
 const MODE_DEV = 'development';
 const NODE_ENV = process.env.NODE_ENV || MODE_DEV;
-const NETWORK = process.env.NETWORK || 'goerli';
+const NETWORK = process.env.NETWORK || 'mainnet';
 const CRON_SCHEDULE = process.env.CRONTAB || '0 * * * *';
 const MANUAL_TRIGGER_URL = '/manualnoms';
 
@@ -36,71 +39,78 @@ if (!(MNEMONIC || PRIVATE_KEY)) {
 }
 
 (async () => {
-  const web3Provider = new web3(new web3.providers.HttpProvider(INFURA_ENDPOINT));
+  const web3 = new Web3(new Web3.providers.HttpProvider(INFURA_ENDPOINT));
 
   const wallet = await openWallet({
     privateKey: PRIVATE_KEY,
     mnemonic: MNEMONIC,
   });
 
-  const sendNoms = () => {
-    // var myAddress = 'ADDRESS_THAT_SENDS_TRANSACTION';
-    // var privateKey = Buffer.from('YOUR_PRIVATE_KEY', 'hex')
-    // var toAddress = 'ADRESS_TO_SEND_TRANSACTION';
+  const sendNoms = async () => {
+    // @todo get the owner address and its private key
+    const myAddress = 'ADDRESS_THAT_SENDS_TRANSACTION';
+    const privateKey = Buffer.from('YOUR_PRIVATE_KEY', 'hex');
 
-    // //contract abi is the array that you can get from the ethereum wallet or etherscan
-    // var contractABI = YOUR_CONTRACT_ABI;
-    // var contractAddress = "YOUR_CONTRACT_ADDRESS";
-    // //creating contract object
-    // var contract = new web3js.eth.Contract(contractABI, contractAddress);
+    // Mr Twaddles
+    const toAddress = '0x6DEC3e1d475De47515FA5d798400372D9D7067B4';
 
-    // var count;
-    // // get transaction count, later will used as nonce
-    // web3js.eth.getTransactionCount(myAddress).then(function (v) {
-    //   console.log("Count: " + v);
-    //   count = v;
-    //   var amount = web3js.utils.toHex(1e16);
-    //   //creating raw tranaction
-    //   var rawTransaction = { "from": myAddress, "gasPrice": web3js.utils.toHex(20 * 1e9), "gasLimit": web3js.utils.toHex(210000), "to": contractAddress, "value": "0x0", "data": contract.methods.transfer(toAddress, amount).encodeABI(), "nonce": web3js.utils.toHex(count) }
-    //   console.log(rawTransaction);
-    //   //creating tranaction via ethereumjs-tx
-    //   var transaction = new Tx(rawTransaction);
-    //   //signing transaction with private key
-    //   transaction.sign(privateKey);
-    //   //sending transacton via web3js module
-    //   web3js.eth.sendSignedTransaction('0x' + transaction.serialize().toString('hex'))
-    //     .on('transactionHash', console.log);
+    const contractABI = WarsawBaseArtifact.abi;
 
-    //   contract.methods.balanceOf(myAddress).call()
-    //     .then(function (balance) { console.log(balance) });
-    // })
+    // @todo get the deployed address
+    const contractAddress = 'YOUR_CONTRACT_ADDRESS';
+
+    //creating contract object
+    const contract = new web3.eth.Contract(contractABI, contractAddress);
+
+    // get transaction count, later will used as nonce
+    const count = await web3.eth.getTransactionCount(myAddress);
+    const amount = web3.utils.toHex(1e16);
+
+    //creating raw tranaction
+    const rawTransaction = {
+      from: myAddress,
+      gasPrice: web3.utils.toHex(20 * 1e9),
+      gasLimit: web3.utils.toHex(210000),
+      to: contractAddress,
+      value: '0x0',
+      data: contract.methods.transfer(toAddress, amount).encodeABI(),
+      nonce: web3.utils.toHex(count),
+    };
+    console.log(rawTransaction);
+
+    //creating tranaction via ethereumjs-tx
+    const transaction = new Tx(rawTransaction);
+
+    //signing transaction with private key
+    transaction.sign(privateKey);
+
+    //sending transaction via web3 module
+    web3.eth
+      .sendSignedTransaction('0x' + transaction.serialize().toString('hex'))
+      .on('transactionHash', console.log);
+
+    const balance = await contract.methods.balanceOf(myAddress).call();
+    console.log(balance);
   };
 
   cron.schedule(CRON_SCHEDULE, () => {
-
     console.log('Sending nom nom noms now ...');
 
     sendNoms();
-
   });
 
   if (NODE_ENV === MODE_DEV) {
-
-    app.get(MANUAL_TRIGGER_URL, function (req, res) {
-
+    app.get(MANUAL_TRIGGER_URL, (req, res) => {
       res.send('Sending nom nom noms manually...');
 
       sendNoms();
-
     });
-
   }
 
   app.listen(3000, () => {
-    console.log(`${package.name} started!`);
+    console.log(`${packageJson.name} started!`);
     console.log('Listening on http://127.0.0.1:3000');
     console.log(`Using wallet ${wallet.address}`);
     console.log(`Using Infura Provider: ${INFURA_ENDPOINT}`);
   });
-
-})()
+})();
