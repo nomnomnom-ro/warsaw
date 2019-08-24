@@ -8,13 +8,62 @@ interface Props {
 }
 
 export const NomDashboard = ({ provider }: Props) => {
-  const [nomBalance, setNomBalance] = useState(0);
-  const [enzymes, setEnzymes] = useState(0);
-  const [rewardsPot, setRewardsPot] = useState(0);
-  const [myRewards, setMyRewards] = useState(0);
+  const [nomBalance, setNomBalance] = useState('0');
+  const [enzymes, setEnzymes] = useState('0');
+  const [rewardsPot, setRewardsPot] = useState('0');
+  const [myRewards, setMyRewards] = useState('0');
   const [isClaiming, setIsClaiming] = useState(false);
   const [isTriggering, setIsTriggering] = useState(false);
   const [countdown, setCountdown] = useState('23:59:58'); // @todo
+
+  useEffect(() => {
+    provider &&
+      provider
+        .getEnzymes()
+        .catch((error: Error) => {
+          console.error(error);
+        })
+        .then(res => {
+          // @todo
+          console.log(res);
+        });
+  }, [provider]);
+
+  useEffect(() => {
+    provider &&
+      provider
+        .getTimeToPayout()
+        .catch((error: Error) => {
+          console.error(error);
+        })
+        .then(timeToPayout => {
+          setCountdown(timeToPayout as string);
+        });
+  }, [provider]);
+
+  useEffect(() => {
+    provider &&
+      provider
+        .getNoms()
+        .catch((error: Error) => {
+          console.error(error);
+        })
+        .then(noms => {
+          noms && setMyRewards(noms);
+        });
+  }, [provider]);
+
+  useEffect(() => {
+    provider &&
+      provider
+        .getNoms()
+        .catch((error: Error) => {
+          console.error(error);
+        })
+        .then(noms => {
+          noms && setMyRewards(noms);
+        });
+  }, [provider]);
 
   const claim = useCallback(() => {
     setIsClaiming(true);
@@ -60,7 +109,7 @@ export const NomDashboard = ({ provider }: Props) => {
             </div>
             <div>
               <button onClick={trigger} disabled={isTriggering}>
-                Claim
+                Trigger
               </button>
             </div>
           </div>

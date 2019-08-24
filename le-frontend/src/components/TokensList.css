@@ -13,7 +13,7 @@
 .tokenBalances th {
   font-weight: normal;
   font-size: 14px;
-  background: #24242a;
+  background: rgba(36, 36, 42, 0.4);
   height: 48px;
 }
 

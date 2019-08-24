@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@colony/colony-js-client": "^1.13.1",
     "@colony/purser-core": "^2.2.1",
     "@colony/purser-metamask": "^2.4.1",
     "ethers": "^4.0.36",

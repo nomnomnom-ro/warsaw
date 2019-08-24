@@ -22,7 +22,7 @@
 
 .appMain .tokensList, .appMain .dashboard {
   border-radius: 10px;
-  background-color: #28282d;
+  background-color: rgba(40, 40, 45, 0.4);
   margin-bottom: 40px;
   width: 100%;
 }
@@ -38,7 +38,7 @@
   color: #c9c9cb;
   font-size: 26px;
   margin-right: 40px;
-  text-shadow: 0 2px 4px #1b1b1f ;
+  text-shadow: 0 2px 4px #1b1b1f;
 }
 
 .explainer ol {

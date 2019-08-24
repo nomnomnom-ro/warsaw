@@ -19,6 +19,50 @@ export const WarsawABI = [
     type: 'constructor',
   },
   {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        name: 'depositor',
+        type: 'address',
+      },
+      {
+        indexed: true,
+        name: 'token',
+        type: 'address',
+      },
+      {
+        indexed: false,
+        name: 'amount',
+        type: 'uint256',
+      },
+    ],
+    name: 'TokensDeposited',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        name: 'depositor',
+        type: 'address',
+      },
+      {
+        indexed: true,
+        name: 'token',
+        type: 'address',
+      },
+      {
+        indexed: false,
+        name: 'amount',
+        type: 'uint256',
+      },
+    ],
+    name: 'TokensComposted',
+    type: 'event',
+  },
+  {
     constant: false,
     inputs: [
       {
@@ -78,6 +122,20 @@ export const WarsawABI = [
     constant: false,
     inputs: [
       {
+        name: 'frequency',
+        type: 'uint256',
+      },
+    ],
+    name: 'setPayoutFrequency',
+    outputs: [],
+    payable: false,
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    constant: false,
+    inputs: [
+      {
         name: 'token',
         type: 'address',
       },
@@ -107,6 +165,32 @@ export const WarsawABI = [
     type: 'function',
   },
   {
+    constant: false,
+    inputs: [
+      {
+        name: 'key',
+        type: 'bytes',
+      },
+      {
+        name: 'value',
+        type: 'bytes',
+      },
+      {
+        name: 'branchMask',
+        type: 'uint256',
+      },
+      {
+        name: 'siblings',
+        type: 'bytes32[]',
+      },
+    ],
+    name: 'initiateRewardPayout',
+    outputs: [],
+    payable: false,
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
     constant: true,
     inputs: [],
     name: 'getCurrentPeriod',
@@ -127,6 +211,100 @@ export const WarsawABI = [
     outputs: [
       {
         name: 'total',
+        type: 'uint256',
+      },
+    ],
+    payable: false,
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    constant: true,
+    inputs: [],
+    name: 'getPeriodIncomes',
+    outputs: [
+      {
+        name: 'periodIncomes',
+        type: 'uint256[]',
+      },
+    ],
+    payable: false,
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    constant: true,
+    inputs: [
+      {
+        name: 'token',
+        type: 'address',
+      },
+    ],
+    name: 'getNumDeposits',
+    outputs: [
+      {
+        name: 'numDeposits',
+        type: 'uint256',
+      },
+    ],
+    payable: false,
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    constant: true,
+    inputs: [
+      {
+        name: 'token',
+        type: 'address',
+      },
+      {
+        name: 'id',
+        type: 'uint256',
+      },
+    ],
+    name: 'getDeposit',
+    outputs: [
+      {
+        components: [
+          {
+            name: 'depositor',
+            type: 'address',
+          },
+          {
+            name: 'balance',
+            type: 'uint256',
+          },
+        ],
+        name: 'deposit',
+        type: 'tuple',
+      },
+    ],
+    payable: false,
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    constant: true,
+    inputs: [],
+    name: 'getNumPeriodsPerDay',
+    outputs: [
+      {
+        name: 'numPeriodsPerDay',
+        type: 'uint256',
+      },
+    ],
+    payable: false,
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    constant: true,
+    inputs: [],
+    name: 'getTimeToPayout',
+    outputs: [
+      {
+        name: 'timeToPayout',
         type: 'uint256',
       },
     ],

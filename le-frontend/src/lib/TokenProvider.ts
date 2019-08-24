@@ -1,10 +1,14 @@
 import Web3 from 'web3';
-import { formatUnits } from 'ethers/utils/units';
+import { getDefaultProvider, utils } from 'ethers';
+import { getNetworkClient } from '@colony/colony-js-client';
+import EthersWrappedWallet from '@colony/colony-js-client/lib/lib/EthersWrappedWallet';
 
-// import { ERC20_ABI } from './erc20';
 import { WarsawABI } from './warsaw';
 
+// @todo replace me when the contract is live
 const WARSAW_ADDRESS = '0xb8c77482e45f1f44de1745f52c74426c631bdd52';
+
+const COLONY_ADDRESS = '0xAb3476792b86b5A80C27b0D5dE20787492024aF9';
 
 const EXAMPLE_AMBER_RESPONSE = {
   status: 200,
@@ -67,17 +71,29 @@ export interface AmberResponse {
 export class TokenProvider {
   wallet: any;
   warsaw: any;
+  network: any;
+  colony: any;
   web3: Web3;
 
   constructor(wallet: any) {
     this.wallet = wallet;
     this.web3 = new Web3(Web3.givenProvider);
     this.warsaw = new this.web3.eth.Contract(WarsawABI, WARSAW_ADDRESS);
+    this.getColony().catch((error: Error) => console.error(error));
+  }
+
+  private async getColony() {
+    this.network = await getNetworkClient(
+      'mainnet',
+      new EthersWrappedWallet(this.wallet, getDefaultProvider('mainnet')),
+    );
+    this.colony = await this.network.getColonyClientByAddress(COLONY_ADDRESS);
   }
 
   private async sendTx(tx: any) {
     console.log(tx);
-    const result = await this.wallet.signTransaction(tx);
+    console.log(this.wallet);
+    const result = await this.wallet.sign(tx);
     console.log(result);
   }
 
@@ -86,6 +102,78 @@ export class TokenProvider {
     console.log(`Send ${value} of ${tokenAddress}`);
     const tx = this.warsaw.methods.depositTokens(tokenAddress, value);
     return this.sendTx(tx);
+  }
+
+  async getAllTokens(): Promise<
+    {
+      address: string;
+      balance: string;
+      composted: string;
+      decimals: number;
+      deposited: string;
+      name: string;
+      symbol: string;
+    }[]
+  > {
+    const balances = await this.getAllTokenBalances();
+    return Promise.all(
+      balances.map(async token => ({
+        ...token,
+        ...(await this.getCompostTotals(token.address)),
+      })),
+    );
+  }
+
+  async getCompostTotals(tokenAddress: string) {
+    const options = {
+      fromBlock: 8414879,
+      filter: {
+        depositor: this.wallet.address,
+        token: tokenAddress,
+      },
+    };
+
+    const events = await this.warsaw.getPastEvents('allEvents', options);
+
+    return events.reduce(
+      (acc, { event, returnValues: { amount } }) => {
+        if (event === 'TokensDeposited') {
+          acc.deposited += amount;
+        } else if (event === 'TokensComposited') {
+          acc.deposited -= amount;
+          acc.composted += amount;
+        }
+        return acc;
+      },
+      { deposited: 0, composted: 0 },
+    );
+  }
+
+  async getEnzymes() {
+    if (!this.colony) return;
+
+    const response = await this.colony.getReputation({
+      skillId: 1,
+      address: this.wallet.address,
+    });
+    console.log(response);
+    return response;
+  }
+
+  async getTimeToPayout() {
+    // const timeToPayout = await this.warsaw.methods.getTimeToPayout().call();
+    // console.log(timeToPayout);
+    // return timeToPayout;
+    return '23:45:45';
+  }
+
+  async getNoms(): Promise<string> {
+    if (!this.colony) return;
+
+    const { amount } = this.colony.tokenClient.getBalanceOf.call({
+      sourceAddress: this.wallet.address,
+    });
+    return utils.formatUnits(amount, 18);
   }
 
   async getCurrentPeriod(): Promise<string> {
@@ -97,11 +185,15 @@ export class TokenProvider {
   }
 
   async trigger() {
-    console.log('Trigger');
+    // @todo
+    const tx = this.warsaw.methods.initiateRewardPayout();
+    return this.sendTx(tx);
   }
 
   async claim() {
-    console.log('Claim');
+    await this.colony.claimColonyFunds.send({
+      tokenAddress: this.colony.tokenClient.address,
+    });
   }
 
   async getAllTokenBalances() {
@@ -128,7 +220,9 @@ export class TokenProvider {
         symbol,
         address,
         decimals: parseInt(decimals, 10),
-        balance: formatUnits(amount, parseInt(decimals, 10)),
+        balance: utils.formatUnits(amount, parseInt(decimals, 10)),
+        deposited: '0',
+        composted: '0',
         // price,
       }));
   }

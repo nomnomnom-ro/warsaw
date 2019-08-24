@@ -16,6 +16,8 @@ interface TokenBalance {
   symbol: string;
   decimals: number;
   balance: string;
+  composted: string;
+  deposited: string;
 }
 
 interface TokenTransfer {
@@ -28,6 +30,16 @@ interface TokenTransfer {
 export const TokensList = ({ provider }: Props) => {
   const [balances, setBalances] = useState<TokenBalance[]>();
   const [transfers, setTransfers] = useState<TokenTransfer[]>([]);
+  // @todo on every event, get the new balances/values/etc
+
+  useEffect(() => {
+    if (provider) {
+      provider.warsaw.events.allEvents().on('data', event => {
+        // Whenever any new event comes in, update all the things
+        provider.getAllTokenBalances().then(balances => setBalances(balances));
+      });
+    }
+  });
 
   useEffect(() => {
     if (provider) {
@@ -92,16 +104,23 @@ export const TokensList = ({ provider }: Props) => {
           setTransfer(tokenAddress, { error });
         })
         .then(() => {
-          // provider.getTokenBalance(tokenAddress).then(balance => {
-          //   setBalance(tokenAddress, { balance });
-          // });
-          console.log('ok');
+          provider.getCompostTotals(tokenAddress).then(totals => {
+            setBalance(tokenAddress, totals);
+          });
+          provider.getAllTokenBalances().then(balances => {
+            const token = balances.find(
+              balance => balance.address === tokenAddress,
+            );
+            if (token) {
+              setBalance(tokenAddress, { balance: token.balance });
+            }
+          });
         })
         .finally(() => {
           setTransfer(tokenAddress, { isSending: false, error: undefined });
         });
     },
-    [transfers, provider, setTransfer],
+    [transfers, provider, setTransfer, setBalance],
   );
 
   return (
@@ -120,8 +139,19 @@ export const TokensList = ({ provider }: Props) => {
           </thead>
           <tbody>
             {(balances || []).map(
-              ({ address, name, symbol, balance }: TokenBalance, index) => {
-                const transfer = transfers[index] || { value: '0' } as TokenTransfer;
+              (
+                {
+                  address,
+                  name,
+                  symbol,
+                  balance,
+                  deposited,
+                  composted,
+                }: TokenBalance,
+                index,
+              ) => {
+                const transfer =
+                  transfers[index] || ({ value: '0' } as TokenTransfer);
                 return (
                   <tr key={address}>
                     <td className="tokenIcon">💩</td>
@@ -146,22 +176,14 @@ export const TokensList = ({ provider }: Props) => {
                         />
                       </div>
                     </td>
-                    <td className="compostingValue">99.0</td>
-                    <td className="compostedValue">1.0</td>
+                    <td className="compostingValue">{deposited}</td>
+                    <td className="compostedValue">{composted}</td>
                     <td className="actions">
                       <button
                         disabled={transfer.isSending}
                         onClick={() => send(address)}
                       >
                         ↗️
-                      </button>
-                      <button
-                        disabled={transfer.isSending}
-                        onClick={() => {
-                          console.log(`Reclaim ${address}`);
-                        }}
-                      >
-                        ↙️
                       </button>
                     </td>
                   </tr>
