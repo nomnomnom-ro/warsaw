@@ -55,9 +55,7 @@ if (!(MNEMONIC || PRIVATE_KEY)) {
     const toAddress = '0x6DEC3e1d475De47515FA5d798400372D9D7067B4';
 
     const contractABI = WarsawBaseArtifact.abi;
-
-    // @todo get the deployed address
-    const contractAddress = 'YOUR_CONTRACT_ADDRESS';
+    const contractAddress = '0xb19c47f301a3dd3b1f7527bc7bc33e7583716dcd';
 
     //creating contract object
     const contract = new web3.eth.Contract(contractABI, contractAddress);
