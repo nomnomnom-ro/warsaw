@@ -16,213 +16,123 @@
 */
 
 pragma solidity >=0.5.8; // ignore-swc-103
-pragma experimental "ABIEncoderV2";
+pragma experimental ABIEncoderV2;
 
 import "./IRecovery.sol";
-import "./ColonyNetworkDataTypes.sol";
+import "./ColonyDataTypes.sol";
 
 
-/// @title Colony Network interface
+/// @title Colony interface
 /// @notice All publicly available functions are available here and registered to work with EtherRouter Network contract
-contract IColonyNetwork is ColonyNetworkDataTypes, IRecovery {
+contract IColony is ColonyDataTypes, IRecovery {
+  // Implemented in DSAuth.sol
+  /// @notice Get the `ColonyAuthority` for the colony.
+  /// @return colonyAuthority The `ColonyAuthority` contract address
+  function authority() public view returns (address colonyAuthority);
 
-  /// @notice Query if a contract implements an interface
-  /// @param interfaceID The interface identifier, as specified in ERC-165
-  /// @dev Interface identification is specified in ERC-165.
-  /// @return `true` if the contract implements `interfaceID`
-  function supportsInterface(bytes4 interfaceID) external pure returns (bool);
+  /// @notice Get the colony `owner` address. This should be address(0x0) at all times.
+  /// @dev Used for testing.
+  /// @return colonyOwner Address of the colony owner
+  function owner() public view returns (address colonyOwner);
 
-  /// @notice Set a replacement log entry if we're in recovery mode.
-  /// @param _reputationMiningCycle The address of the reputation mining cycle that the log was in.
-  /// @param _id The number of the log entry in the reputation mining cycle in question.
-  /// @param _user The address of the user earning / losing the reputation
-  /// @param _amount The amount of reputation being earned / lost
-  /// @param _skillId The id of the origin skill for the reputation update
-  /// @param _colony The address of the colony being updated
-  /// @param _nUpdates The number of updates the log entry corresponds to
-  /// @param _nPreviousUpdates The number of updates in the log before this entry
-  /// @dev Note that strictly, `_nUpdates` and `_nPreviousUpdates` don't need to be set - they're only used during
-  /// dispute resolution, which these replacement log entries are never used for. However, for ease of resyncing
-  /// the client, we have decided to include them for now.
-  function setReplacementReputationUpdateLogEntry(
-    address _reputationMiningCycle,
-    uint256 _id,
-    address _user,
-    int _amount,
-    uint256 _skillId,
-    address _colony,
-    uint128 _nUpdates,
-    uint128 _nPreviousUpdates
-    ) public;
+  // Implemented in Colony.sol
+  /// @notice Get the Colony contract version.
+  /// Starts from 1 and is incremented with every deployed contract change.
+  /// @return colonyVersion Version number
+  function version() public pure returns (uint256 colonyVersion);
 
-  /// @notice Get a replacement log entry (if set) for the log entry `_id` in the mining cycle that was at the address `_reputationMiningCycle`.
-  /// @param _reputationMiningCycle The address of the reputation mining cycle we are asking about
-  /// @param _id The log entry number we wish to see if there is a replacement for
-  /// @return reputationLogEntry ReputationLogEntry instance with the details of the log entry (if it exists)
-  function getReplacementReputationUpdateLogEntry(address _reputationMiningCycle, uint256 _id) public view returns
-    (ReputationLogEntry memory reputationLogEntry);
+  /// @notice Upgrades a colony to a new Colony contract version `_newVersion`.
+  /// @dev Downgrades are not allowed, i.e. `_newVersion` should be higher than the currect colony version.
+  /// @param _newVersion The target version for the upgrade
+  function upgrade(uint _newVersion) public;
 
-  /// @notice Get whether any replacement log entries have been set for the supplied reputation mining cycle.
-  /// @notice Used by the client to avoid doubling the number of RPC calls when syncing from scratch.
-  /// @param _reputationMiningCycle The reputation mining cycle address we want to know if any entries have been replaced in.
-  /// @return exists Boolean indicating whether there is a replacement log
-  function getReplacementReputationUpdateLogsExist(address _reputationMiningCycle) public view returns (bool exists);
+  /// @notice A function to be called after an upgrade has been done from v2 to v3.
+  /// @dev Sets up the permission for those with root permission to be able to call updateColonyOrbitDB, which is new in v3
+  /// @dev Should be removed in v4, and only `finishUpgrade` should be used, introduced in v3.
+  function finishUpgrade2To3() public;
 
-  /// @notice Get the Meta Colony address.
-  /// @return colonyAddress The Meta colony address, if no colony was found, returns 0x0
-  function getMetaColony() public view returns (address payable colonyAddress);
+  /// @notice A function to be called after an upgrade has been done from v2 to v3.
+  /// @dev Can only be called by the colony itself, and only expected to be called as part of the `upgrade()` call. Required to
+  /// be public so it can be an external call.
+  function finishUpgrade() public;
 
-  /// @notice Get the number of colonies in the network.
-  /// @return count The colony count
-  function getColonyCount() public view returns (uint256 count);
+  /// @notice Returns the colony network address set on the Colony.
+  /// @dev The colonyNetworkAddress we read here is set once, during `initialiseColony`.
+  /// @return colonyNetwork The address of Colony Network instance
+  function getColonyNetwork() public view returns (address colonyNetwork);
 
-  /// @notice Check if specific address is a colony created on colony network.
-  /// @param _colony Address of the colony
-  /// @return addressIsColony true if specified address is a colony, otherwise false
-  function isColony(address _colony) public view returns (bool addressIsColony);
+  /// @notice Get the colony token.
+  /// @return tokenAddress Address of the token contract
+  function getToken() public view returns (address tokenAddress);
 
-  /// @notice Adds a new skill to the global or local skills tree, under skill `_parentSkillId`.
-  /// Only the Meta Colony is allowed to add a global skill, called via `IColony.addGlobalSkill`.
-  /// Any colony is allowed to add a local skill and which is associated with a new domain via `IColony.addDomain`.
-  /// @dev Errors if the parent skill does not exist or if this is called by an unauthorised sender.
-  /// @param _parentSkillId Id of the skill under which the new skill will be added. If 0, a global skill is added with no parent.
-  /// @return skillId Id of the added skill
-  function addSkill(uint256 _parentSkillId) public returns (uint256 skillId);
+  /// @notice Set new colony root role.
+  /// Can be called by root role only.
+  /// @param _user User we want to give an root role to
+  /// @param _setTo The state of the role permission (true assign the permission, false revokes it)
+  function setRootRole(address _user, bool _setTo) public;
 
-  /// @notice Get the `nParents` and `nChildren` of skill with id `_skillId`.
-  /// @param _skillId Id of the skill
-  /// @return skill The Skill struct
-  function getSkill(uint256 _skillId) public view returns (Skill memory skill);
+  /// @notice Set new colony arbitration role.
+  /// Can be called by root role or architecture role.
+  /// @param _permissionDomainId Domain in which the caller has root role
+  /// @param _childSkillIndex The index that the `_domainId` is relative to `_permissionDomainId`
+  /// @param _user User we want to give an arbitration role to
+  /// @param _domainId Domain in which we are giving user the role
+  /// @param _setTo The state of the role permission (true assign the permission, false revokes it)
+  function setArbitrationRole(uint256 _permissionDomainId, uint256 _childSkillIndex, address _user, uint256 _domainId, bool _setTo) public;
 
-  /// @notice Mark a global skill as deprecated which stops new tasks and payments from using it.
-  /// @param _skillId Id of the skill
-  function deprecateSkill(uint256 _skillId) public;
+  /// @notice Set new colony architecture role.
+  /// Can be called by root role or architecture role.
+  /// @param _permissionDomainId Domain in which the caller has root/architecture role
+  /// @param _childSkillIndex The index that the `_domainId` is relative to `_permissionDomainId`
+  /// @param _user User we want to give an architecture role to
+  /// @param _domainId Domain in which we are giving user the role
+  /// @param _setTo The state of the role permission (true assign the permission, false revokes it)
+  function setArchitectureRole(uint256 _permissionDomainId, uint256 _childSkillIndex, address _user, uint256 _domainId, bool _setTo) public;
 
-  /// @notice Adds a reputation update entry to log.
-  /// @dev Errors if it is called by anyone but a colony or if skill with id `_skillId` does not exist or.
-  /// @param _user The address of the user for the reputation update
-  /// @param _amount The amount of reputation change for the update, this can be a negative as well as a positive value
-  /// @param _skillId The skill for the reputation update
-  function appendReputationUpdateLog(address _user, int256 _amount, uint256 _skillId) public;
+  /// @notice Set new colony funding role.
+  /// Can be called by root role or architecture role.
+  /// @param _permissionDomainId Domain in which the caller has root/architecture role
+  /// @param _childSkillIndex The index that the `_domainId` is relative to `_permissionDomainId`
+  /// @param _user User we want to give an funding role to
+  /// @param _domainId Domain in which we are giving user the role
+  /// @param _setTo The state of the role permission (true assign the permission, false revokes it)
+  function setFundingRole(uint256 _permissionDomainId, uint256 _childSkillIndex, address _user, uint256 _domainId, bool _setTo) public;
 
-  /// @notice Get the number of skills in the network including both global and local skills.
-  /// @return count The skill count
-  function getSkillCount() public view returns (uint256 count);
+  /// @notice Set new colony admin role.
+  /// Can be called by root role or architecture role.
+  /// @param _permissionDomainId Domain in which the caller has root/architecture role
+  /// @param _childSkillIndex The index that the `_domainId` is relative to `_permissionDomainId`
+  /// @param _user User we want to give an admin role to
+  /// @param _domainId Domain in which we are giving user the role
+  /// @param _setTo The state of the role permission (true assign the permission, false revokes it)
+  function setAdministrationRole(uint256 _permissionDomainId, uint256 _childSkillIndex, address _user, uint256 _domainId, bool _setTo) public;
 
-  /// @notice Get the `skillId` of the reputation mining skill. Only set once the metacolony is set up.
-  /// @return skillId The `skillId` of the reputation mining skill.
-  function getReputationMiningSkillId() public view returns (uint256 skillId);
+  /// @notice Check whether a given user has a given role for the colony.
+  /// Calls the function of the same name on the colony's authority contract.
+  /// @param _user The user whose role we want to check
+  /// @param _domainId The domain where we want to check for the role
+  /// @param _role The role we want to check for
+  /// @return hasRole Boolean indicating whether the given user has the given role in domain
+  function hasUserRole(address _user, uint256 _domainId, ColonyRole _role) public view returns (bool hasRole);
 
-  /// @notice Sets the token locking address.
-  /// This is only set once, and can't be changed afterwards.
-  /// @param _tokenLockingAddress Address of the locking contract
-  function setTokenLocking(address _tokenLockingAddress) public;
+  /// @notice Called once when the colony is created to initialise certain storage slot values.
+  /// @dev Sets the reward inverse to the uint max 2**256 - 1.
+  /// @param _colonyNetworkAddress Address of the colony network
+  /// @param _token Address of the colony ERC20 Token
+  function initialiseColony(address _colonyNetworkAddress, address _token) public;
 
-  /// @notice Get token locking contract address.
-  /// @return lockingAddress Token locking contract address
-  function getTokenLocking() public view returns (address lockingAddress);
+  /// @notice Allows the colony to bootstrap itself by having initial reputation and token `_amount` assigned to `_users`.
+  /// This reputation is assigned in the colony-wide domain. Secured function to authorised members.
+  /// @dev Only allowed to be called when `taskCount` is `0` by authorized addresses.
+  /// @param _users Array of address to bootstrap with reputation
+  /// @param _amount Amount of reputation/tokens for every address
+  function bootstrapColony(address[] memory _users, int[] memory _amount) public;
 
-  /// @notice Create the Meta Colony, same as a normal colony plus the root skill.
-  /// @param _tokenAddress Address of the CLNY token
-  function createMetaColony(address _tokenAddress) public;
+  /// @notice Mint `_wad` amount of colony tokens. Secured function to authorised members.
+  /// @param _wad Amount to mint
+  function mintTokens(uint256 _wad) public;
 
-  /// @notice Creates a new colony in the network.
-  /// Note that the token ownership (if there is one) has to be transferred to the newly created colony.
-  /// @param _tokenAddress Address of an ERC20 token to serve as the colony token.
-  /// Additionally token can optionally support `mint` as defined in `ERC20Extended`.
-  /// Support for `mint` is mandatory only for the Meta Colony Token.
-  /// @return colonyAddress Address of the newly created colony
-  function createColony(address _tokenAddress) public returns (address colonyAddress);
-
-  /// @notice Adds a new Colony contract version and the address of associated `_resolver` contract. Secured function to authorised members.
-  /// Allowed to be called by the Meta Colony only.
-  /// @param _version The new Colony contract version
-  /// @param _resolver Address of the `Resolver` contract which will be used with the underlying `EtherRouter` contract
-  function addColonyVersion(uint256 _version, address _resolver) public;
-
-  /// @notice Initialises the colony network by setting the first Colony version resolver to `_resolver` address.
-  /// @dev Only allowed to be run once, by the Network owner before any Colony versions are added.
-  /// @param _resolver Address of the resolver for Colony contract
-  /// @param _version Version of the Colony contract the resolver represents
-  function initialise(address _resolver, uint256 _version) public;
-
-  /// @notice Get a colony address by its Id in the network.
-  /// @param _id Id of the colony to get
-  /// @return colonyAddress The colony address, if no colony was found, returns 0x0
-  function getColony(uint256 _id) public view returns (address colonyAddress);
-
-  /// @notice Returns the latest Colony contract version. This is the version used to create all new colonies.
-  /// @return version The current / latest Colony contract version
-  function getCurrentColonyVersion() public view returns (uint256 version);
-
-  /// @notice Get the id of the parent skill at index `_parentSkillIndex` for skill with Id `_skillId`.
-  /// @param _skillId Id of the skill
-  /// @param _parentSkillIndex Index of the `skill.parents` array to get
-  /// Note that not all parent skill ids are stored here. See `Skill.parents` member for definition on which parents are stored
-  /// @return skillId Skill Id of the requested parent skill
-  function getParentSkillId(uint256 _skillId, uint256 _parentSkillIndex) public view returns (uint256 skillId);
-
-  /// @notice Get the id of the child skill at index `_childSkillIndex` for skill with Id `_skillId`.
-  /// @param _skillId Id of the skill
-  /// @param _childSkillIndex Index of the `skill.children` array to get
-  /// @return skillId Skill Id of the requested child skill
-  function getChildSkillId(uint256 _skillId, uint256 _childSkillIndex) public view returns (uint256 skillId);
-
-  /// @notice Get the address of either the active or inactive reputation mining cycle, based on `active`. The active reputation mining cycle
-  /// is the one currently under consideration by reputation miners. The inactive reputation cycle is the one with the log that is being appended to.
-  /// @param _active Whether the user wants the active or inactive reputation mining cycle
-  /// @return repMiningCycleAddress address of active or inactive ReputationMiningCycle
-  function getReputationMiningCycle(bool _active) public view returns (address repMiningCycleAddress);
-
-  /// @notice Calculate raw miner weight in WADs.
-  /// @param _timeStaked Amount of time (in seconds) that the miner has staked their CLNY
-  /// @param _submissonIndex Index of reputation hash submission (between 0 and 11)
-  /// @return minerWeight The weight of miner reward
-  function calculateMinerWeight(uint256 _timeStaked, uint256 _submissonIndex) public pure returns (uint256 minerWeight);
-
-  /// @notice Get the `Resolver` address for Colony contract version `_version`.
-  /// @param _version The Colony contract version
-  /// @return resolverAddress Address of the `Resolver` contract
-  function getColonyVersionResolver(uint256 _version) public view returns (address resolverAddress);
-
-  /// @notice Set a new Reputation root hash and starts a new mining cycle. Can only be called by the ReputationMiningCycle contract.
-  /// @param newHash The reputation root hash
-  /// @param newNNodes The updated nodes count value
-  /// @param stakers Array of users who submitted or backed the hash, being accepted here as the new reputation root hash
-  /// @param reward Amount of CLNY to be distributed as reward to miners
-  function setReputationRootHash(bytes32 newHash, uint256 newNNodes, address[] memory stakers, uint256 reward) public;
-
-  /// @notice Starts a new Reputation Mining cycle. Explicitly called only the first time,
-  /// subsequently called from within `setReputationRootHash`.
-  function startNextCycle() public;
-
-  /// @notice Creates initial inactive reputation mining cycle.
-  function initialiseReputationMining() public;
-
-  /// @notice Get the root hash of the current reputation state tree.
-  /// @return rootHash The current Reputation Root Hash
-  function getReputationRootHash() public view returns (bytes32 rootHash);
-
-  /// @notice Get the number of nodes in the current reputation state tree.
-  /// @dev I cannot see a reason why a user's client would need to call this - only stored to help with some edge cases in reputation mining dispute resolution.
-  /// @return nNodes uint256 The number of nodes in the state tree
-  function getReputationRootHashNNodes() public view returns (uint256 nNodes);
-
-  /// @notice Create and start a new `DutchAuction` for the entire amount of `_token` owned by the Colony Network.
-  /// @param _token Address of the token held by the network to be auctioned
-  function startTokenAuction(address _token) public;
-
-  /// @notice Setup registrar with ENS and root node.
-  /// @param _ens Address of ENS registrar
-  /// @param _rootNode Namehash of the root node for the domain
-  function setupRegistrar(address _ens, bytes32 _rootNode) public;
-
-  /// @notice Register a "user.joincolony.eth" label.
-  /// @param username The label to register
-  /// @param orbitdb The path of the orbitDB database associated with the user profile
-  function registerUserLabel(string memory username, string memory orbitdb) public;
-
-  /// @notice Register a "colony.joincolony.eth" label. Can only be called by a Colony.
+  /// @notice Register colony's ENS label.
   /// @param colonyName The label to register.
   /// @param orbitdb The path of the orbitDB database associated with the colony name
   function registerColonyLabel(string memory colonyName, string memory orbitdb) public;
@@ -231,42 +141,485 @@ contract IColonyNetwork is ColonyNetworkDataTypes, IRecovery {
   /// @param orbitdb The path of the orbitDB database to be associated with the colony
   function updateColonyOrbitDB(string memory orbitdb) public;
 
-  /// @notice Update a user's orbitdb address. Can only be called by a user with a registered subdomain
-  /// @param orbitdb The path of the orbitDB database to be associated with the user
-  function updateUserOrbitDB(string memory orbitdb) public;
+  /// @notice Add a colony domain, and its respective local skill under skill with id `_parentSkillId`.
+  /// New funding pot is created and associated with the domain here.
+  /// @param _permissionDomainId The domainId in which I have the permission to take this action
+  /// @param _childSkillIndex The index that the `_domainId` is relative to `_permissionDomainId`
+  /// @param _parentDomainId Id of the domain under which the new one will be added
+  /// @dev Adding new domains is currently retricted to one level only, i.e. `_parentDomainId` has to be the root domain id: `1`.
+  function addDomain(uint256 _permissionDomainId, uint256 _childSkillIndex, uint256 _parentDomainId) public;
 
-  /// @notice Retrieve the orbitdb address corresponding to a registered account.
-  /// @param node The Namehash of the account being queried.
-  /// @return orbitDB A string containing the address of the orbit database
-  function getProfileDBAddress(bytes32 node) public view returns (string memory orbitDB);
+  /// @notice Get a domain by id.
+  /// @param _id Id of the domain which details to get
+  /// @return domain The domain
+  function getDomain(uint256 _id) public view returns (Domain memory domain);
 
-  /// @notice Reverse lookup a username from an address.
-  /// @param addr The address we wish to find the corresponding ENS domain for (if any)
-  /// @return domain A string containing the colony-based ENS name corresponding to addr
-  function lookupRegisteredENSDomain(address addr) public view returns(string memory domain);
+  /// @notice Get the number of domains in the colony.
+  /// @return count The domain count. Min 1 as the root domain is created at the same time as the colony
+  function getDomainCount() public view returns (uint256 count);
 
-  /// @notice Returns the address the supplied node resolves do, if we are the resolver.
-  /// @param node The namehash of the ENS address being requested
-  /// @return address The address the supplied node resolves to
-  function addr(bytes32 node) public view returns (address);
+  /// @notice Helper function that can be used by a client to verify the correctness of a patricia proof they have been supplied with.
+  /// @param key The key of the element the proof is for.
+  /// @param value The value of the element that the proof is for.
+  /// @param branchMask The branchmask of the proof
+  /// @param siblings The siblings of the proof
+  /// @return isValid True if the proof is valid, false otherwise.
+  /// @dev For more detail about branchMask and siblings, examine the PatriciaTree implementation.
+  /// While public, likely only to be used by the Colony contracts, as it checks that the user is proving their own
+  /// reputation in the current colony. The `verifyProof` function can be used to verify any proof, though this function
+  /// is not currently exposed on the Colony's EtherRouter.
+  function verifyReputationProof(bytes memory key, bytes memory value, uint256 branchMask, bytes32[] memory siblings)
+    public view returns (bool isValid);
 
-  /// @notice Returns the address of the ENSRegistrar for the Network.
-  /// @return address The address the ENSRegistrar resolves to
-  function getENSRegistrar() public view returns (address);
+  // Implemented in ColonyPayment.sol
+  /// @notice Add a new payment in the colony. Secured function to authorised members.
+  /// @param _permissionDomainId The domainId in which I have the permission to take this action
+  /// @param _childSkillIndex The index that the `_domainId` is relative to `_permissionDomainId`,
+  /// (only used if `_permissionDomainId` is different to `_domainId`)
+  /// @param _recipient Address of the payment recipient
+  /// @param _token Address of the token, `0x0` value indicates Ether
+  /// @param _amount Payout amount
+  /// @param _domainId The domain where the payment belongs
+  /// @param _skillId The skill associated with the payment
+  /// @return paymentId Identifier of the newly created payment
+  function addPayment(
+    uint256 _permissionDomainId,
+    uint256 _childSkillIndex,
+    address payable _recipient,
+    address _token,
+    uint256 _amount,
+    uint256 _domainId,
+    uint256 _skillId)
+    public returns (uint256 paymentId);
 
-  /// @notice Set the resolver to be used by new instances of ReputationMiningCycle.
-  /// @param miningResolverAddress The address of the Resolver contract with the functions correctly wired.
-  function setMiningResolver(address miningResolverAddress) public;
+  /// @notice Finalizes the payment and logs the reputation log updates.
+  /// Allowed to be called once after payment is fully funded. Secured function to authorised members.
+  /// @param _permissionDomainId The domainId in which I have the permission to take this action
+  /// @param _childSkillIndex The index that the `_domainId` is relative to `_permissionDomainId`
+  /// @param _id Payment identifier
+  function finalizePayment(uint256 _permissionDomainId, uint256 _childSkillIndex, uint256 _id) public;
 
-  /// @notice Get the resolver to be used by new instances of ReputationMiningCycle.
-  /// @return miningResolverAddress The address of the mining cycle resolver currently used by new instances
-  function getMiningResolver() public view returns (address miningResolverAddress);
+  /// @notice Sets the recipient on an existing payment. Secured function to authorised members.
+  /// @param _permissionDomainId The domainId in which I have the permission to take this action
+  /// @param _childSkillIndex The index that the `_domainId` is relative to `_permissionDomainId`
+  /// @param _id Payment identifier
+  /// @param _recipient Address of the payment recipient
+  function setPaymentRecipient(uint256 _permissionDomainId, uint256 _childSkillIndex, uint256 _id, address payable _recipient) public;
 
-  /// @notice Return 1 / the fee to pay to the network. e.g. if the fee is 1% (or 0.01), return 100.
-  /// @return _feeInverse The inverse of the network fee
-  function getFeeInverse() public view returns (uint256 _feeInverse);
+  /// @notice Sets the domain on an existing payment. Secured function to authorised members
+  /// @param _permissionDomainId The domainId in which I have the permission to take this action.
+  /// @param _childSkillIndex The index that the `_domainId` is relative to `_permissionDomainId`
+  /// @param _id Payment identifier
+  /// @param _domainId Id of the new domain to set
+  function setPaymentDomain(uint256 _permissionDomainId, uint256 _childSkillIndex, uint256 _id, uint256 _domainId) public;
 
-  /// @notice Set the colony network fee to pay. e.g. if the fee is 1% (or 0.01), pass 100 as `_feeInverse`.
-  /// @param _feeInverse The inverse of the network fee to set
-  function setFeeInverse(uint256 _feeInverse) public;
+  /// @notice Sets the skill on an existing payment. Secured function to authorised members.
+  /// @param _permissionDomainId The domainId in which I have the permission to take this action
+  /// @param _childSkillIndex The index that the `_domainId` is relative to `_permissionDomainId`
+  /// @param _id Payment identifier
+  /// @param _skillId Id of the new skill to set
+  function setPaymentSkill(uint256 _permissionDomainId, uint256 _childSkillIndex, uint256 _id, uint256 _skillId) public;
+
+  /// @notice Sets the payout for a given token on an existing payment. Secured function to authorised members.
+  /// @param _permissionDomainId The domainId in which I have the permission to take this action
+  /// @param _childSkillIndex The index that the `_domainId` is relative to `_permissionDomainId`
+  /// @param _id Payment identifier
+  /// @param _token Address of the token, `0x0` value indicates Ether
+  /// @param _amount Payout amount
+  function setPaymentPayout(uint256 _permissionDomainId, uint256 _childSkillIndex, uint256 _id, address _token, uint256 _amount) public;
+
+  /// @notice Returns an exiting payment.
+  /// @param _id Payment identifier
+  /// @return payment The Payment data structure
+  function getPayment(uint256 _id) public view returns (Payment memory payment);
+
+  /// @notice Claim the payout in `_token` denomination for payment `_id`. Here the network receives its fee from each payout.
+  /// Same as for tasks, ether fees go straight to the Meta Colony whereas Token fees go to the Network to be auctioned off.
+  /// @param _id Payment identifier
+  /// @param _token Address of the token, `0x0` value indicates Ether
+  function claimPayment(uint256 _id, address _token) public;
+
+  /// @notice Get the number of payments in the colony.
+  /// @return count The payment count
+  function getPaymentCount() public view returns (uint256 count);
+
+  // Implemented in ColonyTask.sol
+  /// @notice Make a new task in the colony. Secured function to authorised members.
+  /// @param _permissionDomainId The domainId in which I have the permission to take this action
+  /// @param _childSkillIndex The index that the `_domainId` is relative to `_permissionDomainId`
+  /// @param _specificationHash Database identifier where the task specification is stored
+  /// @param _domainId The domain where the task belongs
+  /// @param _skillId The skill associated with the task, can set to `0` for no-op
+  /// @param _dueDate The due date of the task, can set to `0` for no-op
+  function makeTask(
+    uint256 _permissionDomainId,
+    uint256 _childSkillIndex,
+    bytes32 _specificationHash,
+    uint256 _domainId,
+    uint256 _skillId,
+    uint256 _dueDate) public;
+
+  /// @notice Get the number of tasks in the colony.
+  /// @return count The task count
+  function getTaskCount() public view returns (uint256 count);
+
+  /// @notice Starts from 0 and is incremented on every co-reviewed task change via `executeTaskChange` call.
+  /// @param _id Id of the task
+  /// @return nonce The current task change nonce value
+  function getTaskChangeNonce(uint256 _id) public view returns (uint256 nonce);
+
+  /// @notice Executes a task update transaction `_data` which is approved and signed by two of its roles (e.g. manager and worker)
+  /// using the detached signatures for these users.
+  /// @dev The Colony functions which require approval and the task roles to review these are set in `IColony.initialiseColony` at colony creation.
+  /// Upon successful execution the `taskChangeNonces` entry for the task is incremented.
+  /// @param _sigV recovery id
+  /// @param _sigR r output of the ECDSA signature of the transaction
+  /// @param _sigS s output of the ECDSA signature of the transaction
+  /// @param _mode How the signature was generated - 0 for Geth-style (usual), 1 for Trezor-style (only Trezor does this)
+  /// @param _value The transaction value, i.e. number of wei to be sent when the transaction is executed
+  /// Currently we only accept 0 value transactions but this is kept as a future option
+  /// @param _data The transaction data
+  function executeTaskChange(
+    uint8[] memory _sigV,
+    bytes32[] memory _sigR,
+    bytes32[] memory _sigS,
+    uint8[] memory _mode,
+    uint256 _value,
+    bytes memory _data
+    ) public;
+
+  /// @notice Executes a task role update transaction `_data` which is approved and signed by two of addresses.
+  /// depending of which function we are calling. Allowed functions are `setTaskManagerRole`, `setTaskEvaluatorRole` and `setTaskWorkerRole`.
+  /// Upon successful execution the `taskChangeNonces` entry for the task is incremented.
+  /// @param _sigV recovery id
+  /// @param _sigR r output of the ECDSA signature of the transaction
+  /// @param _sigS s output of the ECDSA signature of the transaction
+  /// @param _mode How the signature was generated - 0 for Geth-style (usual), 1 for Trezor-style (only Trezor does this)
+  /// @param _value The transaction value, i.e. number of wei to be sent when the transaction is executed
+  /// Currently we only accept 0 value transactions but this is kept as a future option
+  /// @param _data The transaction data
+  function executeTaskRoleAssignment(
+    uint8[] memory _sigV,
+    bytes32[] memory _sigR,
+    bytes32[] memory _sigS,
+    uint8[] memory _mode,
+    uint256 _value,
+    bytes memory _data
+    ) public;
+
+  /// @notice Submit a hashed secret of the rating for work in task `_id` which was performed by user with task role id `_role`.
+  /// Allowed within 5 days period starting which whichever is first from either the deliverable being submitted or the dueDate been reached.
+  /// Allowed only for evaluator to rate worker and for worker to rate manager performance.
+  /// Once submitted ratings can not be changed or overwritten.
+  /// @param _id Id of the task
+  /// @param _role Id of the role, as defined in TaskRole enum
+  /// @param _ratingSecret `keccak256` hash of a salt and 0-50 rating score (in increments of 10, .e.g 0, 10, 20, 30, 40 or 50).
+  /// Can be generated via `IColony.generateSecret` helper function.
+  function submitTaskWorkRating(uint256 _id, uint8 _role, bytes32 _ratingSecret) public;
+
+  /// @notice Reveal the secret rating submitted in `IColony.submitTaskWorkRating` for task `_id` and task role with id `_role`.
+  /// Allowed within 5 days period starting which whichever is first from either both rating secrets being submitted
+  /// (via `IColony.submitTaskWorkRating`) or the 5 day rating period expiring.
+  /// @dev Compares the `keccak256(_salt, _rating)` output with the previously submitted rating secret and if they match,
+  /// sets the task role properties `rated` to `true` and `rating` to `_rating`.
+  /// @param _id Id of the task
+  /// @param _role Id of the role, as defined in TaskRole enum
+  /// @param _rating 0-50 rating score (in increments of 10, .e.g 0, 10, 20, 30, 40 or 50)
+  /// @param _salt Salt value used to generate the rating secret
+  function revealTaskWorkRating(uint256 _id, uint8 _role, uint8 _rating, bytes32 _salt) public;
+
+  /// @notice Helper function used to generage consistently the rating secret using salt value `_salt` and value to hide `_value`
+  /// @param _salt Salt value
+  /// @param _value Value to hide
+  /// @return secret `keccak256` hash of joint _salt and _value
+  function generateSecret(bytes32 _salt, uint256 _value) public pure returns (bytes32 secret);
+
+  /// @notice Get the `ColonyStorage.RatingSecrets` information for task `_id`.
+  /// @param _id Id of the task
+  /// @return nSecrets Number of secrets
+  /// @return lastSubmittedAt Timestamp of the last submitted rating secret
+  function getTaskWorkRatingSecretsInfo(uint256 _id) public view returns (uint256 nSecrets, uint256 lastSubmittedAt);
+
+  /// @notice Get the rating secret submitted for role `_role` in task `_id`
+  /// @param _id Id of the task
+  /// @param _role Id of the role, as defined in TaskRole enum
+  /// @return secret Rating secret `bytes32` value
+  function getTaskWorkRatingSecret(uint256 _id, uint8 _role) public view returns (bytes32 secret);
+
+  /// @notice Assigning manager role.
+  /// Current manager and user we want to assign role to both need to agree.
+  /// User we want to set here also needs to be an admin.
+  /// Note that the domain proof data comes at the end here to not interfere with the assembly argument unpacking.
+  /// @dev This function can only be called through `executeTaskRoleAssignment`.
+  /// @param _id Id of the task
+  /// @param _user Address of the user we want to give a manager role to
+  /// @param _permissionDomainId The domain ID in which _user has the Administration permission
+  /// @param _childSkillIndex The index that the `_domainId` is relative to `_permissionDomainId`
+  function setTaskManagerRole(uint256 _id, address payable _user, uint256 _permissionDomainId, uint256 _childSkillIndex) public;
+
+  /// @notice Assigning evaluator role.
+  /// Can only be set if there is no one currently assigned to be an evaluator.
+  /// Manager of the task and user we want to assign role to both need to agree.
+  /// Managers can assign themselves to this role, if there is no one currently assigned to it.
+  /// @dev This function can only be called through `executeTaskRoleAssignment`.
+  /// @param _id Id of the task
+  /// @param _user Address of the user we want to give a evaluator role to
+  function setTaskEvaluatorRole(uint256 _id, address payable _user) public;
+
+  /// @notice Assigning worker role.
+  /// Can only be set if there is no one currently assigned to be a worker.
+  /// Manager of the task and user we want to assign role to both need to agree.
+  /// @dev This function can only be called through `executeTaskRoleAssignment`.
+  /// @param _id Id of the task
+  /// @param _user Address of the user we want to give a worker role to
+  function setTaskWorkerRole(uint256 _id, address payable _user) public;
+
+  /// @notice Removing evaluator role.
+  /// Agreed between manager and currently assigned evaluator.
+  /// @param _id Id of the task
+  function removeTaskEvaluatorRole(uint256 _id) public;
+
+  /// @notice Removing worker role.
+  /// Agreed between manager and currently assigned worker.
+  /// @param _id Id of the task
+  function removeTaskWorkerRole(uint256 _id) public;
+
+  /// @notice Set the skill for task `_id`.
+  /// @dev Currently we only allow one skill per task although we have provisioned for an array of skills in `Task` struct.
+  /// Allowed before a task is finalized.
+  /// @param _id Id of the task
+  /// @param _skillId Id of the skill which has to be a global skill
+  function setTaskSkill(uint256 _id, uint256 _skillId) public;
+
+  /// @notice Set the domain for task `_id`.
+  /// @param _id Id of the task
+  /// @param _domainId Id of the domain
+  function setTaskDomain(uint256 _id, uint256 _domainId) public;
+
+  /// @notice Set the hash for the task brief, aka task work specification, which identifies the task brief content in ddb.
+  /// Allowed before a task is finalized.
+  /// @param _id Id of the task
+  /// @param _specificationHash Unique hash of the task brief in ddb
+  function setTaskBrief(uint256 _id, bytes32 _specificationHash) public;
+
+  /// @notice Set the due date on task `_id`. Allowed before a task is finalized.
+  /// @param _id Id of the task
+  /// @param _dueDate Due date as seconds since unix epoch
+  function setTaskDueDate(uint256 _id, uint256 _dueDate) public;
+
+  /// @notice Submit the task deliverable, i.e. the output of the work performed for task `_id`.
+  /// Submission is allowed only to the assigned worker before the task due date. Submissions cannot be overwritten.
+  /// @dev Set the `task.deliverableHash` and `task.completionTimestamp` properties.
+  /// @param _id Id of the task
+  /// @param _deliverableHash Unique hash of the task deliverable content in ddb
+  function submitTaskDeliverable(uint256 _id, bytes32 _deliverableHash) public;
+
+  /// @notice Submit the task deliverable for Worker and rating for Manager.
+  /// @dev Internally call `submitTaskDeliverable` and `submitTaskWorkRating` in sequence.
+  /// @param _id Id of the task
+  /// @param _deliverableHash Unique hash of the task deliverable content in ddb
+  /// @param _ratingSecret Rating secret for manager
+  function submitTaskDeliverableAndRating(uint256 _id, bytes32 _deliverableHash, bytes32 _ratingSecret) public;
+
+  /// @notice Called after task work rating is complete which closes the task and logs the respective reputation log updates.
+  /// Allowed to be called once per task. Secured function to authorised members.
+  /// @dev Set the `task.finalized` property to true
+  /// @param _id Id of the task
+  function finalizeTask(uint256 _id) public;
+
+  /// @notice Cancel a task at any point before it is finalized. Secured function to authorised members.
+  /// Any funds assigned to its funding pot can be moved back to the domain via `IColony.moveFundsBetweenPots`.
+  /// @dev Set the `task.status` property to `1`.
+  /// @param _id Id of the task
+  function cancelTask(uint256 _id) public;
+
+  /// @notice Mark a task as complete after the due date has passed.
+  /// This allows the task to be rated and finalized (and funds recovered) even in the presence of a worker who has disappeared.
+  /// Note that if the due date was not set, then this function will throw.
+  /// @param _id Id of the task
+  function completeTask(uint256 _id) public;
+
+  /// @notice Get a task with id `_id`
+  /// @param _id Id of the task
+  /// @return specificationHash Task brief hash
+  /// @return deliverableHash Task deliverable hash
+  /// @return status TaskStatus property. 0 - Active. 1 - Cancelled. 2 - Finalized
+  /// @return dueDate Due date
+  /// @return fundingPotId Id of funding pot for task
+  /// @return completionTimestamp Task completion timestamp
+  /// @return domainId Task domain id, default is root colony domain with id 1
+  /// @return skillIds Array of global skill ids assigned to task
+  function getTask(uint256 _id) public view returns (
+    bytes32 specificationHash,
+    bytes32 deliverableHash,
+    TaskStatus status,
+    uint256 dueDate,
+    uint256 fundingPotId,
+    uint256 completionTimestamp,
+    uint256 domainId,
+    uint256[] memory skillIds
+    );
+
+  /// @notice Get the `Role` properties back for role `_role` in task `_id`.
+  /// @param _id Id of the task
+  /// @param _role Id of the role, as defined in TaskRole enum
+  /// @return role The Role
+  function getTaskRole(uint256 _id, uint8 _role) public view returns (Role memory role);
+
+  /// @notice Set the reward inverse to pay out from revenue. e.g. if the fee is 1% (or 0.01), set 100.
+  /// @param _rewardInverse The inverse of the reward
+  function setRewardInverse(uint256 _rewardInverse) public;
+
+  /// @notice Return 1 / the reward to pay out from revenue. e.g. if the fee is 1% (or 0.01), return 100.
+  /// @return rewardInverse The inverse of the reward
+  function getRewardInverse() public view returns (uint256 rewardInverse);
+
+  /// @notice Get payout amount in `_token` denomination for role `_role` in task `_id`.
+  /// @param _id Id of the task
+  /// @param _role Id of the role, as defined in TaskRole enum
+  /// @param _token Address of the token, `0x0` value indicates Ether
+  /// @return amount Payout amount
+  function getTaskPayout(uint256 _id, uint8 _role, address _token) public view returns (uint256 amount);
+
+  /// @notice Set `_token` payout for manager in task `_id` to `_amount`.
+  /// @param _id Id of the task
+  /// @param _token Address of the token, `0x0` value indicates Ether
+  /// @param _amount Payout amount
+  function setTaskManagerPayout(uint256 _id, address _token, uint256 _amount) public;
+
+  /// @notice Set `_token` payout for evaluator in task `_id` to `_amount`.
+  /// @param _id Id of the task
+  /// @param _token Address of the token, `0x0` value indicates Ether
+  /// @param _amount Payout amount
+  function setTaskEvaluatorPayout(uint256 _id, address _token, uint256 _amount) public;
+
+  /// @notice Set `_token` payout for worker in task `_id` to `_amount`.
+  /// @param _id Id of the task
+  /// @param _token Address of the token, `0x0` value indicates Ether
+  /// @param _amount Payout amount
+  function setTaskWorkerPayout(uint256 _id, address _token, uint256 _amount) public;
+
+  /// @notice Set `_token` payout for all roles in task `_id` to the respective amounts.
+  /// @dev Can only call if evaluator and worker are unassigned or manager, otherwise need signature.
+  /// @param _id Id of the task
+  /// @param _token Address of the token, `0x0` value indicates Ether
+  /// @param _managerAmount Payout amount for manager
+  /// @param _evaluatorAmount Payout amount for evaluator
+  /// @param _workerAmount Payout amount for worker
+  function setAllTaskPayouts(uint256 _id, address _token, uint256 _managerAmount, uint256 _evaluatorAmount, uint256 _workerAmount) public;
+
+  /// @notice Claim the payout in `_token` denomination for work completed in task `_id` by contributor with role `_role`.
+  /// Allowed only after task is finalized. Here the network receives its fee from each payout.
+  /// Ether fees go straight to the Meta Colony whereas Token fees go to the Network to be auctioned off.
+  /// @param _id Id of the task
+  /// @param _role Id of the role, as defined in TaskRole enum
+  /// @param _token Address of the token, `0x0` value indicates Ether
+  function claimTaskPayout(uint256 _id, uint8 _role, address _token) public;
+
+  /// @notice Start next reward payout for `_token`. All funds in the reward pot for `_token` will become unavailable.
+  /// @notice Add a new payment in the colony. Can only be called by users with root permission.
+  /// All tokens will be locked, and can be unlocked by calling `waiveRewardPayout` or `claimRewardPayout`.
+  /// @param _token Address of the token used for reward payout
+  /// @param key Some Reputation hash tree key
+  /// @param value Reputation value
+  /// @param branchMask The branchmask of the proof
+  /// @param siblings The siblings of the proof
+  function startNextRewardPayout(address _token, bytes memory key, bytes memory value, uint256 branchMask, bytes32[] memory siblings) public;
+
+  /// @notice Claim the reward payout at `_payoutId`. User needs to provide their reputation and colony-wide reputation
+  /// which will be proven via Merkle proof inside this function.
+  /// Can only be called if payout is active, i.e if 60 days have not passed from its creation.
+  /// Can only be called if next in queue.
+  /// @param _payoutId Id of the reward payout
+  /// @param _squareRoots Square roots of values used in equation:
+  /// `_squareRoots[0]` - square root of user reputation,
+  /// `_squareRoots[1]` - square root of user tokens,
+  /// `_squareRoots[2]` - square root of total reputation,
+  /// `_squareRoots[3]` - square root of total tokens,
+  /// `_squareRoots[4]` - square root of numerator (user reputation * user tokens),
+  /// `_squareRoots[5]` - square root of denominator (total reputation * total tokens),
+  /// `_squareRoots[6]` - square root of payout amount.
+  /// @param key Some Reputation hash tree key
+  /// @param value Reputation value
+  /// @param branchMask The branchmask of the proof
+  /// @param siblings The siblings of the proof
+  function claimRewardPayout(
+    uint256 _payoutId,
+    uint256[7] memory _squareRoots,
+    bytes memory key,
+    bytes memory value,
+    uint256 branchMask,
+    bytes32[] memory siblings
+    ) public;
+
+  /// @notice Get useful information about specific reward payout.
+  /// @param _payoutId Id of the reward payout
+  /// @return rewardPayoutCycle RewardPayoutCycle, containing propertes:
+  ///  `reputationState` Reputation root hash at the time of creation,
+  ///  `colonyWideReputation` Colony wide reputation in `reputationState`,
+  ///  `totalTokens` Total colony tokens at the time of creation,
+  ///  `amount` Total amount of tokens taken aside for reward payout,
+  ///  `tokenAddress` Token address,
+  ///  `blockTimestamp` Block number at the time of creation.
+  function getRewardPayoutInfo(uint256 _payoutId) public view returns (RewardPayoutCycle memory rewardPayoutCycle);
+
+  /// @notice Finalises the reward payout. Allows creation of next reward payouts for token that has been used in `_payoutId`.
+  /// Can only be called when reward payout cycle is finished i.e when 60 days have passed from its creation.
+  /// @param _payoutId Id of the reward payout
+  function finalizeRewardPayout(uint256 _payoutId) public;
+
+  /// @notice Get the non-mapping properties of a pot by id.
+  /// @param _id Id of the pot which details to get
+  /// @return associatedType The FundingPotAssociatedType value of the current funding pot, e.g. Domain, Task, Payout
+  /// @return associatedTypeId Id of the associated type, e.g. if associatedType = FundingPotAssociatedType.Domain, this refers to the domainId
+  /// @return payoutsWeCannotMake Number of payouts that cannot be completed with the current funding
+  /// @dev For the reward funding pot (e.g. id: 0) this returns (0, 0, 0).
+  function getFundingPot(uint256 _id) public view returns (
+    FundingPotAssociatedType associatedType,
+    uint256 associatedTypeId,
+    uint256 payoutsWeCannotMake);
+
+  /// @notice Get the number of funding pots in the colony.
+  /// @return count The funding pots count
+  function getFundingPotCount() public view returns (uint256 count);
+
+  /// @notice Get the `_token` balance of pot with id `_potId`.
+  /// @param _potId Id of the funding pot
+  /// @param _token Address of the token, `0x0` value indicates Ether
+  /// @return balance Funding pot supply balance
+  function getFundingPotBalance(uint256 _potId, address _token) public view returns (uint256 balance);
+
+  /// @notice Get the assigned `_token` payouts of pot with id `_potId`.
+  /// @param _potId Id of the funding pot
+  /// @param _token Address of the token, `0x0` value indicates Ether
+  /// @return payout Funding pot payout amount
+  function getFundingPotPayout(uint256 _potId, address _token) public view returns (uint256 payout);
+
+  /// @notice Move a given amount: `_amount` of `_token` funds from funding pot with id `_fromPot` to one with id `_toPot`.
+  /// @param _permissionDomainId The domainId in which I have the permission to take this action
+  /// @param _fromChildSkillIndex The child index in `_permissionDomainId` where we can find the domain for `_fromPotId`
+  /// @param _toChildSkillIndex The child index in `_permissionDomainId` where we can find the domain for `_toPotId`
+  /// @param _fromPot Funding pot id providing the funds
+  /// @param _toPot Funding pot id receiving the funds
+  /// @param _amount Amount of funds
+  /// @param _token Address of the token, `0x0` value indicates Ether
+  function moveFundsBetweenPots(
+    uint256 _permissionDomainId,
+    uint256 _fromChildSkillIndex,
+    uint256 _toChildSkillIndex,
+    uint256 _fromPot,
+    uint256 _toPot,
+    uint256 _amount,
+    address _token
+    ) public;
+
+  /// @notice Move any funds received by the colony in `_token` denomination to the top-level domain pot,
+  /// siphoning off a small amount to the reward pot. If called against a colony's own token, no fee is taken.
+  /// @param _token Address of the token, `0x0` value indicates Ether
+  function claimColonyFunds(address _token) public;
+
+  /// @notice Get the total amount of tokens `_token` minus amount reserved to be paid to the reputation and token holders as rewards.
+  /// @param _token Address of the token, `0x0` value indicates Ether
+  /// @return amount Total amount of tokens in funding pots other than the rewards pot (id 0)
+  function getNonRewardPotsTotal(address _token) public view returns (uint256 amount);
 }
