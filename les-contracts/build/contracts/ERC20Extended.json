@@ -284,14 +284,14 @@
     "absolutePath": "/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/colony/ERC20Extended.sol",
     "exportedSymbols": {
       "ERC20Extended": [
-        1812
+        1846
       ]
     },
-    "id": 1813,
+    "id": 1847,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1772,
+        "id": 1806,
         "literals": [
           "solidity",
           "0.5",
@@ -303,10 +303,10 @@
       {
         "absolutePath": "/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/dappsys/erc20.sol",
         "file": "../dappsys/erc20.sol",
-        "id": 1773,
+        "id": 1807,
         "nodeType": "ImportDirective",
-        "scope": 1813,
-        "sourceUnit": 3790,
+        "scope": 1847,
+        "sourceUnit": 3824,
         "src": "724:30:6",
         "symbolAliases": [],
         "unitAlias": ""
@@ -317,33 +317,33 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1774,
+              "id": 1808,
               "name": "ERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 3789,
+              "referencedDeclaration": 3823,
               "src": "783:5:6",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20_$3789",
+                "typeIdentifier": "t_contract$_ERC20_$3823",
                 "typeString": "contract ERC20"
               }
             },
-            "id": 1775,
+            "id": 1809,
             "nodeType": "InheritanceSpecifier",
             "src": "783:5:6"
           }
         ],
         "contractDependencies": [
-          3736,
-          3789
+          3770,
+          3823
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 1812,
+        "id": 1846,
         "linearizedBaseContracts": [
-          1812,
-          3789,
-          3736
+          1846,
+          3823,
+          3770
         ],
         "name": "ERC20Extended",
         "nodeType": "ContractDefinition",
@@ -351,20 +351,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1781,
+            "id": 1815,
             "name": "Mint",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1780,
+              "id": 1814,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1777,
+                  "id": 1811,
                   "indexed": true,
                   "name": "guy",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1781,
+                  "scope": 1815,
                   "src": "804:19:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -373,7 +373,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1776,
+                    "id": 1810,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "804:7:6",
@@ -388,11 +388,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1779,
+                  "id": 1813,
                   "indexed": false,
                   "name": "wad",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1781,
+                  "scope": 1815,
                   "src": "825:8:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -401,7 +401,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1778,
+                    "id": 1812,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "825:4:6",
@@ -421,20 +421,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1787,
+            "id": 1821,
             "name": "Burn",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1786,
+              "id": 1820,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1783,
+                  "id": 1817,
                   "indexed": true,
                   "name": "guy",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1787,
+                  "scope": 1821,
                   "src": "849:19:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -443,7 +443,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1782,
+                    "id": 1816,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "849:7:6",
@@ -458,11 +458,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1785,
+                  "id": 1819,
                   "indexed": false,
                   "name": "wad",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1787,
+                  "scope": 1821,
                   "src": "870:8:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -471,7 +471,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1784,
+                    "id": 1818,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "870:4:6",
@@ -491,22 +491,22 @@
           {
             "body": null,
             "documentation": null,
-            "id": 1792,
+            "id": 1826,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mint",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1790,
+              "id": 1824,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1789,
+                  "id": 1823,
                   "name": "wad",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1792,
+                  "scope": 1826,
                   "src": "898:8:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -515,7 +515,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1788,
+                    "id": 1822,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "898:4:6",
@@ -531,12 +531,12 @@
               "src": "897:10:6"
             },
             "returnParameters": {
-              "id": 1791,
+              "id": 1825,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "914:0:6"
             },
-            "scope": 1812,
+            "scope": 1846,
             "src": "884:31:6",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -545,22 +545,22 @@
           {
             "body": null,
             "documentation": null,
-            "id": 1799,
+            "id": 1833,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mint",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1797,
+              "id": 1831,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1794,
+                  "id": 1828,
                   "name": "guy",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1799,
+                  "scope": 1833,
                   "src": "932:11:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -569,7 +569,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1793,
+                    "id": 1827,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "932:7:6",
@@ -584,10 +584,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1796,
+                  "id": 1830,
                   "name": "wad",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1799,
+                  "scope": 1833,
                   "src": "945:8:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -596,7 +596,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1795,
+                    "id": 1829,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "945:4:6",
@@ -612,12 +612,12 @@
               "src": "931:23:6"
             },
             "returnParameters": {
-              "id": 1798,
+              "id": 1832,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "961:0:6"
             },
-            "scope": 1812,
+            "scope": 1846,
             "src": "918:44:6",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -626,22 +626,22 @@
           {
             "body": null,
             "documentation": null,
-            "id": 1804,
+            "id": 1838,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "burn",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1802,
+              "id": 1836,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1801,
+                  "id": 1835,
                   "name": "wad",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1804,
+                  "scope": 1838,
                   "src": "979:8:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -650,7 +650,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1800,
+                    "id": 1834,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "979:4:6",
@@ -666,12 +666,12 @@
               "src": "978:10:6"
             },
             "returnParameters": {
-              "id": 1803,
+              "id": 1837,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "995:0:6"
             },
-            "scope": 1812,
+            "scope": 1846,
             "src": "965:31:6",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -680,22 +680,22 @@
           {
             "body": null,
             "documentation": null,
-            "id": 1811,
+            "id": 1845,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "burn",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1809,
+              "id": 1843,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1806,
+                  "id": 1840,
                   "name": "guy",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1811,
+                  "scope": 1845,
                   "src": "1013:11:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -704,7 +704,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1805,
+                    "id": 1839,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1013:7:6",
@@ -719,10 +719,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1808,
+                  "id": 1842,
                   "name": "wad",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1811,
+                  "scope": 1845,
                   "src": "1026:8:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -731,7 +731,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1807,
+                    "id": 1841,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1026:4:6",
@@ -747,19 +747,19 @@
               "src": "1012:23:6"
             },
             "returnParameters": {
-              "id": 1810,
+              "id": 1844,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1042:0:6"
             },
-            "scope": 1812,
+            "scope": 1846,
             "src": "999:44:6",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1813,
+        "scope": 1847,
         "src": "757:288:6"
       }
     ],
@@ -769,14 +769,14 @@
     "absolutePath": "/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/colony/ERC20Extended.sol",
     "exportedSymbols": {
       "ERC20Extended": [
-        1812
+        1846
       ]
     },
-    "id": 1813,
+    "id": 1847,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1772,
+        "id": 1806,
         "literals": [
           "solidity",
           "0.5",
@@ -788,10 +788,10 @@
       {
         "absolutePath": "/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/dappsys/erc20.sol",
         "file": "../dappsys/erc20.sol",
-        "id": 1773,
+        "id": 1807,
         "nodeType": "ImportDirective",
-        "scope": 1813,
-        "sourceUnit": 3790,
+        "scope": 1847,
+        "sourceUnit": 3824,
         "src": "724:30:6",
         "symbolAliases": [],
         "unitAlias": ""
@@ -802,33 +802,33 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1774,
+              "id": 1808,
               "name": "ERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 3789,
+              "referencedDeclaration": 3823,
               "src": "783:5:6",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20_$3789",
+                "typeIdentifier": "t_contract$_ERC20_$3823",
                 "typeString": "contract ERC20"
               }
             },
-            "id": 1775,
+            "id": 1809,
             "nodeType": "InheritanceSpecifier",
             "src": "783:5:6"
           }
         ],
         "contractDependencies": [
-          3736,
-          3789
+          3770,
+          3823
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 1812,
+        "id": 1846,
         "linearizedBaseContracts": [
-          1812,
-          3789,
-          3736
+          1846,
+          3823,
+          3770
         ],
         "name": "ERC20Extended",
         "nodeType": "ContractDefinition",
@@ -836,20 +836,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1781,
+            "id": 1815,
             "name": "Mint",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1780,
+              "id": 1814,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1777,
+                  "id": 1811,
                   "indexed": true,
                   "name": "guy",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1781,
+                  "scope": 1815,
                   "src": "804:19:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -858,7 +858,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1776,
+                    "id": 1810,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "804:7:6",
@@ -873,11 +873,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1779,
+                  "id": 1813,
                   "indexed": false,
                   "name": "wad",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1781,
+                  "scope": 1815,
                   "src": "825:8:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -886,7 +886,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1778,
+                    "id": 1812,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "825:4:6",
@@ -906,20 +906,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1787,
+            "id": 1821,
             "name": "Burn",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1786,
+              "id": 1820,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1783,
+                  "id": 1817,
                   "indexed": true,
                   "name": "guy",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1787,
+                  "scope": 1821,
                   "src": "849:19:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -928,7 +928,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1782,
+                    "id": 1816,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "849:7:6",
@@ -943,11 +943,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1785,
+                  "id": 1819,
                   "indexed": false,
                   "name": "wad",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1787,
+                  "scope": 1821,
                   "src": "870:8:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -956,7 +956,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1784,
+                    "id": 1818,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "870:4:6",
@@ -976,22 +976,22 @@
           {
             "body": null,
             "documentation": null,
-            "id": 1792,
+            "id": 1826,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mint",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1790,
+              "id": 1824,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1789,
+                  "id": 1823,
                   "name": "wad",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1792,
+                  "scope": 1826,
                   "src": "898:8:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1000,7 +1000,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1788,
+                    "id": 1822,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "898:4:6",
@@ -1016,12 +1016,12 @@
               "src": "897:10:6"
             },
             "returnParameters": {
-              "id": 1791,
+              "id": 1825,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "914:0:6"
             },
-            "scope": 1812,
+            "scope": 1846,
             "src": "884:31:6",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1030,22 +1030,22 @@
           {
             "body": null,
             "documentation": null,
-            "id": 1799,
+            "id": 1833,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mint",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1797,
+              "id": 1831,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1794,
+                  "id": 1828,
                   "name": "guy",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1799,
+                  "scope": 1833,
                   "src": "932:11:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1054,7 +1054,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1793,
+                    "id": 1827,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "932:7:6",
@@ -1069,10 +1069,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1796,
+                  "id": 1830,
                   "name": "wad",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1799,
+                  "scope": 1833,
                   "src": "945:8:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1081,7 +1081,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1795,
+                    "id": 1829,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "945:4:6",
@@ -1097,12 +1097,12 @@
               "src": "931:23:6"
             },
             "returnParameters": {
-              "id": 1798,
+              "id": 1832,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "961:0:6"
             },
-            "scope": 1812,
+            "scope": 1846,
             "src": "918:44:6",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1111,22 +1111,22 @@
           {
             "body": null,
             "documentation": null,
-            "id": 1804,
+            "id": 1838,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "burn",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1802,
+              "id": 1836,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1801,
+                  "id": 1835,
                   "name": "wad",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1804,
+                  "scope": 1838,
                   "src": "979:8:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1135,7 +1135,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1800,
+                    "id": 1834,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "979:4:6",
@@ -1151,12 +1151,12 @@
               "src": "978:10:6"
             },
             "returnParameters": {
-              "id": 1803,
+              "id": 1837,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "995:0:6"
             },
-            "scope": 1812,
+            "scope": 1846,
             "src": "965:31:6",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1165,22 +1165,22 @@
           {
             "body": null,
             "documentation": null,
-            "id": 1811,
+            "id": 1845,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "burn",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1809,
+              "id": 1843,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1806,
+                  "id": 1840,
                   "name": "guy",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1811,
+                  "scope": 1845,
                   "src": "1013:11:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1189,7 +1189,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1805,
+                    "id": 1839,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1013:7:6",
@@ -1204,10 +1204,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1808,
+                  "id": 1842,
                   "name": "wad",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1811,
+                  "scope": 1845,
                   "src": "1026:8:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1216,7 +1216,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1807,
+                    "id": 1841,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1026:4:6",
@@ -1232,19 +1232,19 @@
               "src": "1012:23:6"
             },
             "returnParameters": {
-              "id": 1810,
+              "id": 1844,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1042:0:6"
             },
-            "scope": 1812,
+            "scope": 1846,
             "src": "999:44:6",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1813,
+        "scope": 1847,
         "src": "757:288:6"
       }
     ],
@@ -1256,7 +1256,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.13",
-  "updatedAt": "2019-08-25T02:14:18.797Z",
+  "updatedAt": "2019-08-25T05:16:59.467Z",
   "devdoc": {
     "methods": {}
   },

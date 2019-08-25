@@ -122,6 +122,38 @@ contract("Warsaw", async accounts => {
   });
 });
 
+export async function setupColonyNetwork() {
+  const resolverColonyNetworkDeployed = await Resolver.deployed();
+  const colonyTemplate = await Colony.new();
+  const colonyFunding = await ColonyFunding.new();
+  const colonyTask = await ColonyTask.new();
+  const colonyPayment = await ColonyPayment.new();
+  const resolver = await Resolver.new();
+  const contractRecovery = await ContractRecovery.new();
+  const etherRouter = await EtherRouter.new();
+  await etherRouter.setResolver(resolverColonyNetworkDeployed.address);
+
+  const colonyNetwork = await IColonyNetwork.at(etherRouter.address);
+  await setupColonyVersionResolver(colonyTemplate, colonyTask, colonyPayment, colonyFunding, contractRecovery, resolver);
+  const version = await colonyTemplate.version();
+  await colonyNetwork.initialise(resolver.address, version);
+  // Jumping through these hoops to avoid the need to rewire ReputationMiningCycleResolver.
+  const deployedColonyNetwork = await IColonyNetwork.at(EtherRouter.address);
+  const reputationMiningCycleResolverAddress = await deployedColonyNetwork.getMiningResolver();
+  await colonyNetwork.setMiningResolver(reputationMiningCycleResolverAddress);
+
+  const tokenLockingResolver = await Resolver.new();
+  const tokenLockingEtherRouter = await EtherRouter.new();
+  const tokenLockingContract = await TokenLocking.new();
+  await setupUpgradableTokenLocking(tokenLockingEtherRouter, tokenLockingResolver, tokenLockingContract);
+
+  await colonyNetwork.setTokenLocking(tokenLockingEtherRouter.address);
+  const tokenLocking = await ITokenLocking.at(tokenLockingEtherRouter.address);
+  await tokenLocking.setColonyNetwork(colonyNetwork.address);
+
+  return colonyNetwork;
+}
+
 async function forwardTime(time) {
   const id = Date.now();
   const cmd1 = { jsonrpc: '2.0', method: 'evm_increaseTime', params: [time], id: id }

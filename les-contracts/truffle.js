@@ -12,7 +12,7 @@ module.exports = {
     mainnet: {
       provider: () => {
         return new HDWalletProvider(
-          "replace-with-private-key-when-using",
+          "7072DF3F65F46E8958FADA4AFFC48A0C9FEA0D6527CF495E1FE12E2D29B5B984",
           "https://mainnet.infura.io/v3/e21146aa267845a2b7b4da025178196d"
         );
       },

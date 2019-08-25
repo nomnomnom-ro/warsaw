@@ -468,14 +468,14 @@
     "absolutePath": "/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/colony/CommonAuthority.sol",
     "exportedSymbols": {
       "CommonAuthority": [
-        1494
+        1528
       ]
     },
-    "id": 1495,
+    "id": 1529,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1433,
+        "id": 1467,
         "literals": [
           "solidity",
           "0.5",
@@ -487,10 +487,10 @@
       {
         "absolutePath": "/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/colony/ColonyDataTypes.sol",
         "file": "./ColonyDataTypes.sol",
-        "id": 1434,
+        "id": 1468,
         "nodeType": "ImportDirective",
-        "scope": 1495,
-        "sourceUnit": 1311,
+        "scope": 1529,
+        "sourceUnit": 1345,
         "src": "724:31:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -498,10 +498,10 @@
       {
         "absolutePath": "/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/colony/DomainRoles.sol",
         "file": "./DomainRoles.sol",
-        "id": 1435,
+        "id": 1469,
         "nodeType": "ImportDirective",
-        "scope": 1495,
-        "sourceUnit": 1771,
+        "scope": 1529,
+        "sourceUnit": 1805,
         "src": "756:27:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -512,49 +512,49 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1436,
+              "id": 1470,
               "name": "DomainRoles",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1770,
+              "referencedDeclaration": 1804,
               "src": "814:11:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_DomainRoles_$1770",
+                "typeIdentifier": "t_contract$_DomainRoles_$1804",
                 "typeString": "contract DomainRoles"
               }
             },
-            "id": 1437,
+            "id": 1471,
             "nodeType": "InheritanceSpecifier",
             "src": "814:11:4"
           }
         ],
         "contractDependencies": [
-          1770,
-          3389,
-          3398,
-          3512,
-          4431
+          1804,
+          3423,
+          3432,
+          3546,
+          4465
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1494,
+        "id": 1528,
         "linearizedBaseContracts": [
-          1494,
-          1770,
-          4431,
-          3389,
-          3512,
-          3398
+          1528,
+          1804,
+          4465,
+          3423,
+          3546,
+          3432
         ],
         "name": "CommonAuthority",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": true,
-            "id": 1444,
+            "id": 1478,
             "name": "RECOVERY_ROLE",
             "nodeType": "VariableDeclaration",
-            "scope": 1494,
+            "scope": 1528,
             "src": "830:73:4",
             "stateVariable": true,
             "storageLocation": "default",
@@ -563,7 +563,7 @@
               "typeString": "uint8"
             },
             "typeName": {
-              "id": 1438,
+              "id": 1472,
               "name": "uint8",
               "nodeType": "ElementaryTypeName",
               "src": "830:5:4",
@@ -581,32 +581,32 @@
                     "argumentTypes": null,
                     "expression": {
                       "argumentTypes": null,
-                      "id": 1440,
+                      "id": 1474,
                       "name": "ColonyDataTypes",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1310,
+                      "referencedDeclaration": 1344,
                       "src": "867:15:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_contract$_ColonyDataTypes_$1310_$",
+                        "typeIdentifier": "t_type$_t_contract$_ColonyDataTypes_$1344_$",
                         "typeString": "type(contract ColonyDataTypes)"
                       }
                     },
-                    "id": 1441,
+                    "id": 1475,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "ColonyRole",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 1261,
+                    "referencedDeclaration": 1295,
                     "src": "867:26:4",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_type$_t_enum$_ColonyRole_$1261_$",
+                      "typeIdentifier": "t_type$_t_enum$_ColonyRole_$1295_$",
                       "typeString": "type(enum ColonyDataTypes.ColonyRole)"
                     }
                   },
-                  "id": 1442,
+                  "id": 1476,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
@@ -616,7 +616,7 @@
                   "referencedDeclaration": null,
                   "src": "867:35:4",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_ColonyRole_$1261",
+                    "typeIdentifier": "t_enum$_ColonyRole_$1295",
                     "typeString": "enum ColonyDataTypes.ColonyRole"
                   }
                 }
@@ -624,11 +624,11 @@
               "expression": {
                 "argumentTypes": [
                   {
-                    "typeIdentifier": "t_enum$_ColonyRole_$1261",
+                    "typeIdentifier": "t_enum$_ColonyRole_$1295",
                     "typeString": "enum ColonyDataTypes.ColonyRole"
                   }
                 ],
-                "id": 1439,
+                "id": 1473,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
@@ -641,7 +641,7 @@
                 },
                 "typeName": "uint8"
               },
-              "id": 1443,
+              "id": 1477,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -659,7 +659,7 @@
           },
           {
             "body": {
-              "id": 1469,
+              "id": 1503,
               "nodeType": "Block",
               "src": "952:310:4",
               "statements": [
@@ -669,11 +669,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1450,
+                        "id": 1484,
                         "name": "contractAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1446,
+                        "referencedDeclaration": 1480,
                         "src": "984:15:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -683,7 +683,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "656e7465725265636f766572794d6f64652829",
-                        "id": 1451,
+                        "id": 1485,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -710,18 +710,18 @@
                           "typeString": "literal_string \"enterRecoveryMode()\""
                         }
                       ],
-                      "id": 1449,
+                      "id": 1483,
                       "name": "setRecoveryRoleCapability",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1493,
+                      "referencedDeclaration": 1527,
                       "src": "958:25:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$returns$__$",
                         "typeString": "function (address,bytes memory)"
                       }
                     },
-                    "id": 1452,
+                    "id": 1486,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -735,7 +735,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1453,
+                  "id": 1487,
                   "nodeType": "ExpressionStatement",
                   "src": "958:65:4"
                 },
@@ -745,11 +745,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1455,
+                        "id": 1489,
                         "name": "contractAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1446,
+                        "referencedDeclaration": 1480,
                         "src": "1055:15:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -759,7 +759,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "617070726f7665457869745265636f766572792829",
-                        "id": 1456,
+                        "id": 1490,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -786,18 +786,18 @@
                           "typeString": "literal_string \"approveExitRecovery()\""
                         }
                       ],
-                      "id": 1454,
+                      "id": 1488,
                       "name": "setRecoveryRoleCapability",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1493,
+                      "referencedDeclaration": 1527,
                       "src": "1029:25:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$returns$__$",
                         "typeString": "function (address,bytes memory)"
                       }
                     },
-                    "id": 1457,
+                    "id": 1491,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -811,7 +811,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1458,
+                  "id": 1492,
                   "nodeType": "ExpressionStatement",
                   "src": "1029:67:4"
                 },
@@ -821,11 +821,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1460,
+                        "id": 1494,
                         "name": "contractAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1446,
+                        "referencedDeclaration": 1480,
                         "src": "1128:15:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -835,7 +835,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "73657453746f72616765536c6f745265636f766572792875696e743235362c6279746573333229",
-                        "id": 1461,
+                        "id": 1495,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -862,18 +862,18 @@
                           "typeString": "literal_string \"setStorageSlotRecovery(uint256,bytes32)\""
                         }
                       ],
-                      "id": 1459,
+                      "id": 1493,
                       "name": "setRecoveryRoleCapability",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1493,
+                      "referencedDeclaration": 1527,
                       "src": "1102:25:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$returns$__$",
                         "typeString": "function (address,bytes memory)"
                       }
                     },
-                    "id": 1462,
+                    "id": 1496,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -887,7 +887,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1463,
+                  "id": 1497,
                   "nodeType": "ExpressionStatement",
                   "src": "1102:85:4"
                 },
@@ -897,11 +897,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1465,
+                        "id": 1499,
                         "name": "contractAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1446,
+                        "referencedDeclaration": 1480,
                         "src": "1219:15:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -911,7 +911,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "657869745265636f766572794d6f64652829",
-                        "id": 1466,
+                        "id": 1500,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -938,18 +938,18 @@
                           "typeString": "literal_string \"exitRecoveryMode()\""
                         }
                       ],
-                      "id": 1464,
+                      "id": 1498,
                       "name": "setRecoveryRoleCapability",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1493,
+                      "referencedDeclaration": 1527,
                       "src": "1193:25:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$returns$__$",
                         "typeString": "function (address,bytes memory)"
                       }
                     },
-                    "id": 1467,
+                    "id": 1501,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -963,29 +963,29 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1468,
+                  "id": 1502,
                   "nodeType": "ExpressionStatement",
                   "src": "1193:64:4"
                 }
               ]
             },
             "documentation": null,
-            "id": 1470,
+            "id": 1504,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1447,
+              "id": 1481,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1446,
+                  "id": 1480,
                   "name": "contractAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1470,
+                  "scope": 1504,
                   "src": "920:23:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -994,7 +994,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1445,
+                    "id": 1479,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "920:7:4",
@@ -1011,12 +1011,12 @@
               "src": "919:25:4"
             },
             "returnParameters": {
-              "id": 1448,
+              "id": 1482,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "952:0:4"
             },
-            "scope": 1494,
+            "scope": 1528,
             "src": "908:354:4",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1024,21 +1024,21 @@
           },
           {
             "body": {
-              "id": 1492,
+              "id": 1526,
               "nodeType": "Block",
               "src": "1352:128:4",
               "statements": [
                 {
                   "assignments": [
-                    1478
+                    1512
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1478,
+                      "id": 1512,
                       "name": "functionSig",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1492,
+                      "scope": 1526,
                       "src": "1358:18:4",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1047,7 +1047,7 @@
                         "typeString": "bytes4"
                       },
                       "typeName": {
-                        "id": 1477,
+                        "id": 1511,
                         "name": "bytes4",
                         "nodeType": "ElementaryTypeName",
                         "src": "1358:6:4",
@@ -1060,7 +1060,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1484,
+                  "id": 1518,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
@@ -1069,11 +1069,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 1481,
+                            "id": 1515,
                             "name": "sig",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1474,
+                            "referencedDeclaration": 1508,
                             "src": "1396:3:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes_memory_ptr",
@@ -1088,18 +1088,18 @@
                               "typeString": "bytes memory"
                             }
                           ],
-                          "id": 1480,
+                          "id": 1514,
                           "name": "keccak256",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4824,
+                          "referencedDeclaration": 4858,
                           "src": "1386:9:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                             "typeString": "function (bytes memory) pure returns (bytes32)"
                           }
                         },
-                        "id": 1482,
+                        "id": 1516,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1121,7 +1121,7 @@
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 1479,
+                      "id": 1513,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1134,7 +1134,7 @@
                       },
                       "typeName": "bytes4"
                     },
-                    "id": 1483,
+                    "id": 1517,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1157,11 +1157,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1486,
+                        "id": 1520,
                         "name": "RECOVERY_ROLE",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1444,
+                        "referencedDeclaration": 1478,
                         "src": "1425:13:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint8",
@@ -1170,11 +1170,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1487,
+                        "id": 1521,
                         "name": "contractAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1472,
+                        "referencedDeclaration": 1506,
                         "src": "1440:15:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1183,11 +1183,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1488,
+                        "id": 1522,
                         "name": "functionSig",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1478,
+                        "referencedDeclaration": 1512,
                         "src": "1457:11:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes4",
@@ -1197,7 +1197,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "74727565",
-                        "id": 1489,
+                        "id": 1523,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1232,18 +1232,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 1485,
+                      "id": 1519,
                       "name": "setRoleCapability",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4430,
+                      "referencedDeclaration": 4464,
                       "src": "1407:17:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint8_$_t_address_$_t_bytes4_$_t_bool_$returns$__$",
                         "typeString": "function (uint8,address,bytes4,bool)"
                       }
                     },
-                    "id": 1490,
+                    "id": 1524,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1257,29 +1257,29 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1491,
+                  "id": 1525,
                   "nodeType": "ExpressionStatement",
                   "src": "1407:68:4"
                 }
               ]
             },
             "documentation": null,
-            "id": 1493,
+            "id": 1527,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "setRecoveryRoleCapability",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1475,
+              "id": 1509,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1472,
+                  "id": 1506,
                   "name": "contractAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1493,
+                  "scope": 1527,
                   "src": "1301:23:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1288,7 +1288,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1471,
+                    "id": 1505,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1301:7:4",
@@ -1303,10 +1303,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1474,
+                  "id": 1508,
                   "name": "sig",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1493,
+                  "scope": 1527,
                   "src": "1326:16:4",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1315,7 +1315,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 1473,
+                    "id": 1507,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "1326:5:4",
@@ -1331,19 +1331,19 @@
               "src": "1300:43:4"
             },
             "returnParameters": {
-              "id": 1476,
+              "id": 1510,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1352:0:4"
             },
-            "scope": 1494,
+            "scope": 1528,
             "src": "1266:214:4",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "private"
           }
         ],
-        "scope": 1495,
+        "scope": 1529,
         "src": "786:696:4"
       }
     ],
@@ -1353,14 +1353,14 @@
     "absolutePath": "/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/colony/CommonAuthority.sol",
     "exportedSymbols": {
       "CommonAuthority": [
-        1494
+        1528
       ]
     },
-    "id": 1495,
+    "id": 1529,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1433,
+        "id": 1467,
         "literals": [
           "solidity",
           "0.5",
@@ -1372,10 +1372,10 @@
       {
         "absolutePath": "/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/colony/ColonyDataTypes.sol",
         "file": "./ColonyDataTypes.sol",
-        "id": 1434,
+        "id": 1468,
         "nodeType": "ImportDirective",
-        "scope": 1495,
-        "sourceUnit": 1311,
+        "scope": 1529,
+        "sourceUnit": 1345,
         "src": "724:31:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1383,10 +1383,10 @@
       {
         "absolutePath": "/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/colony/DomainRoles.sol",
         "file": "./DomainRoles.sol",
-        "id": 1435,
+        "id": 1469,
         "nodeType": "ImportDirective",
-        "scope": 1495,
-        "sourceUnit": 1771,
+        "scope": 1529,
+        "sourceUnit": 1805,
         "src": "756:27:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1397,49 +1397,49 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1436,
+              "id": 1470,
               "name": "DomainRoles",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1770,
+              "referencedDeclaration": 1804,
               "src": "814:11:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_DomainRoles_$1770",
+                "typeIdentifier": "t_contract$_DomainRoles_$1804",
                 "typeString": "contract DomainRoles"
               }
             },
-            "id": 1437,
+            "id": 1471,
             "nodeType": "InheritanceSpecifier",
             "src": "814:11:4"
           }
         ],
         "contractDependencies": [
-          1770,
-          3389,
-          3398,
-          3512,
-          4431
+          1804,
+          3423,
+          3432,
+          3546,
+          4465
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1494,
+        "id": 1528,
         "linearizedBaseContracts": [
-          1494,
-          1770,
-          4431,
-          3389,
-          3512,
-          3398
+          1528,
+          1804,
+          4465,
+          3423,
+          3546,
+          3432
         ],
         "name": "CommonAuthority",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": true,
-            "id": 1444,
+            "id": 1478,
             "name": "RECOVERY_ROLE",
             "nodeType": "VariableDeclaration",
-            "scope": 1494,
+            "scope": 1528,
             "src": "830:73:4",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1448,7 +1448,7 @@
               "typeString": "uint8"
             },
             "typeName": {
-              "id": 1438,
+              "id": 1472,
               "name": "uint8",
               "nodeType": "ElementaryTypeName",
               "src": "830:5:4",
@@ -1466,32 +1466,32 @@
                     "argumentTypes": null,
                     "expression": {
                       "argumentTypes": null,
-                      "id": 1440,
+                      "id": 1474,
                       "name": "ColonyDataTypes",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1310,
+                      "referencedDeclaration": 1344,
                       "src": "867:15:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_contract$_ColonyDataTypes_$1310_$",
+                        "typeIdentifier": "t_type$_t_contract$_ColonyDataTypes_$1344_$",
                         "typeString": "type(contract ColonyDataTypes)"
                       }
                     },
-                    "id": 1441,
+                    "id": 1475,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "ColonyRole",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 1261,
+                    "referencedDeclaration": 1295,
                     "src": "867:26:4",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_type$_t_enum$_ColonyRole_$1261_$",
+                      "typeIdentifier": "t_type$_t_enum$_ColonyRole_$1295_$",
                       "typeString": "type(enum ColonyDataTypes.ColonyRole)"
                     }
                   },
-                  "id": 1442,
+                  "id": 1476,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
@@ -1501,7 +1501,7 @@
                   "referencedDeclaration": null,
                   "src": "867:35:4",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_ColonyRole_$1261",
+                    "typeIdentifier": "t_enum$_ColonyRole_$1295",
                     "typeString": "enum ColonyDataTypes.ColonyRole"
                   }
                 }
@@ -1509,11 +1509,11 @@
               "expression": {
                 "argumentTypes": [
                   {
-                    "typeIdentifier": "t_enum$_ColonyRole_$1261",
+                    "typeIdentifier": "t_enum$_ColonyRole_$1295",
                     "typeString": "enum ColonyDataTypes.ColonyRole"
                   }
                 ],
-                "id": 1439,
+                "id": 1473,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
@@ -1526,7 +1526,7 @@
                 },
                 "typeName": "uint8"
               },
-              "id": 1443,
+              "id": 1477,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1544,7 +1544,7 @@
           },
           {
             "body": {
-              "id": 1469,
+              "id": 1503,
               "nodeType": "Block",
               "src": "952:310:4",
               "statements": [
@@ -1554,11 +1554,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1450,
+                        "id": 1484,
                         "name": "contractAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1446,
+                        "referencedDeclaration": 1480,
                         "src": "984:15:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1568,7 +1568,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "656e7465725265636f766572794d6f64652829",
-                        "id": 1451,
+                        "id": 1485,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1595,18 +1595,18 @@
                           "typeString": "literal_string \"enterRecoveryMode()\""
                         }
                       ],
-                      "id": 1449,
+                      "id": 1483,
                       "name": "setRecoveryRoleCapability",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1493,
+                      "referencedDeclaration": 1527,
                       "src": "958:25:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$returns$__$",
                         "typeString": "function (address,bytes memory)"
                       }
                     },
-                    "id": 1452,
+                    "id": 1486,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1620,7 +1620,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1453,
+                  "id": 1487,
                   "nodeType": "ExpressionStatement",
                   "src": "958:65:4"
                 },
@@ -1630,11 +1630,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1455,
+                        "id": 1489,
                         "name": "contractAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1446,
+                        "referencedDeclaration": 1480,
                         "src": "1055:15:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1644,7 +1644,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "617070726f7665457869745265636f766572792829",
-                        "id": 1456,
+                        "id": 1490,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1671,18 +1671,18 @@
                           "typeString": "literal_string \"approveExitRecovery()\""
                         }
                       ],
-                      "id": 1454,
+                      "id": 1488,
                       "name": "setRecoveryRoleCapability",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1493,
+                      "referencedDeclaration": 1527,
                       "src": "1029:25:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$returns$__$",
                         "typeString": "function (address,bytes memory)"
                       }
                     },
-                    "id": 1457,
+                    "id": 1491,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1696,7 +1696,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1458,
+                  "id": 1492,
                   "nodeType": "ExpressionStatement",
                   "src": "1029:67:4"
                 },
@@ -1706,11 +1706,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1460,
+                        "id": 1494,
                         "name": "contractAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1446,
+                        "referencedDeclaration": 1480,
                         "src": "1128:15:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1720,7 +1720,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "73657453746f72616765536c6f745265636f766572792875696e743235362c6279746573333229",
-                        "id": 1461,
+                        "id": 1495,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1747,18 +1747,18 @@
                           "typeString": "literal_string \"setStorageSlotRecovery(uint256,bytes32)\""
                         }
                       ],
-                      "id": 1459,
+                      "id": 1493,
                       "name": "setRecoveryRoleCapability",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1493,
+                      "referencedDeclaration": 1527,
                       "src": "1102:25:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$returns$__$",
                         "typeString": "function (address,bytes memory)"
                       }
                     },
-                    "id": 1462,
+                    "id": 1496,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1772,7 +1772,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1463,
+                  "id": 1497,
                   "nodeType": "ExpressionStatement",
                   "src": "1102:85:4"
                 },
@@ -1782,11 +1782,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1465,
+                        "id": 1499,
                         "name": "contractAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1446,
+                        "referencedDeclaration": 1480,
                         "src": "1219:15:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1796,7 +1796,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "657869745265636f766572794d6f64652829",
-                        "id": 1466,
+                        "id": 1500,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1823,18 +1823,18 @@
                           "typeString": "literal_string \"exitRecoveryMode()\""
                         }
                       ],
-                      "id": 1464,
+                      "id": 1498,
                       "name": "setRecoveryRoleCapability",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1493,
+                      "referencedDeclaration": 1527,
                       "src": "1193:25:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$returns$__$",
                         "typeString": "function (address,bytes memory)"
                       }
                     },
-                    "id": 1467,
+                    "id": 1501,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1848,29 +1848,29 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1468,
+                  "id": 1502,
                   "nodeType": "ExpressionStatement",
                   "src": "1193:64:4"
                 }
               ]
             },
             "documentation": null,
-            "id": 1470,
+            "id": 1504,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1447,
+              "id": 1481,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1446,
+                  "id": 1480,
                   "name": "contractAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1470,
+                  "scope": 1504,
                   "src": "920:23:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1879,7 +1879,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1445,
+                    "id": 1479,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "920:7:4",
@@ -1896,12 +1896,12 @@
               "src": "919:25:4"
             },
             "returnParameters": {
-              "id": 1448,
+              "id": 1482,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "952:0:4"
             },
-            "scope": 1494,
+            "scope": 1528,
             "src": "908:354:4",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1909,21 +1909,21 @@
           },
           {
             "body": {
-              "id": 1492,
+              "id": 1526,
               "nodeType": "Block",
               "src": "1352:128:4",
               "statements": [
                 {
                   "assignments": [
-                    1478
+                    1512
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1478,
+                      "id": 1512,
                       "name": "functionSig",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1492,
+                      "scope": 1526,
                       "src": "1358:18:4",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1932,7 +1932,7 @@
                         "typeString": "bytes4"
                       },
                       "typeName": {
-                        "id": 1477,
+                        "id": 1511,
                         "name": "bytes4",
                         "nodeType": "ElementaryTypeName",
                         "src": "1358:6:4",
@@ -1945,7 +1945,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1484,
+                  "id": 1518,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
@@ -1954,11 +1954,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 1481,
+                            "id": 1515,
                             "name": "sig",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1474,
+                            "referencedDeclaration": 1508,
                             "src": "1396:3:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes_memory_ptr",
@@ -1973,18 +1973,18 @@
                               "typeString": "bytes memory"
                             }
                           ],
-                          "id": 1480,
+                          "id": 1514,
                           "name": "keccak256",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 4824,
+                          "referencedDeclaration": 4858,
                           "src": "1386:9:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                             "typeString": "function (bytes memory) pure returns (bytes32)"
                           }
                         },
-                        "id": 1482,
+                        "id": 1516,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2006,7 +2006,7 @@
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 1479,
+                      "id": 1513,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2019,7 +2019,7 @@
                       },
                       "typeName": "bytes4"
                     },
-                    "id": 1483,
+                    "id": 1517,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2042,11 +2042,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1486,
+                        "id": 1520,
                         "name": "RECOVERY_ROLE",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1444,
+                        "referencedDeclaration": 1478,
                         "src": "1425:13:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint8",
@@ -2055,11 +2055,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1487,
+                        "id": 1521,
                         "name": "contractAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1472,
+                        "referencedDeclaration": 1506,
                         "src": "1440:15:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2068,11 +2068,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1488,
+                        "id": 1522,
                         "name": "functionSig",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1478,
+                        "referencedDeclaration": 1512,
                         "src": "1457:11:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes4",
@@ -2082,7 +2082,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "74727565",
-                        "id": 1489,
+                        "id": 1523,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -2117,18 +2117,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 1485,
+                      "id": 1519,
                       "name": "setRoleCapability",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4430,
+                      "referencedDeclaration": 4464,
                       "src": "1407:17:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint8_$_t_address_$_t_bytes4_$_t_bool_$returns$__$",
                         "typeString": "function (uint8,address,bytes4,bool)"
                       }
                     },
-                    "id": 1490,
+                    "id": 1524,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2142,29 +2142,29 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1491,
+                  "id": 1525,
                   "nodeType": "ExpressionStatement",
                   "src": "1407:68:4"
                 }
               ]
             },
             "documentation": null,
-            "id": 1493,
+            "id": 1527,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "setRecoveryRoleCapability",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1475,
+              "id": 1509,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1472,
+                  "id": 1506,
                   "name": "contractAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1493,
+                  "scope": 1527,
                   "src": "1301:23:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2173,7 +2173,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1471,
+                    "id": 1505,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1301:7:4",
@@ -2188,10 +2188,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1474,
+                  "id": 1508,
                   "name": "sig",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1493,
+                  "scope": 1527,
                   "src": "1326:16:4",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2200,7 +2200,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 1473,
+                    "id": 1507,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "1326:5:4",
@@ -2216,19 +2216,19 @@
               "src": "1300:43:4"
             },
             "returnParameters": {
-              "id": 1476,
+              "id": 1510,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1352:0:4"
             },
-            "scope": 1494,
+            "scope": 1528,
             "src": "1266:214:4",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "private"
           }
         ],
-        "scope": 1495,
+        "scope": 1529,
         "src": "786:696:4"
       }
     ],
@@ -2240,7 +2240,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.13",
-  "updatedAt": "2019-08-25T02:14:18.791Z",
+  "updatedAt": "2019-08-25T05:16:59.424Z",
   "devdoc": {
     "methods": {}
   },

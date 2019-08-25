@@ -18,12 +18,11 @@
 pragma solidity 0.5.8;
 pragma experimental ABIEncoderV2;
 
-import "./lib/colony/IColony.sol";
-import "./lib/colony/OneTxPayment.sol";
-import "./lib/colony/Token.sol";
-import "./lib/dappsys/math.sol";
-import "./lib/uniswap/UniswapFactoryInterface.sol";
-import "./lib/uniswap/UniswapExchangeInterface.sol";
+import "../uniswap/UniswapFactoryInterface.sol";
+import "../uniswap/UniswapExchangeInterface.sol";
+import "../colony/IColony.sol";
+import "../lib/dappsys/math.sol";
+import "../lib/dappsys/erc20.sol";
 
 
 contract Warsaw is DSMath {
@@ -33,10 +32,11 @@ contract Warsaw is DSMath {
   uint256 constant REWARDS_POT = 0;
 
   IColony colony;
-  OneTxPayment oneTxPayment;
   UniswapFactoryInterface uniswapFactory;
+  ERC20 weth;
 
   address owner;
+  bool deprecated;
 
   uint256 salePeriod;
   uint256 periodsPerDay;
@@ -69,12 +69,11 @@ contract Warsaw is DSMath {
   }
 
   // Note: contract assumes root, funding, and administration permissions in root domain
-  // Note: oneTxPayment assumes funding and administration permissions in root domain
   // Note: needs reward inverse set to UINT256_MAX (i.e. 0 automatic rewards claims)
-  constructor(address colonyAddress, address oneTxPaymentAddress, address uniswapFactoryAddress) public {
+  constructor(address colonyAddress, address uniswapFactoryAddress, address wethAddress) public {
     owner = msg.sender;
     colony = IColony(colonyAddress);
-    oneTxPayment = OneTxPayment(oneTxPaymentAddress);
+    weth = ERC20(wethAddress);
     uniswapFactory = UniswapFactoryInterface(uniswapFactoryAddress);
 
     // Defaults!
@@ -113,12 +112,31 @@ contract Warsaw is DSMath {
     payoutFrequency = frequency;
   }
 
+  function setDeprecated(bool status) public onlyOwner {
+    deprecated = status;
+  }
+
   // Public functions
+
+  function initiateRewardPayout(
+    bytes memory key,
+    bytes memory value,
+    uint256 branchMask,
+    bytes32[] memory siblings
+  )
+    public
+  {
+    require(getTimeToPayout() == 0, "payout-too-soon");
+
+    lastRewardPayout = now;
+    colony.startNextRewardPayout(address(weth), key, value, branchMask, siblings);
+  }
 
   function depositTokens(address token, uint256 wad) public {
     require(wad >= saleAmount, "deposit-too-small");
+    require(!deprecated, "contract-deprecated");
 
-    Token(token).transferFrom(msg.sender, address(this), wad);
+    ERC20(token).transferFrom(msg.sender, address(this), wad);
     deposits[token][tails[token]++] = Deposit({ depositor: msg.sender, balance: wad});
 
     emit TokensDeposited(msg.sender, token, wad);
@@ -143,17 +161,17 @@ contract Warsaw is DSMath {
     }
 
     // Do the sale
-    uint256 etherValue = executeSale(token, amount);
-    sendEtherToRewardsPot(etherValue);
+    uint256 wethAmount = executeSale(token, amount);
+    sendWethToRewardsPot(wethAmount);
 
     // Update active period income
-    updateActivePeriodIncome(etherValue);
+    updateActivePeriodIncome(wethAmount);
 
     // Get daily income (excluding current period, including current tx)
-    uint256 dailyIncome = add(getDailyIncome(), etherValue);
+    uint256 dailyIncome = add(getDailyIncome(), wethAmount);
 
     // // Figure out percent of daily income depositor gets
-    uint256 percentContribution = wdiv(etherValue, dailyIncome);
+    uint256 percentContribution = wdiv(wethAmount, dailyIncome);
     uint256 tokensToMint = wmul(percentContribution, dailyMint);
     mintAndSendTokens(depositor, tokensToMint);
 
@@ -194,7 +212,7 @@ contract Warsaw is DSMath {
   }
 
   function getTimeToPayout() public view returns(uint256 timeToPayout) {
-    timeToPayout = min(0, add(lastRewardPayout, payoutFrequency) - now);
+    timeToPayout = max(0, add(lastRewardPayout, payoutFrequency) - now);
   }
 
   // Internal functions
@@ -212,75 +230,35 @@ contract Warsaw is DSMath {
     }
   }
 
-  // REAL IMPLEMENTATIONS
-
-  function initiateRewardPayout(
-    bytes memory key,
-    bytes memory value,
-    uint256 branchMask,
-    bytes32[] memory siblings
-  )
-    public
-  {
-    require(getTimeToPayout() == 0, "payout-too-soon");
-
-    lastRewardPayout = now;
-    colony.startNextRewardPayout(address(0x0), key, value, branchMask, siblings);
-  }
-
-  function executeSale(address token, uint256 wad) internal returns(uint256 etherValue) {
+  function executeSale(address token, uint256 wad) internal returns(uint256 wethAmount) {
     address uniswapExchangeAddress = uniswapFactory.getExchange(token);
-    UniswapExchangeInterface uniswapExchange = UniswapExchangeInterface(uniswapExchangeAddress);
+    ERC20(token).approve(uniswapExchangeAddress, wad);
 
-    Token(token).approve(uniswapExchangeAddress, wad);
-    etherValue = uniswapExchange.tokenToEthSwapInput(wad, 1, now + 1 hours); // Conservative
+    UniswapExchangeInterface uniswapExchange = UniswapExchangeInterface(uniswapExchangeAddress);
+    wethAmount = uniswapExchange.tokenToTokenSwapInput(wad, 1, 1, now + 1 hours, address(weth));
   }
 
   function mintAndSendTokens(address payable recipient, uint256 amount) internal {
     require(colony.getRewardInverse() == UINT256_MAX, "colony-bad-reward-inverse");
 
+    // Supply the tokens
     address token = colony.getToken();
     colony.mintTokens(amount);
     colony.claimColonyFunds(token);
-    oneTxPayment.makePayment(1, 0, 1, 0, recipient, token, amount, ROOT_DOMAIN, 0);
+
+    // Make the payment
+    uint256 paymentId = colony.addPayment(1, 0, recipient, token, amount, ROOT_DOMAIN, 0);
+    uint256 fundingPotId = colony.getPayment(paymentId).fundingPotId;
+    colony.moveFundsBetweenPots(1, 0, 0, ROOT_POT, fundingPotId, amount, token);
+    colony.finalizePayment(1, 0, paymentId);
+    colony.claimPayment(paymentId, token);
   }
 
-  function sendEtherToRewardsPot(uint256 amount) internal {
+  function sendWethToRewardsPot(uint256 amount) internal {
     require(colony.getRewardInverse() == UINT256_MAX, "colony-bad-reward-inverse");
 
-    // Well this is ratchet
-    address colonyAddress = address(colony);
-    address payable colonyAddressPayable = (address(uint160(colonyAddress)));
-    colonyAddressPayable.transfer(amount);
-
-    colony.claimColonyFunds(address(0x0));
-    colony.moveFundsBetweenPots(1, 0, 0, ROOT_POT, REWARDS_POT, amount, address(0x0));
+    weth.transfer(address(colony), amount);
+    colony.claimColonyFunds(address(weth));
+    colony.moveFundsBetweenPots(1, 0, 0, ROOT_POT, REWARDS_POT, amount, address(weth));
   }
-
-  // TEST MOCKS
-
-  // function initiateRewardPayout(
-  //   bytes memory key,
-  //   bytes memory value,
-  //   uint256 branchMask,
-  //   bytes32[] memory siblings
-  // )
-  //   public
-  // {
-  //   // Calls to colony
-  // }
-
-  // function executeSale(address token, uint256 wad) internal returns(uint256 etherValue) {
-  //   // Calls to uniswap
-  //   return WAD;
-  // }
-
-  // function mintAndSendTokens(address payable recipient, uint256 amount) internal {
-  //   // Calls to colony
-  // }
-
-  // function sendEtherToRewardsPot(uint256 amount) internal {
-  //   // Calls to colony
-  // }
-
 }

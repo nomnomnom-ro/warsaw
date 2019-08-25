@@ -128,14 +128,14 @@
     "absolutePath": "/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/colony/IRecovery.sol",
     "exportedSymbols": {
       "IRecovery": [
-        2854
+        2888
       ]
     },
-    "id": 2855,
+    "id": 2889,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2811,
+        "id": 2845,
         "literals": [
           "solidity",
           ">=",
@@ -146,7 +146,7 @@
         "src": "700:24:9"
       },
       {
-        "id": 2812,
+        "id": 2846,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -160,9 +160,9 @@
         "contractKind": "contract",
         "documentation": "@title Recovery interface\n @notice All publicly available functions are available here and registered to work with EtherRouter Network contract",
         "fullyImplemented": false,
-        "id": 2854,
+        "id": 2888,
         "linearizedBaseContracts": [
-          2854
+          2888
         ],
         "name": "IRecovery",
         "nodeType": "ContractDefinition",
@@ -170,25 +170,25 @@
           {
             "body": null,
             "documentation": "@notice Put colony network mining into recovery mode.\n Can only be called by user with recovery role.",
-            "id": 2815,
+            "id": 2849,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "enterRecoveryMode",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2813,
+              "id": 2847,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1094:2:9"
             },
             "returnParameters": {
-              "id": 2814,
+              "id": 2848,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1103:0:9"
             },
-            "scope": 2854,
+            "scope": 2888,
             "src": "1068:36:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -197,25 +197,25 @@
           {
             "body": null,
             "documentation": "@notice Exit recovery mode, can be called by anyone if enough whitelist approvals are given.",
-            "id": 2818,
+            "id": 2852,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "exitRecoveryMode",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2816,
+              "id": 2850,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1232:2:9"
             },
             "returnParameters": {
-              "id": 2817,
+              "id": 2851,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1241:0:9"
             },
-            "scope": 2854,
+            "scope": 2888,
             "src": "1207:35:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -224,25 +224,25 @@
           {
             "body": null,
             "documentation": "@notice Indicate approval to exit recovery mode.\n Can only be called by user with recovery role.",
-            "id": 2821,
+            "id": 2855,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "approveExitRecovery",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2819,
+              "id": 2853,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1382:2:9"
             },
             "returnParameters": {
-              "id": 2820,
+              "id": 2854,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1391:0:9"
             },
-            "scope": 2854,
+            "scope": 2888,
             "src": "1354:38:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -251,28 +251,28 @@
           {
             "body": null,
             "documentation": "@notice Is colony network in recovery mode.\n @return inRecoveryMode Return true if recovery mode is active, false otherwise",
-            "id": 2826,
+            "id": 2860,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "isInRecoveryMode",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2822,
+              "id": 2856,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1556:2:9"
             },
             "returnParameters": {
-              "id": 2825,
+              "id": 2859,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2824,
+                  "id": 2858,
                   "name": "inRecoveryMode",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2826,
+                  "scope": 2860,
                   "src": "1580:19:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -281,7 +281,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2823,
+                    "id": 2857,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1580:4:9",
@@ -296,7 +296,7 @@
               ],
               "src": "1579:21:9"
             },
-            "scope": 2854,
+            "scope": 2888,
             "src": "1531:70:9",
             "stateMutability": "view",
             "superFunction": null,
@@ -305,22 +305,22 @@
           {
             "body": null,
             "documentation": "@notice Set new colony recovery role.\n Can be called by root.\n @param _user User we want to give a recovery role to",
-            "id": 2831,
+            "id": 2865,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "setRecoveryRole",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2829,
+              "id": 2863,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2828,
+                  "id": 2862,
                   "name": "_user",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2831,
+                  "scope": 2865,
                   "src": "1762:13:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -329,7 +329,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2827,
+                    "id": 2861,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1762:7:9",
@@ -346,12 +346,12 @@
               "src": "1761:15:9"
             },
             "returnParameters": {
-              "id": 2830,
+              "id": 2864,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1783:0:9"
             },
-            "scope": 2854,
+            "scope": 2888,
             "src": "1737:47:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -360,22 +360,22 @@
           {
             "body": null,
             "documentation": "@notice Remove colony recovery role.\n Can only be called by root role.\n @param _user User we want to remove recovery role from",
-            "id": 2836,
+            "id": 2870,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "removeRecoveryRole",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2834,
+              "id": 2868,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2833,
+                  "id": 2867,
                   "name": "_user",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2836,
+                  "scope": 2870,
                   "src": "1959:13:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -384,7 +384,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2832,
+                    "id": 2866,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1959:7:9",
@@ -401,12 +401,12 @@
               "src": "1958:15:9"
             },
             "returnParameters": {
-              "id": 2835,
+              "id": 2869,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1980:0:9"
             },
-            "scope": 2854,
+            "scope": 2888,
             "src": "1931:50:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -415,28 +415,28 @@
           {
             "body": null,
             "documentation": "@notice Return number of recovery roles.\n @return numRoles Number of users with the recovery role.",
-            "id": 2841,
+            "id": 2875,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "numRecoveryRoles",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2837,
+              "id": 2871,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2120:2:9"
             },
             "returnParameters": {
-              "id": 2840,
+              "id": 2874,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2839,
+                  "id": 2873,
                   "name": "numRoles",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2841,
+                  "scope": 2875,
                   "src": "2143:15:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -445,7 +445,7 @@
                     "typeString": "uint64"
                   },
                   "typeName": {
-                    "id": 2838,
+                    "id": 2872,
                     "name": "uint64",
                     "nodeType": "ElementaryTypeName",
                     "src": "2143:6:9",
@@ -460,7 +460,7 @@
               ],
               "src": "2142:17:9"
             },
-            "scope": 2854,
+            "scope": 2888,
             "src": "2095:65:9",
             "stateMutability": "view",
             "superFunction": null,
@@ -469,22 +469,22 @@
           {
             "body": null,
             "documentation": "@notice Update value of arbitrary storage variable.\n Can only be called by user with recovery role.\n @param _slot Uint address of storage slot to be updated\n @param _value word of data to be set\n @dev certain critical variables are protected from editing in this function",
-            "id": 2848,
+            "id": 2882,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "setStorageSlotRecovery",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2846,
+              "id": 2880,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2843,
+                  "id": 2877,
                   "name": "_slot",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2848,
+                  "scope": 2882,
                   "src": "2494:13:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -493,7 +493,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2842,
+                    "id": 2876,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2494:7:9",
@@ -507,10 +507,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2845,
+                  "id": 2879,
                   "name": "_value",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2848,
+                  "scope": 2882,
                   "src": "2509:14:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -519,7 +519,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 2844,
+                    "id": 2878,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "2509:7:9",
@@ -535,12 +535,12 @@
               "src": "2493:31:9"
             },
             "returnParameters": {
-              "id": 2847,
+              "id": 2881,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2531:0:9"
             },
-            "scope": 2854,
+            "scope": 2888,
             "src": "2462:70:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -549,22 +549,22 @@
           {
             "body": null,
             "documentation": "@notice Check whether the supplied slot is a protected variable specific to this contract\n @param _slot The storage slot number to check.\n @dev No return value, but should throw if protected.\n @dev This is public, but is only expected to be called from ContractRecovery; no need to\n @dev expose this to any users.",
-            "id": 2853,
+            "id": 2887,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "checkNotAdditionalProtectedVariable",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2851,
+              "id": 2885,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2850,
+                  "id": 2884,
                   "name": "_slot",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2853,
+                  "scope": 2887,
                   "src": "2921:13:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -573,7 +573,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2849,
+                    "id": 2883,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2921:7:9",
@@ -589,19 +589,19 @@
               "src": "2920:15:9"
             },
             "returnParameters": {
-              "id": 2852,
+              "id": 2886,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2947:0:9"
             },
-            "scope": 2854,
+            "scope": 2888,
             "src": "2876:72:9",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2855,
+        "scope": 2889,
         "src": "932:2018:9"
       }
     ],
@@ -611,14 +611,14 @@
     "absolutePath": "/Users/kronosapiens/code/colony/warsaw/les-contracts/contracts/lib/colony/IRecovery.sol",
     "exportedSymbols": {
       "IRecovery": [
-        2854
+        2888
       ]
     },
-    "id": 2855,
+    "id": 2889,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2811,
+        "id": 2845,
         "literals": [
           "solidity",
           ">=",
@@ -629,7 +629,7 @@
         "src": "700:24:9"
       },
       {
-        "id": 2812,
+        "id": 2846,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -643,9 +643,9 @@
         "contractKind": "contract",
         "documentation": "@title Recovery interface\n @notice All publicly available functions are available here and registered to work with EtherRouter Network contract",
         "fullyImplemented": false,
-        "id": 2854,
+        "id": 2888,
         "linearizedBaseContracts": [
-          2854
+          2888
         ],
         "name": "IRecovery",
         "nodeType": "ContractDefinition",
@@ -653,25 +653,25 @@
           {
             "body": null,
             "documentation": "@notice Put colony network mining into recovery mode.\n Can only be called by user with recovery role.",
-            "id": 2815,
+            "id": 2849,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "enterRecoveryMode",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2813,
+              "id": 2847,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1094:2:9"
             },
             "returnParameters": {
-              "id": 2814,
+              "id": 2848,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1103:0:9"
             },
-            "scope": 2854,
+            "scope": 2888,
             "src": "1068:36:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -680,25 +680,25 @@
           {
             "body": null,
             "documentation": "@notice Exit recovery mode, can be called by anyone if enough whitelist approvals are given.",
-            "id": 2818,
+            "id": 2852,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "exitRecoveryMode",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2816,
+              "id": 2850,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1232:2:9"
             },
             "returnParameters": {
-              "id": 2817,
+              "id": 2851,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1241:0:9"
             },
-            "scope": 2854,
+            "scope": 2888,
             "src": "1207:35:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -707,25 +707,25 @@
           {
             "body": null,
             "documentation": "@notice Indicate approval to exit recovery mode.\n Can only be called by user with recovery role.",
-            "id": 2821,
+            "id": 2855,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "approveExitRecovery",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2819,
+              "id": 2853,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1382:2:9"
             },
             "returnParameters": {
-              "id": 2820,
+              "id": 2854,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1391:0:9"
             },
-            "scope": 2854,
+            "scope": 2888,
             "src": "1354:38:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -734,28 +734,28 @@
           {
             "body": null,
             "documentation": "@notice Is colony network in recovery mode.\n @return inRecoveryMode Return true if recovery mode is active, false otherwise",
-            "id": 2826,
+            "id": 2860,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "isInRecoveryMode",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2822,
+              "id": 2856,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1556:2:9"
             },
             "returnParameters": {
-              "id": 2825,
+              "id": 2859,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2824,
+                  "id": 2858,
                   "name": "inRecoveryMode",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2826,
+                  "scope": 2860,
                   "src": "1580:19:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -764,7 +764,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2823,
+                    "id": 2857,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1580:4:9",
@@ -779,7 +779,7 @@
               ],
               "src": "1579:21:9"
             },
-            "scope": 2854,
+            "scope": 2888,
             "src": "1531:70:9",
             "stateMutability": "view",
             "superFunction": null,
@@ -788,22 +788,22 @@
           {
             "body": null,
             "documentation": "@notice Set new colony recovery role.\n Can be called by root.\n @param _user User we want to give a recovery role to",
-            "id": 2831,
+            "id": 2865,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "setRecoveryRole",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2829,
+              "id": 2863,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2828,
+                  "id": 2862,
                   "name": "_user",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2831,
+                  "scope": 2865,
                   "src": "1762:13:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -812,7 +812,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2827,
+                    "id": 2861,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1762:7:9",
@@ -829,12 +829,12 @@
               "src": "1761:15:9"
             },
             "returnParameters": {
-              "id": 2830,
+              "id": 2864,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1783:0:9"
             },
-            "scope": 2854,
+            "scope": 2888,
             "src": "1737:47:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -843,22 +843,22 @@
           {
             "body": null,
             "documentation": "@notice Remove colony recovery role.\n Can only be called by root role.\n @param _user User we want to remove recovery role from",
-            "id": 2836,
+            "id": 2870,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "removeRecoveryRole",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2834,
+              "id": 2868,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2833,
+                  "id": 2867,
                   "name": "_user",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2836,
+                  "scope": 2870,
                   "src": "1959:13:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -867,7 +867,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2832,
+                    "id": 2866,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1959:7:9",
@@ -884,12 +884,12 @@
               "src": "1958:15:9"
             },
             "returnParameters": {
-              "id": 2835,
+              "id": 2869,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1980:0:9"
             },
-            "scope": 2854,
+            "scope": 2888,
             "src": "1931:50:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -898,28 +898,28 @@
           {
             "body": null,
             "documentation": "@notice Return number of recovery roles.\n @return numRoles Number of users with the recovery role.",
-            "id": 2841,
+            "id": 2875,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "numRecoveryRoles",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2837,
+              "id": 2871,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2120:2:9"
             },
             "returnParameters": {
-              "id": 2840,
+              "id": 2874,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2839,
+                  "id": 2873,
                   "name": "numRoles",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2841,
+                  "scope": 2875,
                   "src": "2143:15:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -928,7 +928,7 @@
                     "typeString": "uint64"
                   },
                   "typeName": {
-                    "id": 2838,
+                    "id": 2872,
                     "name": "uint64",
                     "nodeType": "ElementaryTypeName",
                     "src": "2143:6:9",
@@ -943,7 +943,7 @@
               ],
               "src": "2142:17:9"
             },
-            "scope": 2854,
+            "scope": 2888,
             "src": "2095:65:9",
             "stateMutability": "view",
             "superFunction": null,
@@ -952,22 +952,22 @@
           {
             "body": null,
             "documentation": "@notice Update value of arbitrary storage variable.\n Can only be called by user with recovery role.\n @param _slot Uint address of storage slot to be updated\n @param _value word of data to be set\n @dev certain critical variables are protected from editing in this function",
-            "id": 2848,
+            "id": 2882,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "setStorageSlotRecovery",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2846,
+              "id": 2880,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2843,
+                  "id": 2877,
                   "name": "_slot",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2848,
+                  "scope": 2882,
                   "src": "2494:13:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -976,7 +976,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2842,
+                    "id": 2876,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2494:7:9",
@@ -990,10 +990,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2845,
+                  "id": 2879,
                   "name": "_value",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2848,
+                  "scope": 2882,
                   "src": "2509:14:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1002,7 +1002,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 2844,
+                    "id": 2878,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "2509:7:9",
@@ -1018,12 +1018,12 @@
               "src": "2493:31:9"
             },
             "returnParameters": {
-              "id": 2847,
+              "id": 2881,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2531:0:9"
             },
-            "scope": 2854,
+            "scope": 2888,
             "src": "2462:70:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1032,22 +1032,22 @@
           {
             "body": null,
             "documentation": "@notice Check whether the supplied slot is a protected variable specific to this contract\n @param _slot The storage slot number to check.\n @dev No return value, but should throw if protected.\n @dev This is public, but is only expected to be called from ContractRecovery; no need to\n @dev expose this to any users.",
-            "id": 2853,
+            "id": 2887,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "checkNotAdditionalProtectedVariable",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2851,
+              "id": 2885,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2850,
+                  "id": 2884,
                   "name": "_slot",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2853,
+                  "scope": 2887,
                   "src": "2921:13:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1056,7 +1056,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2849,
+                    "id": 2883,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2921:7:9",
@@ -1072,19 +1072,19 @@
               "src": "2920:15:9"
             },
             "returnParameters": {
-              "id": 2852,
+              "id": 2886,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2947:0:9"
             },
-            "scope": 2854,
+            "scope": 2888,
             "src": "2876:72:9",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2855,
+        "scope": 2889,
         "src": "932:2018:9"
       }
     ],
@@ -1096,7 +1096,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.13",
-  "updatedAt": "2019-08-25T02:14:18.816Z",
+  "updatedAt": "2019-08-25T05:16:59.530Z",
   "devdoc": {
     "methods": {
       "checkNotAdditionalProtectedVariable(uint256)": {
