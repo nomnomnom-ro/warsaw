@@ -3,26 +3,47 @@
 }
 
 .app {
-  max-width: 1400px;
-  min-height: 900px;
-  margin: 20px auto;
+  margin: 0 auto;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.bwc {
+  position: absolute;
+  bottom: 35px;
+  left: 30px;
+  width: 190px;
 }
 
 .appHeader {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 60px;
+  padding: 15px 30px;
 }
 
-.appHeader h1 {
+.appTitle {
   font-size: 24px;
   margin: 0;
-  text-shadow: 0 2px 4px #1b1b1f ;
+  font-weight: bolder;
+}
+
+#root > div {
+  height: 100%;
+}
+
+.appMain {
+  margin: 0 auto;
+  padding: 0 100px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
 }
 
 .appMain .tokensList, .appMain .dashboard {
   border-radius: 10px;
-  background-color: rgba(40, 40, 45, 0.4);
+  background-color: #29292e;
   margin-bottom: 40px;
   width: 100%;
 }
@@ -33,15 +54,43 @@
   display: flex;
 }
 
+.appMain .bottom {
+  position: absolute;
+  top: 400px;
+  right: 100px;
+  left: 100px;
+  bottom: 30px;
+}
+
+.dashboard, .tokensList {
+  max-width: 1200px;
+}
+
+.dashboard {
+  height: 240px;
+  margin-top: 100px;
+}
+
 .explainer {
-  max-width: 600px;
-  color: #c9c9cb;
-  font-size: 26px;
+  max-width: 650px;
+  color: white;
+  font-size: 18px;
   margin-right: 40px;
-  text-shadow: 0 2px 4px #1b1b1f;
+  line-height: 1.5em;
+  opacity: 0.75;
+}
+
+.explainerMain {
+  font-size: 36px;
+  margin: 160px 0 0 0;
+  font-weight: normal;
 }
 
 .explainer ol {
   margin: 0;
   padding: 0;
+}
+
+.explainer li {
+  margin-bottom: 20px;
 }

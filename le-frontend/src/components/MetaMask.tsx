@@ -67,11 +67,13 @@ export const MetaMask = ({ children }: Props) => {
       {wallet ? (
         <>{children({ wallet })}</>
       ) : isValid ? (
-        <button onClick={connectMetaMask} disabled={isLoading}>
-          Connect MetaMask
-        </button>
+        <div className="connectMetamask">
+          <button onClick={connectMetaMask} disabled={isLoading}>
+            Connect to MetaMask
+          </button>
+        </div>
       ) : (
-        <div>
+        <div className="metamaskError">
           <p>Couldn't connect to MetaMask: {metamaskError}</p>
           <button onClick={reconnect} disabled={isLoading}>
             Retry

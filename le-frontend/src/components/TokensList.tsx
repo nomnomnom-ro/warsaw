@@ -27,6 +27,9 @@ interface TokenTransfer {
   error: Error | void;
 }
 
+const getTokenImage = (address: string) =>
+  `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${address}/logo.png`;
+
 export const TokensList = ({ provider }: Props) => {
   const [balances, setBalances] = useState<TokenBalance[]>();
   const [transfers, setTransfers] = useState<TokenTransfer[]>([]);
@@ -153,7 +156,9 @@ export const TokensList = ({ provider }: Props) => {
                   transfers[index] || ({ value: '0' } as TokenTransfer);
                 return (
                   <tr key={address}>
-                    <td className="tokenIcon">💩</td>
+                    <td className="tokenIcon">
+                      <img src={getTokenImage(address)} />
+                    </td>
                     <td className="tokenDetails">
                       <div className="tokenSymbol">{symbol}</div>
                       <div className="tokenName">{name}</div>

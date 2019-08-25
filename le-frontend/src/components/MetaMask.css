@@ -2,3 +2,28 @@
   margin-bottom: 20px;
   font-size: 12px;
 }
+
+.connectMetamask, .metamaskError {
+  text-align: center;
+  margin: 200px auto;
+  font-size: 64px;
+  padding: 100px;
+}
+
+.connectMetamask button, .metamaskError button {
+  font-size: 64px;
+  appearance: none;
+  background-color: transparent;
+  border-color: #50acc9;
+  border-radius: 10px;
+  color: #50acc9;
+  cursor: pointer;
+  min-width: 80px;
+  padding: 12px 100px;
+  transition: 0.15s ease;
+}
+
+.connectMetamask button:hover, .metamaskError button:hover {
+  color: #65daff;
+  background: #315669;
+}

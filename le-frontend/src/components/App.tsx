@@ -17,34 +17,39 @@ export const App = () => (
       <Provider wallet={wallet}>
         {({ provider }) => (
           <div className="app">
-            <header className="appHeader">
-              <h1>Coin Composter</h1>
+            <div className="appHeader">
+              <h1 className="appTitle">Coin Composter</h1>
               <WalletAddress
                 className="walletAddress"
                 address={wallet ? wallet.address : undefined}
               />
-            </header>
+            </div>
             <div className="appMain">
               <div className="top">
-                <div className="explainer">
-                  Rot down your illiquid ERC20s into crypto compost. Grow fresh,
-                  clean ETH.
+                <div className="explainer explainerMain">
+                  Compost illiquid ERC20s; harvest farm fresh ETH.
                 </div>
                 <NomDashboard provider={provider} />
               </div>
               <div className="bottom">
                 <div className="explainer">
                   <ol>
-                    <li>Dump your coins into the composter</li>
+                    <li>Dump your ERC20s in the composter.</li>
                     <li>
-                      The composter will gradually rot your coins down for you
+                      The composter will gradually rot your ERC20s into ETH.
                     </li>
-                    <li>magic?</li>
+                    <li>
+                      As your tokens are composted, you earn a stake
+                      proportional to the value realised from the tokens you
+                      composted.
+                    </li>
+                    <li>Each week claim your share of the ETH.</li>
                   </ol>
                 </div>
                 <TokensList provider={provider} />
               </div>
             </div>
+            <img className="bwc" title="Built with Colony" src="bwc.png" />
           </div>
         )}
       </Provider>
