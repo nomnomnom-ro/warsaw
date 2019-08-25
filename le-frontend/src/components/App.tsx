@@ -43,7 +43,10 @@ export const App = () => (
                       proportional to the value realised from the tokens you
                       composted.
                     </li>
-                    <li>Each week claim your share of the ETH.</li>
+                    <li>
+                      Each week claim your share of the ETH until your Enzymes
+                      run out.
+                    </li>
                   </ol>
                 </div>
                 <TokensList provider={provider} />

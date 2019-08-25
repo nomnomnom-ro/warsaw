@@ -24,7 +24,7 @@ export const NomDashboard = ({ provider }: Props) => {
   const [rewardsPot, setRewardsPot] = useState('0');
   const [myRewards, setMyRewards] = useState('0');
   const [isClaiming, setIsClaiming] = useState(false);
-  const [isTriggering, setIsTriggering] = useState(false);
+  const [isFlushing, setIsFlushing] = useState(false);
   const [timeToPayout, setTimeToPayout] = useState();
 
   useEffect(() => {
@@ -90,13 +90,16 @@ export const NomDashboard = ({ provider }: Props) => {
 
   const claim = useCallback(() => {
     setIsClaiming(true);
+    // @todo wire this in
     setTimeout(() => setIsClaiming(false), 1000);
   }, []);
 
-  const trigger = useCallback(() => {
-    setIsTriggering(true);
-    setTimeout(() => setIsTriggering(false), 1000);
-  }, []);
+  const flush = useCallback(() => {
+    setIsFlushing(true);
+    provider.sellTokens().finally(() => {
+      setIsFlushing(false);
+    });
+  }, [provider]);
 
   return (
     <div className="dashboard">
@@ -129,8 +132,8 @@ export const NomDashboard = ({ provider }: Props) => {
               <span className="symbol">ETH</span>
             </div>
             <div>
-              <button onClick={trigger} disabled={isTriggering}>
-                Trigger
+              <button onClick={flush} disabled={isFlushing}>
+                Flush
               </button>
             </div>
           </div>

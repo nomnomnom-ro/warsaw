@@ -2,6 +2,7 @@
 
 // @ts-ignore
 import React, { useCallback, useEffect, useState } from 'react';
+import { utils } from 'ethers';
 
 import { TokenProvider } from '../lib/TokenProvider';
 import './TokensList.css';
@@ -29,6 +30,8 @@ interface TokenTransfer {
 
 const getTokenImage = (address: string) =>
   `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${address}/logo.png`;
+
+const formatDecimals = (value: string) => parseInt(value, 10).toFixed(2);
 
 export const TokensList = ({ provider }: Props) => {
   const [balances, setBalances] = useState<TokenBalance[]>();
@@ -93,14 +96,18 @@ export const TokensList = ({ provider }: Props) => {
   const send = useCallback(
     (tokenAddress: string) => {
       const transfer = transfers.find(item => item.address === tokenAddress);
+      const token = balances.find(item => item.address === tokenAddress);
 
-      if (!(provider && transfer)) return;
+      if (!(provider && transfer && token)) return;
       if (parseInt(transfer.value, 10) <= 0) return;
 
       setTransfer(tokenAddress, { isSending: true, error: undefined });
 
       provider
-        .transfer(tokenAddress, transfer.value)
+        .transfer(
+          tokenAddress,
+          utils.parseUnits(transfer.value, token.decimals).toString(),
+        )
         .catch((error: Error) => {
           console.error(error);
           setTransfer(tokenAddress, { error });
@@ -122,7 +129,7 @@ export const TokensList = ({ provider }: Props) => {
           setTransfer(tokenAddress, { isSending: false, error: undefined });
         });
     },
-    [transfers, provider, setTransfer, setBalance],
+    [transfers, balances, provider, setTransfer, setBalance],
   );
 
   return (
@@ -166,7 +173,7 @@ export const TokensList = ({ provider }: Props) => {
                     <td>
                       <div className="compostInput">
                         <div>
-                          Max: {balance} {symbol}
+                          Max: {formatDecimals(balance)} {symbol}
                         </div>
                         <input
                           name={`compost-${address}`}
@@ -174,16 +181,24 @@ export const TokensList = ({ provider }: Props) => {
                           min={0}
                           max={balance}
                           placeholder="Enter amount"
+                          onClick={() => {
+                            setTransferValue(address, balance);
+                          }}
                           onChange={({ target: { value } }) =>
                             setTransferValue(address, value)
                           }
+                          value={formatDecimals(transfer.value)}
                         />
                       </div>
                     </td>
-                    <td className="compostingValue">{deposited}</td>
-                    <td className="compostedValue">{composted}</td>
+                    <td className="compostingValue">
+                      {formatDecimals(deposited)}
+                    </td>
+                    <td className="compostedValue">
+                      {formatDecimals(composted)}
+                    </td>
                     <td className="tokenActions">
-                      {parseInt(balance, 10) > 0 ? (
+                      {parseFloat(balance) > 0 ? (
                         <div
                           className={
                             transfer.isSending
