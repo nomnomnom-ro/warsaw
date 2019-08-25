@@ -198,7 +198,7 @@ export const TokensList = ({ provider }: Props) => {
                       {formatDecimals(composted)}
                     </td>
                     <td className="tokenActions">
-                      {parseInt(balance, 10) > 0 ? (
+                      {parseFloat(balance) > 0 ? (
                         <div
                           className={
                             transfer.isSending

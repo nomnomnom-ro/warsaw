@@ -223,15 +223,15 @@ export class TokenProvider {
   }
 
   async sellToken(tokenAddress: string) {
-    const tx = this.warsaw.methods.sellToken(tokenAddress);
+    const tx = this.warsaw.methods.sellTokens(tokenAddress);
     return this.sendTx(tx);
   }
 
   async sellTokens() {
-    const balances = await this.getAllTokenBalances();
+    const balances = await this.getAllTokens();
     return Promise.all(
       balances
-        .filter(token => parseInt(token.balance, 10) > 0)
+        .filter(token => parseFloat(token.deposited) > 0)
         .map(async token => this.sellToken(token.address)),
     );
   }
