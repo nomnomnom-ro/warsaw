@@ -19,7 +19,7 @@ const NODE_ENV = process.env.NODE_ENV || MODE_DEV;
 const NETWORK = process.env.NETWORK || 'mainnet';
 const CRON_SCHEDULE = process.env.CRONTAB || '0 * * * *';
 const MANUAL_TRIGGER_URL = '/manualnoms';
-
+const CONTRACT_ADDRESS = process.env.CONTRACT_ADDRESS || '0x860ba4848C433b2eCd783fA6718C788126458Ff0';
 /*
  * Required
  */
@@ -49,14 +49,10 @@ if (!(MNEMONIC || PRIVATE_KEY)) {
 
   const sendOneNom = async tokenAddress => {
 
-    // Mr Twaddles
-    // const toAddress = '0x6DEC3e1d475De47515FA5d798400372D9D7067B4';
-
     const contractABI = WarsawBaseArtifact.abi;
-    const contractAddress = '0xb19c47f301a3dd3b1f7527bc7bc33e7583716dcd';
 
     //creating contract object
-    const contract = new web3.eth.Contract(contractABI, contractAddress);
+    const contract = new web3.eth.Contract(contractABI, CONTRACT_ADDRESS);
 
     // get transaction count, later will used as nonce
     const count = await web3.eth.getTransactionCount(wallet.address);
@@ -67,7 +63,7 @@ if (!(MNEMONIC || PRIVATE_KEY)) {
       from: wallet.address,
       gasPrice: web3.utils.toHex(20 * 1e9),
       gasLimit: web3.utils.toHex(210000),
-      to: contractAddress,
+      to: CONTRACT_ADDRESS,
       value: '0x0',
       data: contract.methods.sellTokens(tokenAddress).encodeABI(),
       nonce: web3.utils.toHex(count),
