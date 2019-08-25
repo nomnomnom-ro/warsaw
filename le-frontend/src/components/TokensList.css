@@ -2,7 +2,6 @@
   width: 100%;
   border: none;
   border-collapse: collapse;
-  table-layout: fixed;
 }
 
 table thead tr th {
@@ -59,12 +58,15 @@ table thead tr th {
 }
 
 .tokenIcon {
-  width: 80px;
+  text-align: center;
+  padding-right: 30px !important;
 }
 
 .tokenIcon img {
   width: 48px;
   height: auto;
+  border-radius: 100%;
+  background: white;
 }
 
 .compostInput {
@@ -116,6 +118,8 @@ table thead tr th {
   align-items: center;
   justify-content: flex-end;
   height: 87px;
+  min-width: 100px;
+  padding-right: 80px !important;
 }
 
 .tokenActions .sendButton {
