@@ -6,7 +6,7 @@ import EthersWrappedWallet from '@colony/colony-js-client/lib/lib/EthersWrappedW
 import { WarsawABI } from './warsaw';
 import { ERC20ABI } from './erc20';
 
-const WARSAW_ADDRESS = '0xb19c47f301a3dd3b1f7527bc7bc33e7583716dcd';
+const WARSAW_ADDRESS = '0x860ba4848C433b2eCd783fA6718C788126458Ff0;
 const COLONY_ADDRESS = '0xAb3476792b86b5A80C27b0D5dE20787492024aF9';
 
 const EXAMPLE_AMBER_RESPONSE = {
