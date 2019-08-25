@@ -1,7 +1,7 @@
 const ethers = require("ethers");
 const truffleAssert = require("truffle-assertions");
 
-const Warsaw = artifacts.require("WarsawBase");
+const Warsaw = artifacts.require("Warsaw");
 const Token = artifacts.require("Token");
 
 contract("Warsaw", async accounts => {
